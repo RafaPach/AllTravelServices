@@ -1,11 +1,14 @@
 import React from 'react';
 import { Box, Typography, Stack } from '@mui/material';
 import AllTravel3D from '../Assests/AllTravel3D.png';
+import Smoke from '../Assests/Smoke.png';
+import DBS from '../Assests/DBS.png';
+import Punctual from '../Assests/Punctual.png';
 import Image from 'next/image.js';
 
 const About = () => {
   return (
-    <Box ml="130px">
+    <Box ml="130px" id="about">
       <Stack
         mt="150px"
         display="flex"
@@ -21,7 +24,7 @@ const About = () => {
             letterSpacing="0em"
             textAlign="center"
           >
-            About Me <span className="dotColor">.</span>
+            About us <span className="dotColor">.</span>
           </Typography>
         </Stack>
         <div className="aboutline"></div>
@@ -41,24 +44,60 @@ const About = () => {
           >
             <li style={{ marginBottom: '30px' }}>
               {' '}
-              Yeah we do basically school runs only and private contracts to
-              activity centres etc mostly disabled people that need assistance
-              while travelling.{' '}
+              <span style={{ fontWeight: '700' }}>All Travel Services</span>, is
+              a well-established transport company that has been providing
+              diverse transport solutions across East Anglia for many years. We
+              specialize in{' '}
+              <span style={{ fontWeight: '700' }}>
+                School Transport, Private Contracts, Assisted Travel,{' '}
+              </span>{' '}
+              and <span style={{ fontWeight: '700' }}>VIP Chauffeur </span>
+              services, offering high-end vehicles for special occasions and VIP
+              clientele.{' '}
+              <span style={{ fontWeight: '700', color: '#fcb017' }}>
+                Learn more about our services here{' '}
+              </span>
+              .
             </li>
             <li style={{ marginBottom: '30px' }}>
               {' '}
-              And the site would be mainly for enquiries for example if people
-              want to work for us, companies wanting to make a private contracts
-              with us etc but should be all done through the enquiry section
-              where they fill out a simple message{' '}
+              Our team, including{' '}
+              <span style={{ fontWeight: '700' }}>
+                Drivers, Passenger Assistants,{' '}
+              </span>
+              and <span style={{ fontWeight: '700' }}>Office Staff</span>, all
+              hold up-to-date{' '}
+              <span style={{ fontWeight: '700' }}>DBS certifications</span>,
+              alongside{' '}
+              <span style={{ fontWeight: '700' }}>
+                Safeguarding Training Certificates{' '}
+              </span>{' '}
+              and <span style={{ fontWeight: '700' }}> First Aid training</span>
+              , ensuring your safety and peace of mind. We prioritize the
+              welfare of our passengers by adhering to rigorous safety and
+              quality standards, so you are always in capable and trustworthy
+              hands when choosing All Travel Services.{' '}
             </li>
             <li style={{ marginBottom: '30px' }}>
               {' '}
-              So we don’t really do normal taxi bookings as you don’t really
-              make money unless you have around 30-50 drivers paying you weekly
-              rent, however to get those drivers to work with you instead of
-              other companies you need a lot of constant bookings to keep them
-              busy otherwise they wouldn’t mminus off the rent and fuel
+              Our exceptional service is widely recognized as one of the best in
+              <span style={{ fontWeight: '700' }}> Suffolk </span> and the
+              surrounding areas. All of our vehicle staff are{' '}
+              <span style={{ fontWeight: '700' }}>
+                punctual, well-presented,{' '}
+              </span>{' '}
+              and <span style={{ fontWeight: '700' }}>highly professional</span>
+              , dedicated to delivering an unmatched travel experience. They
+              consistently go above and beyond to uphold the company’s values of
+              customer care and satisfaction.
+            </li>
+            <li>
+              If you have any enquiries,{' '}
+              <span style={{ fontWeight: '700', color: '#fcb017' }}>
+                {' '}
+                please submit your enquiry here{' '}
+              </span>{' '}
+              to get in touch with us - we look forward to hearing from you!
             </li>
           </ol>
         </Box>
@@ -71,10 +110,26 @@ const About = () => {
           sx={{ width: '70%', height: '500px' }}
         >
           <Image
-            src={AllTravel3D}
+            src={Punctual}
             alt="Logo"
-            width={800}
-            height={300}
+            width={150}
+            height={150}
+            id="logoIMG"
+            className="d3-image"
+          />
+          <Image
+            src={DBS}
+            alt="Logo"
+            width={250}
+            height={250}
+            id="logoIMG"
+            className="d3-image"
+          />
+          <Image
+            src={Smoke}
+            alt="Logo"
+            width={250}
+            height={250}
             id="logoIMG"
             className="d3-image"
           />
