@@ -34,19 +34,21 @@ export default function NavbarAlt({ color }) {
           direction="row"
           spacing={9}
           // mt="0px"
-          mr="100px"
+          // mr="100px"
+          mr={{ lg: '100px', m: '60px' }}
           display="flex"
           justifyContent="end"
           width="100%"
+          // backgroundColor="red"
         >
           <Button
             className="btn-like"
             href="/about"
             // variant="contained"
-            style={{
-              borderRadius: 15,
-              height: 50,
-              width: 130,
+            sx={{
+              borderRadius: 3,
+              height: { lg: 50, m: 30 },
+              width: { lg: 130 },
             }}
           >
             Home
