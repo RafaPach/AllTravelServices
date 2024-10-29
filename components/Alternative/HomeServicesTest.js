@@ -12,13 +12,13 @@ import { useInView } from 'react-intersection-observer';
 const HomeServicesAlt2 = () => {
   const images = [
     { name: 'School Transport', img: Bus, width: 120, height: 106 },
-    { name: 'Private Contracts', img: Private, width: 105, height: 106 },
-    { name: 'Assisted Travel', img: WheelChair, width: 100, height: 106 },
+    { name: 'Private Contracts', img: Private, width: 105, height: 110 },
+    { name: 'Assisted Travel', img: WheelChair, width: 100, height: 110 },
     {
-      name: 'VIP Chauffeur Services',
+      name: 'VIP Chauffeur',
       img: VIP,
-      width: 90,
-      height: 106,
+      width: 110,
+      height: 110,
     },
   ];
 
@@ -50,7 +50,7 @@ const HomeServicesAlt2 = () => {
                   height={item.height}
                   src={item.img}
                   alt={item.name}
-                  style={{ width: 'auto', height: 'auto' }}
+                  // style={{ width: 'auto', height: 'auto' }}
                 />
                 <Typography
                   className="drop-shadow-smaller"
@@ -68,7 +68,6 @@ const HomeServicesAlt2 = () => {
         <Stack direction="row" spacing={2} display="flex" alignItems="center">
           <Typography
             fontSize={{ lg: '18px', md: '16px', sm: '14px', xs: '12px' }}
-            fontWeight="600"
             className="drop-shadow-smaller"
           >
             Find more
@@ -76,7 +75,6 @@ const HomeServicesAlt2 = () => {
           <ScrollArrow />
           <Typography
             fontSize={{ lg: '18px', md: '16px', sm: '14px', xs: '12px' }}
-            fontWeight="600"
             className="drop-shadow-smaller"
           >
             about us

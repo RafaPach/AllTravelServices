@@ -7,12 +7,12 @@ export default function HelloPageAlt2() {
   return (
     <Box
       display="flex"
-      justifyContent="center"
+      justifyContent="start"
       textAlign="start"
       id="welcome"
       sx={{
         pt: { xs: '20px', sm: '30px', lg: '50px' },
-        ml: { lg: '130px', md: '80px', sm: '20px', xs: '10px' },
+        ml: { lg: '100px', md: '80px', sm: '20px', xs: '10px' },
       }}
     >
       <Stack
@@ -27,7 +27,7 @@ export default function HelloPageAlt2() {
           sx={{
             width: { lg: '655px', md: '500px', sm: '100%', xs: '100%' },
             mt: { lg: '0', md: '5px', sm: '20px', xs: '20px' },
-            textAlign: { sm: 'center', xs: 'center' },
+            textAlign: { lg: 'start', m: 'start', sm: 'center', xs: 'center' },
             p: { xs: '10px', sm: '20px' },
           }}
         >
@@ -71,10 +71,15 @@ export default function HelloPageAlt2() {
           <Button
             className="btn-like"
             href="/about"
+            // style={{
+            //   borderRadius: 15,
+            //   height: { lg: 70, md: 60, sm: 50, xs: 45 },
+            //   width: { lg: 170, md: 150, sm: 130, xs: 120 },
+            // }}
             style={{
               borderRadius: 15,
-              height: { lg: 70, md: 60, sm: 50, xs: 45 },
-              width: { lg: 170, md: 150, sm: 130, xs: 120 },
+              height: 65,
+              width: 170,
             }}
           >
             Submit an Enquiry
@@ -85,7 +90,7 @@ export default function HelloPageAlt2() {
         <Box
           mb="35px"
           sx={{
-            width: { lg: '50%', md: '50%', sm: '80%', xs: '100%' },
+            width: { lg: '60%', md: '50%', sm: '80%', xs: '90%' },
             display: 'flex',
             justifyContent: { sm: 'center', xs: 'center' },
           }}

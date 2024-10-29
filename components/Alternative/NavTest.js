@@ -40,7 +40,7 @@ export default function NavbarAlt2({ color }) {
 
   return (
     <HideOnScroll>
-      <Box sx={{ backgroundColor: color || 'white' }}>
+      <Box>
         {isSmallScreen ? (
           // Mobile Nav
           <AppBar position="sticky" color="default">
@@ -94,20 +94,22 @@ export default function NavbarAlt2({ color }) {
               sx={{
                 p: 2,
                 ml: { lg: 15, md: 8 },
+                mr: { lg: '100px', m: '60px' },
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 alignItems: 'center',
+                position: 'sticky',
               }}
             >
               <Image
                 src={Logo}
                 alt="Logo"
-                width={150} // adjust for medium screens
-                height={80} // adjust for medium screens
+                width={250} // adjust for medium screens
+                height={100} // adjust for medium screens
                 sx={{
                   width: { lg: 250, md: 200, sm: 150 },
-                  height: { lg: 110, md: 90, sm: 70 },
+                  height: { lg: 100, md: 90, sm: 70 },
                 }}
                 id="logoIMG"
               />
@@ -128,7 +130,7 @@ export default function NavbarAlt2({ color }) {
                       borderRadius: 3,
                       height: { lg: 50, md: 40, sm: 30 },
                       width: { lg: 130, md: 100, sm: 80 },
-                      fontSize: { lg: '1rem', md: '0.9rem', sm: '0.75rem' },
+                      fontSize: { lg: '0.9rem', md: '0.75rem', sm: '0.45rem' },
                     }}
                   >
                     {link}
