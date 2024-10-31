@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TextField, Stack, Box, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
-
-// Custom theme for styling TextField components
 const customTheme = (outerTheme) =>
   createTheme({
     palette: {
@@ -41,10 +39,8 @@ const customTheme = (outerTheme) =>
       },
     },
   });
-
-const EmailForm = () => {
+const EmailForm2 = () => {
   const outerTheme = useTheme();
-
   const [formData, setFormData] = useState({
     name: '',
     subject: '',
@@ -58,11 +54,40 @@ const EmailForm = () => {
     phone: false,
   });
 
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
+
+  const templateParams = {
+    from_name: formData.name,
+
+    to_name: 'Pamal',
+
+    phonenr: '07517391612',
+
+    subject: formData.subject,
+
+    from_email: formData.email,
+
+    message: formData.message,
+  };
+
+  // Initialize reCAPTCHA when the component mounts
+  //   useEffect(() => {
+  //     // Load reCAPTCHA if not already loaded
+  //     if (typeof window !== 'undefined' && !window.grecaptcha) {
+  //       const script = document.createElement('script');
+  //       script.src = `https://www.google.com/recaptcha/api.js?render=6LfRZHEqAAAAAKGzhuf9Leb_5p5u0ESqXpk-WzkW`;
+  //       script.async = true;
+  //       script.onload = () => {
+  //         console.log('reCAPTCHA script loaded');
+  //       };
+  //       document.body.appendChild(script);
+  //     }
+  //   }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    // Validation
     if (name === 'email') {
       setErrors((prev) => ({ ...prev, email: !e.target.validity.valid }));
     }
@@ -72,52 +97,53 @@ const EmailForm = () => {
         phone: value.length > 9 || isNaN(value) || !value,
       }));
     }
-
-    console.log(name, subject, email, message);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const token = await ReCAPTCHA.execute(
-      '6LfRZHEqAAAAAKGzhuf9Leb_5p5u0ESqXpk-WzkW',
-      {
-        action: 'submit',
-      }
-    );
+    // Call execute to get the token
+    // const token = await new Promise((resolve) => {
+    //   window.grecaptcha
+    //     .execute('6LfRZHEqAAAAAKGzhuf9Leb_5p5u0ESqXpk-WzkW', {
+    //       action: 'submit',
+    //     })
+    //     .then(resolve);
+    // });
 
-    // Send the token to your backend for verification
-    const res = await fetch('/api/verify-recaptcha', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token }),
-    });
-    const data = await res.json();
+    // if (!token) {
+    //   console.error('ReCAPTCHA token is missing');
+    //   return;
+    // }
 
-    if (data.success) {
-      console.log('Verification successful');
-    } else {
-      console.error('Verification failed');
-    }
+    // const res = await fetch('/api/verify-recaptcha', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ token }),
+    // });
+    // const data = await res.json();
 
-    emailjs
-      .send('service_6adv00d', 'template_y2euvlp', templateParams, {
-        publicKey: 'ODx35QrTb2dUy_dXY',
-      })
+    // if (data.success) {
+    //   console.log('Verification successful');
+    //   emailjs
+    //     .send('service_6adv00d', 'template_y2euvlp', templateParams, {
+    //       publicKey: 'ODx35QrTb2dUy_dXY',
+    //     })
 
-      .then(
-        function (response) {
-          console.log('SUCCESS!', response.status, response.text);
-        },
-        function (error) {
-          console.log('FAILED...', error);
-        }
-      );
+    //     .then(
+    //       function (response) {
+    //         console.log('SUCCESS!', response.status, response.text);
+    //       },
+    //       function (error) {
+    //         console.log('FAILED...', error);
+    //       }
+    //     );
+    // }
   };
 
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
-      <Box ml={{ xs: 2, sm: 5, md: 10, lg: 15 }} mt={10} backgroundColor="">
+      <Box ml={{ xs: 2, sm: 5, md: 10, lg: 15 }} mt={10}>
         <Stack spacing={2}>
           <Typography
             color="#1E1E1E"
@@ -131,14 +157,13 @@ const EmailForm = () => {
 
         <Box mt={5}>
           <Grid container mb={5}>
-            <Grid xs={10} sm={10} md={8} lg={6} mx="">
+            <Grid xs={10} sm={10} md={8} lg={6}>
               <Stack
                 spacing={2}
                 direction={{ xs: 'column', sm: 'row' }}
                 sx={{ mb: 4 }}
               >
                 <TextField
-                  // placeholder="Type your name here"
                   name="name"
                   label="Name"
                   value={formData.name}
@@ -215,4 +240,4 @@ const EmailForm = () => {
   );
 };
 
-export default EmailForm;
+export default EmailForm2;

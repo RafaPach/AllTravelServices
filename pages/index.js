@@ -11,6 +11,8 @@ import Head from 'next/head';
 import NavbarAlt2 from '../components/Alternative/NavTest.js';
 import HelloPageAlt2 from '../components/Alternative/HelloPageTest.js';
 import HomeServicesAlt2 from '../components/Alternative/HomeServicesTest.js';
+import About2 from '../components/AboutTest.js';
+import EmailForm2 from '../components/Alternative/SubmitTest.js';
 
 export default function Try() {
   return (
@@ -25,9 +27,11 @@ export default function Try() {
         {/* <HelloPageAlt /> */}
         {/* <HelloPageAlt2 /> */}
         {/* <HomeServicesAlt /> */}
-        {/* <SubmitEnquiry /> */}
-        <HomeServicesAlt2 />
-        <About />
+        <SubmitEnquiry />
+        <EmailForm2 />
+        {/* <HomeServicesAlt2 /> */}
+        {/* <About />
+        <About2 /> */}
       </Box>
     </>
   );
