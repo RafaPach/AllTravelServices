@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
   const { token } = req.body;
-  const secretKey = '6LfRZHEqAAAAAK4iVW_PvzjYeYCqiE7caIAGBouR';
+  const secretKey = process.env.Re_KEY;
 
   const response = await fetch(
     `https://www.google.com/recaptcha/api/siteverify`,

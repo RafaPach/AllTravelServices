@@ -70,19 +70,19 @@ const EmailForm2 = () => {
     message: formData.message,
   };
 
-  // Initialize reCAPTCHA when the component mounts
-  //   useEffect(() => {
-  //     // Load reCAPTCHA if not already loaded
-  //     if (typeof window !== 'undefined' && !window.grecaptcha) {
-  //       const script = document.createElement('script');
-  //       script.src = `https://www.google.com/recaptcha/api.js?render=6LfRZHEqAAAAAKGzhuf9Leb_5p5u0ESqXpk-WzkW`;
-  //       script.async = true;
-  //       script.onload = () => {
-  //         console.log('reCAPTCHA script loaded');
-  //       };
-  //       document.body.appendChild(script);
-  //     }
-  //   }, []);
+  //   Initialize reCAPTCHA when the component mounts
+  useEffect(() => {
+    // Load reCAPTCHA if not already loaded
+    if (typeof window !== 'undefined' && !window.grecaptcha) {
+      const script = document.createElement('script');
+      script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.GA}`;
+      script.async = true;
+      script.onload = () => {
+        console.log('reCAPTCHA script loaded');
+      };
+      document.body.appendChild(script);
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -103,42 +103,42 @@ const EmailForm2 = () => {
     e.preventDefault();
 
     // Call execute to get the token
-    // const token = await new Promise((resolve) => {
-    //   window.grecaptcha
-    //     .execute('6LfRZHEqAAAAAKGzhuf9Leb_5p5u0ESqXpk-WzkW', {
-    //       action: 'submit',
-    //     })
-    //     .then(resolve);
-    // });
+    const token = await new Promise((resolve) => {
+      window.grecaptcha
+        .execute(process.env.ReCAPTCHA_ID, {
+          action: 'submit',
+        })
+        .then(resolve);
+    });
 
-    // if (!token) {
-    //   console.error('ReCAPTCHA token is missing');
-    //   return;
-    // }
+    if (!token) {
+      console.error('ReCAPTCHA token is missing');
+      return;
+    }
 
-    // const res = await fetch('/api/verify-recaptcha', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ token }),
-    // });
-    // const data = await res.json();
+    const res = await fetch('/api/verify-recaptcha', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token }),
+    });
+    const data = await res.json();
 
-    // if (data.success) {
-    //   console.log('Verification successful');
-    //   emailjs
-    //     .send('service_6adv00d', 'template_y2euvlp', templateParams, {
-    //       publicKey: 'ODx35QrTb2dUy_dXY',
-    //     })
+    if (data.success) {
+      console.log('Verification successful');
+      emailjs
+        .send(process.env.emailJS1, process.env.emailJS2, templateParams, {
+          publicKey: process.env.email_pubKey,
+        })
 
-    //     .then(
-    //       function (response) {
-    //         console.log('SUCCESS!', response.status, response.text);
-    //       },
-    //       function (error) {
-    //         console.log('FAILED...', error);
-    //       }
-    //     );
-    // }
+        .then(
+          function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+          },
+          function (error) {
+            console.log('FAILED...', error);
+          }
+        );
+    }
   };
 
   return (
