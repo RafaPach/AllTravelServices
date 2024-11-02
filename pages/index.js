@@ -13,6 +13,7 @@ import HelloPageAlt2 from '../components/Alternative/HelloPageTest.js';
 import HomeServicesAlt2 from '../components/Alternative/HomeServicesTest.js';
 import About2 from '../components/AboutTest.js';
 import EmailForm2 from '../components/Alternative/SubmitTest.js';
+import Services from '../components/Services.js';
 
 export default function Try() {
   return (
@@ -27,11 +28,12 @@ export default function Try() {
         {/* <HelloPageAlt /> */}
         {/* <HelloPageAlt2 /> */}
         {/* <HomeServicesAlt /> */}
-        <SubmitEnquiry />
-        <EmailForm2 />
-        {/* <HomeServicesAlt2 /> */}
-        {/* <About />
-        <About2 /> */}
+        {/* <SubmitEnquiry /> */}
+        <HomeServicesAlt2 />
+        <About2 />
+        <Services />
+        {/* <EmailForm2 /> */}
+        {/* <About /> */}
       </Box>
     </>
   );
