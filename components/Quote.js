@@ -16,16 +16,16 @@ import {
   MenuItem,
   InputLabel,
 } from '@mui/material';
-import PersonIcon from '@mui/icons-material/Person';
 import PhoneIcon from '@mui/icons-material/Phone';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LocalTaxiIcon from '@mui/icons-material/LocalTaxi';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
+// import DatePicker from 'react-datepicker';
 import DatePicker from 'react-datepicker';
 import Grid from '@mui/material/Grid2';
 import 'react-datepicker/dist/react-datepicker.css'; // Import the styles
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday'; // (Optional) Calendar icon for adornment
 
 const customTheme = (outerTheme) =>
   createTheme({
@@ -166,57 +166,61 @@ function TravelQuoteForm() {
               />
             </Stack>
           </Box>
-          <Stack direction="row" spacing={10}>
-            <Grid item xs={12} mb="30px">
-              <Typography sx={{ mb: '10px', fontSize: '14px' }}>
-                <span style={{ color: '#fcb017' }}>2.</span> When you do you
-                need a taxi?
-              </Typography>
-              <DatePicker
-                selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
-                dateFormat="dd/MM/yyyy" // Format of the date
-                placeholderText="dd/mm/yyyy" // Placeholder text
-                renderCustomHeader={({
-                  date,
-                  decreaseMonth,
-                  increaseMonth,
-                }) => (
-                  <div
-                    style={{ display: 'flex', justifyContent: 'space-between' }}
-                  >
-                    <button onClick={decreaseMonth}>&lt;</button>
-                    <span>
-                      {date.toLocaleString('default', { month: 'long' })}{' '}
-                      {date.getFullYear()}
-                    </span>
-                    <button onClick={increaseMonth}>&gt;</button>
-                  </div>
-                )}
-                customInput={
-                  <TextField
-                    fullWidth
-                    variant="outlined"
-                    placeholder="dd/mm/yyyy"
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <CalendarTodayIcon style={{ width: 15 }} />
-                        </InputAdornment>
-                      ),
-                      readOnly: true, // Make the input read-only to prevent manual entry
-                    }}
-                    onClick={() => setSelectedDate(null)} // This will open the date picker
-                  />
-                }
-              />
-            </Grid>
+          <Stack direction="row" display="flex" spacing={1}>
+            <div style={{ width: '50%' }}>
+              <Grid Grid item xs={6} mb="30px" sx={{ width: '100%' }}>
+                <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+                  <span style={{ color: '#fcb017' }}>2.</span> When you do you
+                  need a taxi?
+                </Typography>
+                <DatePicker
+                  selected={selectedDate}
+                  onChange={(date) => setSelectedDate(date)}
+                  dateFormat="dd/MM/yyyy" // Format of the date
+                  placeholderText="dd/mm/yyyy" // Placeholder text
+                  renderCustomHeader={({
+                    date,
+                    decreaseMonth,
+                    increaseMonth,
+                  }) => (
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <button onClick={decreaseMonth}>&lt;</button>
+                      <span>
+                        {date.toLocaleString('default', { month: 'long' })}{' '}
+                        {date.getFullYear()}
+                      </span>
+                      <button onClick={increaseMonth}>&gt;</button>
+                    </div>
+                  )}
+                  customInput={
+                    <TextField
+                      variant="outlined"
+                      placeholder="dd/mm/yyyy"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <CalendarTodayIcon style={{ width: 15 }} />
+                          </InputAdornment>
+                        ),
+                        readOnly: true, // Make the input read-only to prevent manual entry
+                      }}
+                      onClick={() => setSelectedDate(null)} // This will open the date picker
+                      sx={{
+                        width: '400px',
+                      }} // Set width to 1000px
+                    />
+                  }
+                />
+              </Grid>
+            </div>
             <div
               style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-start',
-                gap: 8,
+                width: '50%',
               }}
             >
               {/* Title for the section */}
@@ -264,6 +268,7 @@ function TravelQuoteForm() {
               />
             </div>
           </Stack>
+
           <Box mb="30px">
             <Stack>
               <Typography sx={{ mb: '10px', fontSize: '14px' }}>
