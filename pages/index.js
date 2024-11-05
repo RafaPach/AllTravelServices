@@ -14,6 +14,7 @@ import HomeServicesAlt2 from '../components/Alternative/HomeServicesTest.js';
 import About2 from '../components/AboutTest.js';
 import EmailForm2 from '../components/Alternative/SubmitTest.js';
 import Services from '../components/Services.js';
+import TravelQuoteForm from '../components/Quote.js';
 
 export default function Try() {
   return (
@@ -29,11 +30,12 @@ export default function Try() {
         {/* <HelloPageAlt2 /> */}
         {/* <HomeServicesAlt /> */}
         {/* <SubmitEnquiry /> */}
-        <HomeServicesAlt2 />
+        {/* <HomeServicesAlt2 />
         <About2 />
-        <Services />
+        <Services /> */}
         {/* <EmailForm2 /> */}
         {/* <About /> */}
+        <TravelQuoteForm />
       </Box>
     </>
   );

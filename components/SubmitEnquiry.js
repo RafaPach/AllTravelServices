@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Stack, Box, Typography } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
