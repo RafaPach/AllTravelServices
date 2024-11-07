@@ -15,6 +15,7 @@ import About2 from '../components/AboutTest.js';
 import EmailForm2 from '../components/Alternative/SubmitTest.js';
 import Services from '../components/Services.js';
 import TravelQuoteForm from '../components/Quote.js';
+import RequestQuoteForm from '../components/CardJourneyTest.js';
 
 export default function Try() {
   return (
@@ -36,6 +37,7 @@ export default function Try() {
         {/* <EmailForm2 /> */}
         {/* <About /> */}
         <TravelQuoteForm />
+        <RequestQuoteForm />
       </Box>
     </>
   );

@@ -1,0 +1,287 @@
+  <ThemeProvider theme={customTheme(outerTheme)}>
+      <Container
+        maxWidth="md"
+        sx={{ mt: 4, bgcolor: '#f9f9f9', p: 3, borderRadius: 2 }}
+      >
+        <Stack spacing={2} mb="30px">
+          <Typography
+            color="#1E1E1E"
+            fontWeight="500"
+            fontSize={{ xs: '24px', sm: '30px' }}
+          >
+            Request a Quote <span className="dotColor">.</span>
+          </Typography>
+          <div className="aboutline"></div>
+        </Stack>
+
+        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
+          {/* Full Name */}
+          <Box mb="20px">
+            <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+              <span style={{ color: '#fcb017' }}>1.</span> Full Name
+            </Typography>
+            <Stack direction="row" spacing={6}>
+              <TextField
+                placeholder="Full Name"
+                fullWidth
+                variant="outlined"
+                sx={{
+                  mb: 0,
+                  borderRight: 'none', // Remove right border for seamless connection
+                  '& fieldset': {
+                    borderRight: '', // Remove the right border of the first field
+                  },
+                }}
+              />
+              {/* <TextField
+                placeholder="Last Name"
+                fullWidth
+                variant="outlined"
+                sx={{
+                  mb: 0,
+                  borderLeft: 'none', // Remove left border for seamless connection
+                }}
+              /> */}
+            </Stack>
+          </Box>
+          <Box mb="20px">
+            <Stack>
+              <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+                <span style={{ color: '#fcb017' }}>2.</span> Phone Number
+              </Typography>
+              <TextField
+                type="tel"
+                fullWidth
+                sx={{ mb: 2, borderRadius: '50x' }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <PhoneIcon style={{ width: 15 }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Stack>
+          </Box>
+          <Stack direction="row" display="flex" spacing={1}>
+            <div style={{ width: '50%' }}>
+              <Grid Grid item xs={6} mb="20px" sx={{ width: '100%' }}>
+                <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+                  <span style={{ color: '#fcb017' }}>2.</span> When you do you
+                  need a taxi?
+                </Typography>
+                <DatePicker
+                  selected={selectedDate}
+                  onChange={(date) => setSelectedDate(date)}
+                  dateFormat="dd/MM/yyyy" // Format of the date
+                  placeholderText="dd/mm/yyyy" // Placeholder text
+                  renderCustomHeader={({
+                    date,
+                    decreaseMonth,
+                    increaseMonth,
+                  }) => (
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <button onClick={decreaseMonth}>&lt;</button>
+                      <span>
+                        {date.toLocaleString('default', { month: 'long' })}{' '}
+                        {date.getFullYear()}
+                      </span>
+                      <button onClick={increaseMonth}>&gt;</button>
+                    </div>
+                  )}
+                  customInput={
+                    <TextField
+                      variant="outlined"
+                      placeholder="dd/mm/yyyy"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <CalendarTodayIcon style={{ width: 15 }} />
+                          </InputAdornment>
+                        ),
+                        readOnly: true, // Make the input read-only to prevent manual entry
+                      }}
+                      onClick={() => setSelectedDate(null)} // This will open the date picker
+                      sx={{
+                        width: '365px',
+                      }} // Set width to 1000px
+                    />
+                  }
+                />
+              </Grid>
+            </div>
+            <div
+              style={{
+                width: '50%',
+              }}
+            >
+              {/* Title for the section */}
+              <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+                <span style={{ color: '#fcb017' }}>2.</span> When you do you
+                need a taxi?
+              </Typography>
+
+              {/* Input field for time with clock icon */}
+              <TextField
+                fullWidth
+                variant="outlined"
+                placeholder={time === '' ? 'hh:mm' : ''}
+                value={time}
+                onChange={handleTimeChange}
+                sx={{
+                  height: '100%',
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '4px',
+
+                    color: '#fcb017',
+                    '& fieldset': {
+                      borderColor: '#D3D3D3',
+                    },
+                    '&:hover fieldset': {
+                      borderColor: '#B2BAC2',
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#6F7E8C',
+                    },
+                  },
+                  '& .MuiInputBase-input': {
+                    color: 'black',
+                    textAlign: 'center',
+                    fontSize: '.9rem',
+                    width: '50px', // Adjust width for better appearance
+                  },
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccessTimeIcon style={{ color: '#bbb' }} />
+                    </InputAdornment>
+                  ),
+                }}
+                // sx={{
+                //   height: '100%',
+                // }} // Set width to 1000px
+              />
+            </div>
+          </Stack>
+
+          <Box mb="20px">
+            <Stack>
+              <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+                <span style={{ color: '#fcb017' }}>4.</span> Where shall we pick
+                you up?
+              </Typography>
+              <TextField
+                fullWidth
+                sx={{ mb: 2 }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LocationOnIcon style={{ width: 15 }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Stack>
+          </Box>
+          {/* Pick-Up Address */}
+          {/* Drop-Off Address */}
+          <Box mb="20px">
+            <Stack>
+              <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+                <span style={{ color: '#fcb017' }}>5.</span> Where shall we drop
+                you off?
+              </Typography>
+              <TextField
+                fullWidth
+                sx={{ mb: 2 }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LocationOnIcon style={{ width: 15 }} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Stack>
+          </Box>
+          <Box>
+            <Stack>
+              <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+                <span style={{ color: '#fcb017' }}>6.</span> What service would
+                you need?
+              </Typography>
+              <FormControl fullWidth sx={{ mb: 2 }}>
+                <Select
+                  value={serviceType}
+                  onChange={(e) => setServiceType(e.target.value)}
+                  startAdornment={<LocalTaxiIcon sx={{ mr: 1, width: 15 }} />}
+                >
+                  <MenuItem value="standard">Standard</MenuItem>
+                  <MenuItem value="luxury">Luxury</MenuItem>
+                  <MenuItem value="van">Van</MenuItem>
+                </Select>
+              </FormControl>
+            </Stack>
+          </Box>
+          <Box>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={specialRequests}
+                  onChange={(e) => setSpecialRequests(e.target.checked)}
+                />
+              }
+              label="Special Requests (e.g., child seat)"
+            />
+          </Box>
+          {/* Journey Type */}
+          {/* <FormControl
+            component="fieldset"
+            sx={{ mb: 2 }}
+            display="flex"
+            justifyContent="space-between"
+          >
+            <RadioGroup
+              row
+              value={journeyType}
+              onChange={(e) => setJourneyType(e.target.value)}
+            >
+              <FormControlLabel
+                value="one-way-outbound"
+                control={<Radio />}
+                label="One-Way Outbound"
+              />
+              <FormControlLabel
+                value="return"
+                control={<Radio />}
+                label="Return Journey"
+              />
+            </RadioGroup>
+          </FormControl> */}
+          {/* Extra Notes */}
+          <TextField
+            label="Extra Notes (optional)"
+            multiline
+            rows={4}
+            fullWidth
+            sx={{ mb: 3 }}
+          />
+          {/* Submit Button */}
+          <Box className="cta" width="155px" mb={5} onClick={handleSubmit}>
+            <span>Submit</span>
+            <svg width="13px" height="12px" viewBox="0 0 13 10">
+              <path d="M1,5 L11,5"></path>
+              <polyline points="8 1 12 5 8 9"></polyline>
+            </svg>
+          </Box>
+        </Box>
+      </Container>
+    </ThemeProvider>
+  );
+}
