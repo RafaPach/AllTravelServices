@@ -37,7 +37,6 @@ export default function Try() {
         {/* <EmailForm2 /> */}
         {/* <About /> */}
         <TravelQuoteForm />
-        <RequestQuoteForm />
       </Box>
     </>
   );

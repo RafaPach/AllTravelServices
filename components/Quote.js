@@ -31,6 +31,8 @@ import 'react-datepicker/dist/react-datepicker.css'; // Import the styles
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday'; // (Optional) Calendar icon for adornment
 import Image from 'next/image';
 import ReturnJourney from '../Assests/ReturnJourney.png';
+import Oneway from '../Assests/OneWay.png';
+import JourneyCard from './CardJourneyTest';
 
 const customTheme = (outerTheme) =>
   createTheme({
@@ -81,7 +83,7 @@ function TravelQuoteForm() {
 
   const [time, setTime] = useState('');
 
-  const [journeyType, setJourneyType] = useState('one-way-outbound');
+  const [journeyType, setJourneyType] = useState('');
   const [serviceType, setServiceType] = useState('');
 
   const handleSubmit = (e) => {
@@ -166,75 +168,61 @@ function TravelQuoteForm() {
 
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
+      {/* <Stack spacing={2} mb="30px">
+        <Typography
+          color="#1E1E1E"
+          fontWeight="500"
+          fontSize={{ xs: '24px', sm: '30px' }}
+        >
+          Request a Quote <span className="dotColor">.</span>
+        </Typography>
+        <div className="aboutline"></div>
+      </Stack> */}
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+        mb="0px"
+      >
+        <Typography
+          // className="drop-shadow-service"
+          sx={{ mb: 2, fontSize: '24px', fontFamily: 'Courier, monospace' }}
+        >
+          CHOOSE YOUR JOURNEY TYPE
+        </Typography>
+      </Box>
       <Container
         maxWidth="md"
+        // height="100vh"
+        sx={{ mt: 4, bgcolor: 'none', p: 0 }}
+      >
+        <JourneyCard
+          journeyType={journeyType}
+          setJourneyType={setJourneyType}
+          setReturnDate={setReturnDate}
+        />
+      </Container>
+      <Container
+        maxWidth="md"
+        // height="100vh"
         sx={{ mt: 4, bgcolor: '#f9f9f9', p: 3, borderRadius: 2 }}
       >
-        <Stack spacing={2} mb="30px">
-          <Typography
-            color="#1E1E1E"
-            fontWeight="500"
-            fontSize={{ xs: '24px', sm: '30px' }}
-          >
-            Request a Quote <span className="dotColor">.</span>
-          </Typography>
-          <div className="aboutline"></div>
-        </Stack>
-
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
-          <Typography variant="h6" sx={{ mb: 2 }}>
-            Choose Your Journey Type
-          </Typography>
-
-          <Grid container spacing={2} sx={{ mb: 3 }}>
-            <Grid item xs={6}>
-              <Card
-                onClick={() => setJourneyType('oneWay')}
-                sx={{
-                  bgcolor: journeyType === 'oneWay' ? '#FFC107' : '#F5F5F5',
-                  boxShadow:
-                    journeyType === 'oneWay'
-                      ? '0 4px 8px rgba(0, 0, 0, 0.3)'
-                      : '0 2px 4px rgba(0, 0, 0, 0.1)',
-                  transition: '0.3s',
-                  '&:hover': {
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
-                    cursor: 'pointer',
-                  },
-                }}
-              >
-                <CardContent>
-                  <Typography variant="h6">One-Way Journey</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={6}>
-              <Card
-                onClick={() => setJourneyType('return')}
-                sx={{
-                  bgcolor: journeyType === 'return' ? '#FFC107' : '#F5F5F5',
-                  boxShadow:
-                    journeyType === 'return'
-                      ? '0 4px 8px rgba(0, 0, 0, 0.3)'
-                      : '0 2px 4px rgba(0, 0, 0, 0.1)',
-                  transition: '0.3s',
-                  '&:hover': {
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
-                    cursor: 'pointer',
-                  },
-                }}
-              >
-                <CardContent>
-                  <Image src={ReturnJourney} width={80} height={80} />
-                  <Typography sx={{ fontSize: '14px', mt: '10px' }}>
-                    RETURN JOURNEY
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
+          <Box display="flex" justifyContent="center" sx={{ m: 3 }}>
+            <Typography
+              sx={{
+                fontWeight: '500',
+                color: '#4E4E4E',
+                // fontFamily: 'Courier, monospace',
+                fontSize: '18px',
+              }}
+            >
+              {journeyType ? `BOOK A ${journeyType.toUpperCase()} JOURNEY` : ''}
+            </Typography>
+          </Box>
           <Box mb="20px">
-            <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+            <Typography sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}>
               <span style={{ color: '#fcb017' }}>1.</span> Full Name
             </Typography>
             <Stack direction="row" spacing={6}>
@@ -261,7 +249,7 @@ function TravelQuoteForm() {
           </Box>
           <Box mb="10px">
             <Stack>
-              <Typography sx={{ fontSize: '14px' }}>
+              <Typography sx={{ fontSize: '14px', color: '#5E5E5E' }}>
                 <span style={{ color: '#fcb017' }}>2.</span> Phone Number
               </Typography>
               <TextField
@@ -280,7 +268,9 @@ function TravelQuoteForm() {
           </Box>
           <Stack mb="20px" direction="row" display="flex" spacing={1}>
             <Box sx={{ width: '50%' }}>
-              <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+              <Typography
+                sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
+              >
                 <span style={{ color: '#fcb017' }}>3.</span> Pickup Date
               </Typography>
               <DatePicker
@@ -306,7 +296,9 @@ function TravelQuoteForm() {
               />
             </Box>
             <Box sx={{ width: '50%' }} mb="20px">
-              <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+              <Typography
+                sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
+              >
                 <span style={{ color: '#fcb017' }}>4.</span> Pickup Time
               </Typography>
               <TextField
@@ -335,7 +327,9 @@ function TravelQuoteForm() {
           {journeyType === 'return' && (
             <Stack direction="row" display="flex" spacing={1} mb="20px">
               <Box sx={{ width: '50%' }}>
-                <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+                <Typography
+                  sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
+                >
                   <span style={{ color: '#fcb017' }}>5.</span> Return Date
                 </Typography>
                 <DatePicker
@@ -389,7 +383,9 @@ function TravelQuoteForm() {
                 </div> */}
               </Box>
               <Box sx={{ width: '50%' }}>
-                <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+                <Typography
+                  sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
+                >
                   <span style={{ color: '#fcb017' }}>6.</span> Return Time
                 </Typography>
                 <TextField
@@ -409,7 +405,7 @@ function TravelQuoteForm() {
           )}
 
           <Box mb="20px">
-            <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+            <Typography sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}>
               <span style={{ color: '#fcb017' }}>7.</span> Where shall we pick
               you up?
             </Typography>
@@ -426,7 +422,7 @@ function TravelQuoteForm() {
           </Box>
 
           <Box mb="20px">
-            <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+            <Typography sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}>
               <span style={{ color: '#fcb017' }}>8.</span> Where shall we drop
               you off?
             </Typography>
@@ -443,7 +439,7 @@ function TravelQuoteForm() {
           </Box>
 
           <Box mb="20px">
-            <Typography sx={{ mb: '10px', fontSize: '14px' }}>
+            <Typography sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}>
               <span style={{ color: '#fcb017' }}>9.</span> What service would
               you need?
             </Typography>
@@ -468,7 +464,7 @@ function TravelQuoteForm() {
               />
             }
             label="Special Requests (e.g., child seat)"
-            sx={{ mb: '20px' }}
+            sx={{ mb: '20px', color: '#5E5E5E' }}
           />
 
           <TextField
