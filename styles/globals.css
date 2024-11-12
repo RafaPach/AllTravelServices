@@ -294,6 +294,7 @@ a {
 .btn-like {
   background-color: #fcb017;
   color: #ffffff;
+  margin-top: 20px;
 }
 .btn-like:hover {
   box-shadow: 0px 0px 0px 2.5px #fff, 0px 0px 0px 5px #fcb017,
@@ -564,6 +565,18 @@ a {
 
 .flip-card-back {
   transform: rotateY(180deg);
+}
+
+/* Hover effect for lifting and shadow */
+.flip-card:hover .flip-card-front {
+  transform: translateY(-20px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.flip-card:hover .flip-card-front img {
+  filter: brightness(1.1);
+  transition: filter 0.8s;
 }
 
 .btn-svcard {

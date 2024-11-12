@@ -19,7 +19,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import RealWChair from '../../Assests/RealWChair.jpg';
 import RealSt from '../../Assests/RealST.jpg';
 import RealVIP from '../../Assests/RealVip.png';
-import RealPrivate from '../../Assests/RealPrivate.png';
+import RealPrivate from '../../Assests/RealPrivate.jpg';
 
 function Feature({ icon, title, description }) {
   return (
@@ -84,7 +84,7 @@ function InfoCards() {
         <Box
           sx={{
             backgroundColor: '#f9f9f9',
-            border: '2px solid #fcb017',
+            border: '1px solid rgba(252, 176, 23, 0.9)',
             borderRadius: '8px',
             padding: '20px',
             width: '400px',
