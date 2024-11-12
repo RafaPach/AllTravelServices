@@ -20,6 +20,9 @@ import RealWChair from '../../Assests/RealWChair.jpg';
 import RealSt from '../../Assests/RealST.jpg';
 import RealVIP from '../../Assests/RealVip.png';
 import RealPrivate from '../../Assests/RealPrivate.jpg';
+import RealAssisted from '../../Assests/RealAssisted.jpeg';
+import RealExecute from '../../Assests/RealExecute.jpeg';
+import RealSchool from '../../Assests/RealSchool.jpeg';
 
 function Feature({ icon, title, description }) {
   return (
@@ -44,7 +47,7 @@ function InfoCards() {
         <Grid container spacing={8} sx={{ flex: 1 }}>
           <Grid item xs={12} sm={6}>
             <ServCards
-              pic={RealVIP}
+              pic={RealExecute}
               title={'Executive Travel for VIP clients'}
               description={
                 'Delivering premium, discreet chauffeur services for VIP clients, ensuring comfort, professionalism, and a luxury experience tailored to your specific needs.'
@@ -62,7 +65,7 @@ function InfoCards() {
           </Grid>
           <Grid item xs={12} sm={6}>
             <ServCards
-              pic={RealWChair}
+              pic={RealAssisted}
               title={'Assisted Travel'}
               description={
                 'Safe, comfortable transport for disabled passengers, with trained drivers offering personalized assistance and support throughout the journey.'
@@ -71,7 +74,7 @@ function InfoCards() {
           </Grid>
           <Grid item xs={12} sm={6}>
             <ServCards
-              pic={RealSt}
+              pic={RealSchool}
               title={'School Transport'}
               description={
                 'Providing safe, punctual, and convenient transportation for students, with a strong focus on reliability, care, and flexibility for schools and families.'

@@ -373,7 +373,16 @@ function ServCards({ title, pic, description }) {
             </Stack>
           ))}
 
-          <Button className="btn-like" onClick={handleFlip}>
+          <Button
+            sx={{
+              borderRadius: 2,
+              height: { lg: 30, md: 30, sm: 30 },
+              width: { lg: 95, md: 25, sm: 25 },
+              fontSize: { lg: '0.6rem', md: '0.55rem', sm: '0.5rem' },
+            }}
+            className="btn-like"
+            onClick={handleFlip}
+          >
             Go Back
           </Button>
         </Box>
