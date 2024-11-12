@@ -16,6 +16,7 @@ import EmailForm2 from '../components/Alternative/SubmitTest.js';
 import Services from '../components/Services.js';
 import TravelQuoteForm from '../components/Quote.js';
 import RequestQuoteForm from '../components/CardJourneyTest.js';
+import InfoCards from '../components/OurServicesPage/OurServices.js';
 
 export default function Try() {
   return (
@@ -32,11 +33,11 @@ export default function Try() {
         {/* <HomeServicesAlt /> */}
         {/* <SubmitEnquiry /> */}
         {/* <HomeServicesAlt2 />
-        <About2 />
-        <Services /> */}
-        {/* <EmailForm2 /> */}
-        {/* <About /> */}
-        <TravelQuoteForm />
+        <About2 /> */}
+        <Services />
+        <InfoCards />
+        {/* <EmailForm2 />
+        <TravelQuoteForm /> */}
       </Box>
     </>
   );
