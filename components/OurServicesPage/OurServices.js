@@ -16,13 +16,12 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
-import RealWChair from '../../Assests/RealWChair.jpg';
-import RealSt from '../../Assests/RealST.jpg';
-import RealVIP from '../../Assests/RealVip.png';
 import RealPrivate from '../../Assests/RealPrivate.jpg';
 import RealAssisted from '../../Assests/RealAssisted.jpeg';
 import RealExecute from '../../Assests/RealExecute.jpeg';
 import RealSchool from '../../Assests/RealSchool.jpeg';
+
+import Submit1 from '../../Assests/Submit1.jpeg';
 
 function Feature({ icon, title, description }) {
   return (
@@ -41,11 +40,17 @@ function Feature({ icon, title, description }) {
 }
 function InfoCards() {
   return (
-    <Box height="100vh">
-      <Stack direction="row" spacing={2} sx={{ maxWidth: '1300px', mx: 30 }}>
+    <Box
+      className="background-box"
+      // sx={{
+      //   height: '100vh',
+      //   backgroundImage: `url('Submit1.jpeg')`,
+      // }}
+    >
+      <Stack direction="row" spacing={2} sx={{ maxWidth: '1400px', mx: 40 }}>
         {/* ServCards Section */}
         <Grid container spacing={8} sx={{ flex: 1 }}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} mt="30px">
             <ServCards
               pic={RealExecute}
               title={'Executive Travel for VIP clients'}
@@ -54,7 +59,7 @@ function InfoCards() {
               }
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} mt="30px">
             <ServCards
               pic={RealPrivate}
               title={'Private Contracts'}
@@ -92,6 +97,7 @@ function InfoCards() {
             padding: '20px',
             width: '400px',
           }}
+          className="advantages-card"
         >
           <Box
             display="flex"

@@ -17,6 +17,9 @@ import Services from '../components/Services.js';
 import TravelQuoteForm from '../components/Quote.js';
 import RequestQuoteForm from '../components/CardJourneyTest.js';
 import InfoCards from '../components/OurServicesPage/OurServices.js';
+import AboutUs from '../components/AboutUs/About.js';
+import WhyUs from '../components/WhyChooseUS/Whyus.js';
+import Testimonials from '../components/Testimonials/Testimonials.js';
 
 export default function Try() {
   return (
@@ -26,16 +29,22 @@ export default function Try() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Box className="fullScreen">
-        {/* <NavbarAlt2 /> */}
+        <NavbarAlt2 />
+
         {/* <NavbarAlt /> */}
         {/* <HelloPageAlt /> */}
-        {/* <HelloPageAlt2 /> */}
-        {/* <HomeServicesAlt /> */}
+        <HelloPageAlt2 />
+        <HomeServicesAlt />
+        {/* <AboutUs /> */}
+
+        <WhyUs />
+        <InfoCards />
+        <Testimonials />
         {/* <SubmitEnquiry /> */}
         {/* <HomeServicesAlt2 />
         <About2 /> */}
-        <Services />
-        <InfoCards />
+        {/* <Services /> */}
+        {/* <InfoCards /> */}
         {/* <EmailForm2 />
         <TravelQuoteForm /> */}
       </Box>

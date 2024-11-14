@@ -590,3 +590,36 @@ a {
   background: white;
   color: #fcb017;
 }
+
+.advantages-card:hover {
+  transform: translateY(-20px);
+  /* box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); */
+  transition: transform 0.5s;
+}
+
+.curved-background {
+  position: relative;
+  height: 300px; /* Adjust as needed */
+  width: 100%;
+  overflow: hidden;
+  background-image: url('https://media.istockphoto.com/id/1324413691/photo/beautiful-sky-with-white-clouds.jpg?b=1&s=612x612&w=0&k=20&c=1PZj5YunYSSl_UJBQusU9nyoHrg8PbF4Ul9ZCxv3eDo='); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 0 50% 50% / 0 0 50% 50%; /* Creates the curved effect */
+}
+
+.background-box {
+  height: 100vh;
+  /* width: 100vw; */
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 40%,
+      white 80%
+    ),
+    /* Gradient fade to white */
+      linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+    url('../Assests/submit6.jpg');
+  background-size: 100% 100%; /* Stretch to fill the viewport */
+  background-position: center;
+  background-repeat: no-repeat;
+}
