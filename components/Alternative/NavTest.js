@@ -105,7 +105,7 @@ export default function NavbarAlt2({ color }) {
               <Image
                 src={Logo}
                 alt="Logo"
-                width={250} // adjust for medium screens
+                width={255} // adjust for medium screens
                 height={100} // adjust for medium screens
                 sx={{
                   width: { lg: 250, md: 200, sm: 150 },

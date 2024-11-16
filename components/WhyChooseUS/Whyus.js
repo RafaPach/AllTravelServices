@@ -14,7 +14,7 @@ const WhyBookWithUs = () => {
         mt: 15,
         mb: 15,
         backgroundColor: '#f9f9f9',
-        height: '70vh',
+        height: { lg: '750px', md: '1200px' },
         position: 'relative',
         top: 0,
       }}

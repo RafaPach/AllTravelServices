@@ -561,6 +561,7 @@ a {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  border-radius: 8px;
 }
 
 .flip-card-back {
@@ -608,18 +609,208 @@ a {
   border-radius: 0 0 50% 50% / 0 0 50% 50%; /* Creates the curved effect */
 }
 
-.background-box {
-  height: 100vh;
-  /* width: 100vw; */
+/* .background-box {
+  padding-bottom: 30px;
+
   background-image: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0) 40%,
       white 80%
     ),
-    /* Gradient fade to white */
+    
       linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
-    url('../Assests/submit6.jpg');
-  background-size: 100% 100%; /* Stretch to fill the viewport */
+    url('../Assests/Submit5.jpg');
+  background-size: 100% 100%; 
   background-position: center;
   background-repeat: no-repeat;
+} */
+
+.card-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-content .content {
+  animation: fade-slide 1s ease-in-out;
+}
+
+@keyframes fade-slide {
+  0% {
+    opacity: 0;
+    transform: translateX(70%);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* .card-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  position: absolute;
+  animation: slide-both 1s ease-in-out;
+}
+
+@keyframes slide-both {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.content.exit {
+  animation: slide-out 1s ease-in-out forwards;
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+} */
+
+/* ------------------------------------------------------------------ */
+
+*.footer {
+  display: flex;
+
+  flex-flow: row wrap;
+
+  padding: 10px 10px 10px 20px;
+
+  color: #2f2f2f;
+
+  background-color: #faf6f0;
+
+  border-top: 1px solid #e5e5e5;
+}
+.footer > * {
+  flex: 1 100%;
+}
+
+.footer__addr {
+  margin-top: 2em;
+  margin-right: 1.25em;
+  margin-left: 10em;
+  margin-bottom: 2em;
+  flex: 1 1 30%; /* Align with other sections */
+}
+
+.footer__addr h2 {
+  margin-top: 1.1em;
+
+  font-size: 15px;
+
+  font-weight: 400;
+}
+
+.nav__title {
+  font-weight: 400;
+
+  font-size: 15px;
+}
+
+.footer address {
+  font-style: normal;
+
+  color: #999;
+}
+
+.footer ul {
+  list-style: none;
+
+  padding-left: 0;
+}
+
+.footer li {
+  line-height: 2em;
+  font-size: 12px;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer__nav {
+  display: flex;
+
+  flex-flow: row wrap;
+  flex: 1 1 50%; /* Adjust the width to match the address */
+}
+
+.footer__nav > * {
+  flex: 1 50%;
+
+  margin-right: 1.25em;
+}
+
+.nav__ul a {
+  color: #999;
+  font-size: 13px;
+}
+
+.nav__ul {
+  margin-top: 1.5em;
+  /* margin-left: 5; */
+}
+
+.legal {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #999;
+  font-size: 12px;
+  margin-top: 1.5em;
+  width: 100%;
+  margin-left: 13em;
+}
+
+.legal_madeby {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes to the right side, aligning with "Contact Us" */
+}
+
+.heart {
+  color: #2f2f2f;
+}
+
+@media screen and (min-width: 24.375em) {
+  .legal .legal__links {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 40.375em) {
+  .footer__nav > * {
+    flex: 1;
+  }
+
+  .nav__item--extra {
+    flex-grow: 1;
+  }
+
+  .footer__addr {
+    flex: 1 0px;
+  }
+
+  .footer__nav {
+    flex: 2 0px;
+  }
 }

@@ -30,9 +30,6 @@ export default function Try() {
       </Head>
       <Box className="fullScreen">
         <NavbarAlt2 />
-
-        {/* <NavbarAlt /> */}
-        {/* <HelloPageAlt /> */}
         <HelloPageAlt2 />
         <HomeServicesAlt />
         {/* <AboutUs /> */}

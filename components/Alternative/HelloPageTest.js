@@ -34,7 +34,7 @@ export default function HelloPageAlt2() {
           <Box className="drop-shadow">
             <Typography
               color="#1A3C6E"
-              fontSize={{ lg: '40px', md: '30px', sm: '26px', xs: '22px' }}
+              fontSize={{ lg: '35px', md: '30px', sm: '26px', xs: '22px' }}
               lineHeight={{ lg: '70px', md: '50px', sm: '40px', xs: '35px' }}
               fontWeight="700"
             >
@@ -42,7 +42,7 @@ export default function HelloPageAlt2() {
             </Typography>
             <Typography
               color="#1A3C6E"
-              fontSize={{ lg: '36px', md: '30px', sm: '26px', xs: '20px' }}
+              fontSize={{ lg: '34px', md: '30px', sm: '26px', xs: '20px' }}
               lineHeight={{ lg: '70px', md: '50px', sm: '40px', xs: '35px' }}
               fontWeight="700"
               paddingBottom="20px"
@@ -53,7 +53,7 @@ export default function HelloPageAlt2() {
           <Typography
             className="drop-shadow-service"
             color="#2B193D"
-            fontSize={{ lg: '20px', md: '18px', sm: '16px', xs: '14px' }}
+            fontSize={{ lg: '19px', md: '18px', sm: '16px', xs: '14px' }}
             fontWeight="700"
           >
             Safe and reliable transport services
@@ -61,7 +61,7 @@ export default function HelloPageAlt2() {
           <Typography
             className="drop-shadow-service"
             color="#2B193D"
-            fontSize={{ lg: '20px', md: '18px', sm: '16px', xs: '14px' }}
+            fontSize={{ lg: '19px', md: '18px', sm: '16px', xs: '14px' }}
             fontWeight="700"
             paddingBottom="30px"
           >
@@ -78,7 +78,7 @@ export default function HelloPageAlt2() {
             // }}
             style={{
               borderRadius: 15,
-              height: 65,
+              height: 60,
               width: 170,
             }}
           >
