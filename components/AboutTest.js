@@ -219,7 +219,7 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import AllTravel3D from '../Assests/AllTravel3D.png';
-import Smoke from '../Assests/Smoke.png';
+import Smoke from '../Assests/NoSmoke.png';
 import DBS from '../Assests/DBS.png';
 import Punctual from '../Assests/Punctual.png';
 

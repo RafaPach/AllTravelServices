@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Stack, Grid, Link } from '@mui/material';
 import AllTravel3D from '../Assests/AllTravel3D.png';
-import Smoke from '../Assests/Smoke.png';
+import Smoke from '../Assests/NoSmoke.png';
 import DBS from '../Assests/DBS.png';
 import Punctual from '../Assests/Punctual.png';
 import Image from 'next/image';

@@ -11,7 +11,7 @@ function FooterComp() {
 
       <footer className="footer">
         <div className="footer__addr">
-          <Image src={Logo} height={45} width={110} alt="Logo" />{' '}
+          <Image src={Logo} height={45} width={100} alt="Logo" />{' '}
           <div className="nav__ul">
             <a href="#">
               All Travel Services offers transport solutions in East Anglia{' '}

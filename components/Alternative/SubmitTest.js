@@ -152,135 +152,125 @@ const EmailForm2 = () => {
       <Box
         ml={{ xs: 2, sm: 5, md: 10, lg: 15 }}
         mt={10}
-        sx={{ minHeight: '90vh' }} // Full viewport height}}
+        sx={{ minHeight: '90vh' }}
       >
-        <Stack spacing={2}>
-          <Typography
-            color="#1E1E1E"
-            fontWeight="500"
-            fontSize={{ xs: '24px', sm: '30px' }}
-          >
-            Submit an Enquiry <span className="dotColor">.</span>
-          </Typography>
-          <div className="aboutline"></div>
-        </Stack>
-        <Stack>
-          <Box mt={5}>
-            <Grid container mb={5}>
-              <Grid xs={10} sm={10} md={8} lg={6}>
-                <Stack
-                  spacing={2}
-                  direction={{ xs: 'column', sm: 'row' }}
-                  sx={{ mb: 4 }}
-                >
-                  <TextField
-                    name="name"
-                    label="Name"
-                    value={formData.name}
-                    variant="outlined"
-                    onChange={handleChange}
-                    required
-                    fullWidth
-                  />
-                  <TextField
-                    name="subject"
-                    label="Subject"
-                    value={formData.subject}
-                    variant="outlined"
-                    onChange={handleChange}
-                    required
-                    fullWidth
-                  />
-                </Stack>
+        <Typography
+          color="#1E1E1E"
+          fontWeight="500"
+          fontSize={{ xs: '24px', sm: '30px' }}
+          mb={2}
+        >
+          Submit an Enquiry <span className="dotColor">.</span>
+        </Typography>
+        <div className="aboutline"></div>
 
-                <Stack
-                  spacing={2}
-                  direction={{ xs: 'column', sm: 'row' }}
-                  sx={{ mb: 4 }}
-                >
-                  <TextField
-                    name="phoneNr"
-                    label="Phone Number"
-                    value={formData.phoneNr}
-                    variant="outlined"
-                    onChange={handleChange}
-                    error={errors.phone}
-                    helperText={
-                      errors.phone ? 'Please enter a valid number' : ''
-                    }
-                    required
-                    fullWidth
-                  />
-                  <TextField
-                    name="email"
-                    label="Email Address"
-                    value={formData.email}
-                    variant="outlined"
-                    onChange={handleChange}
-                    inputProps={{ type: 'email' }}
-                    error={errors.email}
-                    helperText={
-                      errors.email ? 'Please enter a valid email' : ''
-                    }
-                    required
-                    fullWidth
-                  />
-                </Stack>
+        <Typography>
+          Please use this sections for enquiries like looking for a job etc
+        </Typography>
 
+        <Grid container spacing={5} mt={5}>
+          {/* Form Section */}
+          <Grid item xs={12} sm={12} md={7} lg={7}>
+            <Grid container spacing={2}>
+              {/* First Row: Name & Subject */}
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  name="name"
+                  label="Name"
+                  value={formData.name}
+                  variant="outlined"
+                  onChange={handleChange}
+                  required
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  name="subject"
+                  label="Subject"
+                  value={formData.subject}
+                  variant="outlined"
+                  onChange={handleChange}
+                  required
+                  fullWidth
+                />
+              </Grid>
+
+              {/* Second Row: Phone Number & Email */}
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  name="phoneNr"
+                  label="Phone Number"
+                  value={formData.phoneNr}
+                  variant="outlined"
+                  onChange={handleChange}
+                  error={errors.phone}
+                  helperText={errors.phone ? 'Please enter a valid number' : ''}
+                  required
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  name="email"
+                  label="Email Address"
+                  value={formData.email}
+                  variant="outlined"
+                  onChange={handleChange}
+                  inputProps={{ type: 'email' }}
+                  error={errors.email}
+                  helperText={errors.email ? 'Please enter a valid email' : ''}
+                  required
+                  fullWidth
+                />
+              </Grid>
+
+              {/* Message */}
+              <Grid item xs={12}>
                 <TextField
                   name="message"
                   label="Message"
                   value={formData.message}
                   variant="outlined"
                   required
-                  rows={4}
+                  rows={10}
                   multiline
                   onChange={handleChange}
                   fullWidth
                 />
               </Grid>
+
+              {/* Submit Button */}
+              <Grid item xs={12}>
+                <Box
+                  className="cta"
+                  width="155px"
+                  mb={5}
+                  mt={3}
+                  onClick={handleSubmit}
+                >
+                  <span>Submit</span>
+                  <svg width="13px" height="12px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
+                </Box>
+              </Grid>
             </Grid>
-            <Box className="cta" width="155px" mb={5} onClick={handleSubmit}>
-              <span>Submit</span>
-              <svg width="13px" height="12px" viewBox="0 0 13 10">
-                <path d="M1,5 L11,5"></path>
-                <polyline points="8 1 12 5 8 9"></polyline>
-              </svg>
+          </Grid>
+
+          {/* Image Section */}
+          <Grid item xs={12} sm={12} md={5} lg={5}>
+            <Box sx={{ display: { xs: 'none', sm: 'block' }, ml: 4 }}>
+              <Image
+                src={Submit4}
+                width={400}
+                height={400}
+                style={{ opacity: '0.6' }}
+              />
             </Box>
-          </Box>
-          <Box>
-            <Image
-              src={Submit4}
-              width={400}
-              height={400}
-              style={{ opacity: ' 0.6' }}
-            />
-          </Box>
-        </Stack>
-        {/* <Image
-          src={Submit1}
-          width={400}
-          height={400}
-          style={{ opacity: ' 0.6' }}
-        />
-        <Image
-          src={Submit2}
-          width={400}
-          height={400}
-          style={{ opacity: ' 0.6' }}
-        />
-        <Image
-          src={Submit3}
-          width={400}
-          height={400}
-          style={{ opacity: ' 0.6' }}
-        />
-        <Image
-          src={Submit4}
-          width={400}
-          height={400}
-          style={{ opacity: ' 0.6' }}
-        /> */}
+          </Grid>
+        </Grid>
       </Box>
     </ThemeProvider>
   );

@@ -9,31 +9,29 @@ import {
 } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import FooterComp from '../Footer/Footer';
+import Image from 'next/image';
+import LocalTaxiIcon from '@mui/icons-material/LocalTaxi';
 
 const testimonials = [
   {
-    title: 'Burberryx',
+    title: 'Ashley',
     location: 'Nuts',
-    content: `The team at Hunter Express have consistently provided top-notch logistics solutions for our business. 
-              Their attention to detail and customer support has been exemplary.`,
+    content: `This company is the only company which is able to effectively provide transport for my daughter. A lot have tried, but failed as she has very complex needs, and I know she can be very difficult to handle. Honestly she couldn’t be happier with this service and I appreciate everything you guys at ATS do! ❤️❤️`,
   },
   {
-    title: 'Pamal',
+    title: 'Richard',
     location: 'NO comment',
-    content: `The team at Hunter Express have consistently provided top-notch logistics solutions for our business. 
-              Their attention to detail and customer support has been exemplary.`,
+    content: `Got picked up in a brand new Mercedes AMG GLC, safe to say I arrived to my business meeting in style. The driver was dressed smart, opened the door for me and made me feel like a king. The executive option was pricey but completely worth it, definitely will be coming back.`,
   },
   {
-    title: 'Logistics',
+    title: 'Jackie',
     location: 'London',
-    content: `The team at Hunter Express have consistently provided top-notch logistics solutions for our business. 
-              Their attention to detail and customer support has been exemplary.`,
+    content: `The staff in your company are very talented, I was shocked when I found out that the driver was able to use sign language with my disabled son to communicate with him. Please let them know I am so grateful that they go out of their way to make my son feel at ease.`,
   },
   {
-    title: 'Retail',
+    title: 'Grace',
     location: 'Birmingham',
-    content: `Hunter Express has played a vital role in ensuring our supply chain runs smoothly. 
-              Their reliable service and communication have been invaluable to our operations.`,
+    content: `In the past I have used a lot of taxi services all over Suffolk, but by far this is the best one I have used. Drivers are always on time even during rush hour. The drivers are very experienced and polite, this company is exceptional.`,
   },
   {
     title: 'Supply Chain',
@@ -138,25 +136,46 @@ const Testimonials = () => {
         >
           {displayedTestimonials.map((testimonial, index) => (
             <Card
-              key={index} // Don't forget the key!
+              key={index} // Key for list rendering
               sx={{
                 width: { xs: '100%', sm: '45%', md: '40%' },
-
                 height: '350px',
-
-                display: 'flex', // Makes the card flexible
-
-                flexDirection: 'column', // Stacks the content vertically
-
-                justifyContent: 'center', // Centers the content vertically
-
-                alignItems: 'center', // Centers the content horizontally
-
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-start', // Content starts at the top
+                alignItems: 'center',
                 borderRadius: '15px',
-
-                margin: '10px', // Margin for spacing without causing overflow
+                margin: '10px',
+                textAlign: 'center', // Centers text inside the card
+                paddingTop: '50px', // Add space for the image overlap
+                position: 'relative', // Enable absolute positioning for the image
+                overflow: 'visible', // Allow content to overflow outside the card
               }}
             >
+              {/* Circular Icon Container */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '-40px', // Push the icon up (adjust as needed)
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: '50%', // Makes it circular
+                  overflow: 'hidden',
+                  border: '3px solid white', // Adds a border around the icon
+                  background: 'white', // Light background for contrast
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <LocalTaxiIcon
+                  sx={{
+                    fontSize: '40px', // Adjust icon size
+                    color: '#ff6f61', // Customize the color as needed
+                  }}
+                />
+              </div>
+
               <CardContent className="card-content">
                 <div key={currentIndex} className="content">
                   <Typography

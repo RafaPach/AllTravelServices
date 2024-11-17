@@ -29,21 +29,24 @@ export default function Try() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Box className="fullScreen">
-        <NavbarAlt2 />
+        {/* <NavbarAlt2 />
         <HelloPageAlt2 />
         <HomeServicesAlt />
-        {/* <AboutUs /> */}
-
         <WhyUs />
         <InfoCards />
-        <Testimonials />
+        <Testimonials /> */}
+
         {/* <SubmitEnquiry /> */}
-        {/* <HomeServicesAlt2 />
-        <About2 /> */}
+        {/* <HomeServicesAlt2 /> */}
+
         {/* <Services /> */}
         {/* <InfoCards /> */}
-        {/* <EmailForm2 />
-        <TravelQuoteForm /> */}
+        {/* <EmailForm2 /> */}
+        {/* <TravelQuoteForm /> */}
+
+        <AboutUs />
+
+        <About2 />
       </Box>
     </>
   );
