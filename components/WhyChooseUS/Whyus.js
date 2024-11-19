@@ -11,15 +11,37 @@ const WhyBookWithUs = () => {
 
   const [isVisible, setIsVisible] = useState();
 
+  const [scrollDirection, setScrollDirection] = useState(null); // "up" or "down"
+  const [prevY, setPrevY] = useState(0); // Tracks the previous position of the section
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
+      const currentY = entry.boundingClientRect.top;
 
-      setIsVisible(entry.isIntersecting);
+      // Check if the user is scrolling down
+      if (currentY < prevY) {
+        setScrollDirection('down');
+      } else {
+        setScrollDirection('up');
+      }
+
+      setPrevY(currentY);
+
+      // Trigger the effect only if scrolling down and the section becomes visible
+      if (scrollDirection === 'down' && entry.isIntersecting) {
+        setIsVisible(true);
+      }
     });
 
-    observer.observe(myRef.current);
-  }, []);
+    if (myRef.current) {
+      observer.observe(myRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [scrollDirection, prevY]);
 
   return (
     <Box

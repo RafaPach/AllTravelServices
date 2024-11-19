@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import Dbs from '../../Assests/DBSS.png';
 import Smoke from '../../Assests/NoSmoke.png';
-import Time from '../../Assests/Punctual2.png';
+import Time from '../../Assests/Punctual.png';
 import Image from 'next/image';
 import SafeGuarding from '../../Assests/SafeGuarding.png';
 
@@ -55,14 +55,14 @@ const CenterCard = () => {
             mt: 5,
           }}
         >
-          <Typography sx={{ fontSize: '28px' }}>
+          <Typography sx={{ fontSize: '24px' }}>
             Our Standards of Excellence
           </Typography>
-          <Typography sx={{ fontSize: '20px' }}>
+          <Typography sx={{ fontSize: '18px' }}>
             At All Travel Service we deeply care about this and how our drivers
             etc etc and make sure costumer at heard As well as no smooke etc etc
           </Typography>
-          <Grid container spacing={2} mt="10px">
+          {/* <Grid container spacing={2} mt="10px">
             <Grid item xs={3} textAlign="center">
               <Image
                 src={Dbs}
@@ -90,8 +90,8 @@ const CenterCard = () => {
             <Grid item xs={3} textAlign="center" mt={1}>
               <Image
                 src={Time}
-                width={115}
-                height={110}
+                width={140}
+                height={130}
                 className="imageabout-hover"
                 style={{ position: 'relative', zIndex: 1 }}
               />
@@ -111,6 +111,63 @@ const CenterCard = () => {
                 Safeguarding Training
               </Typography>
             </Grid>
+          </Grid> */}
+          <Grid container spacing={2} mt="10px" alignItems="stretch">
+            {[
+              { src: Dbs, width: 115, height: 120, text: 'DBS Cleared' },
+              {
+                src: Smoke,
+                width: 104,
+                height: 120,
+                text: 'No Smoking Policies',
+              },
+              { src: Time, width: 140, height: 130, text: 'Punctual' },
+              {
+                src: SafeGuarding,
+                width: 120,
+                height: 120,
+                text: 'Safeguarding Training',
+              },
+            ].map((item, index) => (
+              <Grid
+                item
+                xs={3}
+                textAlign="center"
+                key={index}
+                style={{ position: 'relative', zIndex: 1 }}
+              >
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
+                  justifyContent="center"
+                  height="200px" // Ensure a consistent height for all items
+                >
+                  <Box
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    height="130px" // Force images to align uniformly
+                  >
+                    <Image
+                      src={item.src}
+                      width={item.width}
+                      height={item.height}
+                      className="imageabout-hover"
+                    />
+                  </Box>
+                  <Typography
+                    sx={{
+                      fontWeight: 700,
+                      fontSize: '17px',
+                      marginTop: '10px',
+                    }}
+                  >
+                    {item.text}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
           </Grid>
         </CardContent>
       </Card>

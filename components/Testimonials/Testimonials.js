@@ -53,11 +53,27 @@ const Testimonials = () => {
 
   const myRef = useRef();
   const [isVisible, setIsVisible] = useState();
+  const [scrollDirection, setScrollDirection] = useState(null); // "up" or "down"
+  const [prevY, setPrevY] = useState(0); // Tracks the previous position of the section
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
-      setIsVisible(entry.isIntersecting);
+      const currentY = entry.boundingClientRect.top;
+
+      // Check if the user is scrolling down
+      if (currentY < prevY) {
+        setScrollDirection('down');
+      } else {
+        setScrollDirection('up');
+      }
+
+      setPrevY(currentY);
+
+      // Trigger visibility only if scrolling down
+      if (scrollDirection === 'down' && entry.isIntersecting) {
+        setIsVisible(true);
+      }
     });
 
     if (myRef.current) {
@@ -77,7 +93,7 @@ const Testimonials = () => {
       }
       clearInterval(interval);
     };
-  }, []);
+  }, [scrollDirection, prevY]); // Dependencies for the new states
 
   // Dynamically select 2 testimonials at a time
   const displayedTestimonials = [
@@ -90,7 +106,7 @@ const Testimonials = () => {
       <Container
         style={{
           textAlign: 'center',
-          marginTop: '50px',
+          marginTop: '10px',
           backgroundColor: '#f9f9f9',
           height: 'auto',
           minHeight: '90vh',

@@ -181,6 +181,7 @@ export default function NavbarAlt2({ color }) {
 
                               sm: '0.45rem',
                             },
+                            textAlign: 'center',
                           }}
                         >
                           {link}

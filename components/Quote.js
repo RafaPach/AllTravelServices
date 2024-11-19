@@ -197,7 +197,7 @@ function TravelQuoteForm() {
 
           textAlign: 'justify',
 
-          mb: 10,
+          mb: 5,
         }}
       >
         <Stack sx={{ width: '600px', height: '250px', direction: 'column' }}>
@@ -209,7 +209,6 @@ function TravelQuoteForm() {
               details needed.
             </Typography>
           </Box>
-
           <Box
             sx={{
               width: '600px',

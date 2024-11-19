@@ -15,7 +15,7 @@ import {
 import Grid from '@mui/material/Grid2';
 import { styled } from '@mui/system';
 import CenterCard from './CenterCard';
-import NavOnlyAbout from '../Navbar/NavOnlyAbout';
+import NavbarForPages from '../Navbar/NavbarForPages';
 
 const theme = createTheme();
 
@@ -32,13 +32,13 @@ const AboutUs = () => {
     <ThemeProvider theme={theme}>
       <div>
         <div className="curved-background">
-          <NavOnlyAbout />
+          <NavbarForPages />
         </div>
 
         <Stack
           mt={{ lg: '50px', md: '100px', xs: '50px' }}
           mb="30px"
-          ml="190px"
+          mx={26}
           spacing={2}
         >
           <Typography

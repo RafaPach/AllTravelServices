@@ -27,13 +27,29 @@ import FeatureComp from './Features';
 function InfoCards() {
   const serviceRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState(null); // "up" or "down"
+  const [prevY, setPrevY] = useState(0); // Tracks the previous position of the section
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.isIntersecting);
+        const currentY = entry.boundingClientRect.top;
+
+        // Check if the user is scrolling down
+        if (currentY < prevY) {
+          setScrollDirection('down');
+        } else {
+          setScrollDirection('up');
+        }
+
+        setPrevY(currentY);
+
+        // Trigger visibility only if scrolling down
+        if (scrollDirection === 'down' && entry.isIntersecting) {
+          setIsVisible(true);
+        }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 } // Existing threshold for intersection
     );
 
     if (serviceRef.current) {
@@ -45,7 +61,7 @@ function InfoCards() {
         observer.disconnect();
       }
     };
-  }, []);
+  }, [scrollDirection, prevY]); // Add new dependencies
 
   return (
     <Box className="background-box" id="services">
@@ -63,8 +79,14 @@ function InfoCards() {
           }}
         >
           {/* Cards Section */}
-          <Grid item xs={12} md={8} sx={{ marginBottom: '30px' }}>
-            <Grid container spacing={5}>
+          <Grid
+            item
+            xs={12}
+            md={8}
+            sx={{ marginBottom: '30px' }}
+            className={`cardEffect ${isVisible ? 'fadeInRight' : ''}`}
+          >
+            <Grid container spacing={6}>
               {' '}
               {/* Increased spacing between cards */}
               <Grid
@@ -72,7 +94,7 @@ function InfoCards() {
                 xs={12}
                 sm={6}
                 ref={serviceRef}
-                className={`cardEffect ${isVisible ? 'fadeInRight' : ''}`}
+                // className={`cardEffect ${isVisible ? 'fadeInRight' : ''}`}
               >
                 <ServCards
                   pic={RealExecute}
@@ -87,7 +109,7 @@ function InfoCards() {
                 xs={12}
                 sm={6}
                 ref={serviceRef}
-                className={`cardEffect ${isVisible ? 'fadeInLeft' : ''}`}
+                // className={`cardEffect ${isVisible ? 'fadeInLeft' : ''}`}
               >
                 <ServCards
                   pic={RealPrivate}
@@ -102,7 +124,7 @@ function InfoCards() {
                 xs={12}
                 sm={6}
                 ref={serviceRef}
-                className={`cardEffect ${isVisible ? 'fadeInRight' : ''}`}
+                // className={`cardEffect ${isVisible ? 'fadeInRight' : ''}`}
               >
                 <ServCards
                   pic={RealAssisted}
@@ -117,7 +139,7 @@ function InfoCards() {
                 xs={12}
                 sm={6}
                 ref={serviceRef}
-                className={`cardEffect ${isVisible ? 'fadeInLeft' : ''}`}
+                // className={`cardEffect ${isVisible ? 'fadeInLeft' : ''}`}
               >
                 <ServCards
                   pic={RealSchool}
@@ -136,7 +158,10 @@ function InfoCards() {
             xs={12}
             md={4}
             ref={serviceRef}
-            className={`cardEffect ${isVisible ? 'fadeInUp' : ''}`}
+            className={`cardEffect ${isVisible ? 'fadeInLeft' : ''}`}
+            sx={{
+              order: { xs: 2, md: 1 }, // Moves to the end on small screens
+            }}
           >
             <Box
               className="advantages-card"
@@ -146,8 +171,8 @@ function InfoCards() {
                 borderRadius: '8px',
                 padding: '20px',
                 height: '97%',
-                marginLeft: '100px',
-                width: '400px',
+                width: { xs: '100%', md: '400px' }, // Full width on small screens
+                marginLeft: { md: '100px', xs: 0 },
               }}
             >
               <FeatureComp />

@@ -641,7 +641,7 @@ a {
 
 
 
-.background-box {
+/* .background-box {
   padding-bottom: 30px;
 
   background-image: linear-gradient(
@@ -655,7 +655,7 @@ a {
   background-size: 100% 100%; 
   background-position: center;
   background-repeat: no-repeat;
-}
+} */
 
 .card-content {
   position: relative;
@@ -896,11 +896,11 @@ a {
 
 /* Fade from right */
 .fadeInLeft {
-  animation: fadeInLeft 2s ease forwards;
+  animation: fadeInLeft 2.5s ease forwards;
 }
 
 .fadeInRight {
-  animation: fadeInRight 2s ease forwards;
+  animation: fadeInRight 2.5s ease forwards;
 }
 
 @keyframes fadeInRight {
@@ -925,7 +925,7 @@ a {
 
 
 .fadeInUp {
-  animation: fadeInUp 2s ease forwards;
+  animation: fadeInUp 3s ease forwards;
 }
 
 @keyframes fadeInUp {

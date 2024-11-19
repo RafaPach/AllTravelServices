@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+
 import {
   AppBar,
   Box,
@@ -37,6 +39,11 @@ export default function Navbarpages({ color }) {
       </Slide>
     );
   }
+
+  const router = useRouter(); // Get the router instance from Next.js
+
+  // Check if the current route is '/about'
+  const isAboutPage = router.pathname === '/about';
 
   return (
     <HideOnScroll>
@@ -106,69 +113,53 @@ export default function Navbarpages({ color }) {
                   position: 'sticky',
                 }}
               >
-                <Image
-                  src={Logo}
-                  alt="Logo"
-                  width={155} // adjust for medium screens
-                  height={70} // adjust for medium screens
-                  sx={{
-                    width: { lg: 250, md: 200, sm: 150 },
-                    height: { lg: 100, md: 90, sm: 70 },
-                  }}
-                  id="logoIMG"
-                />
+                {!isAboutPage && (
+                  <Image
+                    src={Logo}
+                    alt="Logo"
+                    width={155} // Adjust for medium screens
+                    height={70} // Adjust for medium screens
+                    sx={{
+                      width: { lg: 250, md: 200, sm: 150 },
+                      height: { lg: 100, md: 90, sm: 70 },
+                    }}
+                    id="logoIMG"
+                  />
+                )}
+
                 <Stack
                   direction="row"
                   spacing={{ lg: 6, md: 4, sm: 2 }}
                   display="flex"
                   justifyContent="end"
                   width="100%"
-                  // sx={{ backgroundColor: 'red' }}
                 >
-                  {links.map((link, index) =>
-                    link.toLowerCase().replace(/\s+/g, '') == 'services' ? (
-                      <Button
-                        key={index}
-                        className="btn-like"
-                        href={`#${link.toLowerCase().replace(/\s+/g, '')}`}
-                        onClick={() =>
-                          document
-                            .getElementById('services')
-                            .scrollIntoView({ behavior: 'smooth' })
-                        }
-                        sx={{
-                          borderRadius: 3,
-                          height: { lg: 40, md: 40, sm: 30 },
-                          width: { lg: 100, md: 100, sm: 80 },
-                          fontSize: {
-                            lg: '0.75rem',
-                            md: '0.75rem',
-                            sm: '0.45rem',
-                          },
-                        }}
-                      >
-                        {link}
-                      </Button>
-                    ) : (
-                      <Button
-                        key={index}
-                        className="btn-like"
-                        href={`/${link.toLowerCase().replace(/\s+/g, '')}`}
-                        sx={{
-                          borderRadius: 3,
-                          height: { lg: 40, md: 40, sm: 30 },
-                          width: { lg: 110, md: 100, sm: 80 },
-                          fontSize: {
-                            lg: '0.75rem',
-                            md: '0.75rem',
-                            sm: '0.45rem',
-                          },
-                        }}
-                      >
-                        {link}
-                      </Button>
-                    )
-                  )}
+                  {links.map((link, index) => (
+                    <Button
+                      key={index}
+                      className="btn-like"
+                      href={
+                        link.toLowerCase().replace(/\s+/g, '') === 'home' // Check for 'home'
+                          ? '/' // Navigate to root
+                          : link.toLowerCase().replace(/\s+/g, '') ===
+                            'services' // Check for 'services'
+                          ? `#${link.toLowerCase().replace(/\s+/g, '')}` // Navigate to section like #services
+                          : `/${link.toLowerCase().replace(/\s+/g, '')}` // All other links navigate to their corresponding page
+                      }
+                      sx={{
+                        borderRadius: 3,
+                        height: { lg: 40, md: 40, sm: 30 },
+                        width: { lg: 110, md: 100, sm: 80 },
+                        fontSize: {
+                          lg: '0.75rem',
+                          md: '0.75rem',
+                          sm: '0.45rem',
+                        },
+                      }}
+                    >
+                      {link}
+                    </Button>
+                  ))}
                 </Stack>
               </Toolbar>
             </AppBar>

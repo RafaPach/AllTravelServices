@@ -174,24 +174,17 @@ const EmailForm2 = () => {
         <Box
           sx={{
             display: 'flex',
-
             justifyContent: 'start',
-
             alignItems: 'center',
-
             textAlign: 'justify',
-
             mt: 0,
           }}
         >
           <Box
             sx={{
               width: '600px',
-
               height: '150px',
-
               justifyContent: 'center',
-
               alignContent: 'center',
             }}
           >
