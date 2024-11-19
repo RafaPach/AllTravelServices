@@ -6,9 +6,7 @@ import emailjs from '@emailjs/browser';
 import Image from 'next/image';
 import ReCAPTCHA from 'react-google-recaptcha';
 
-import Submit1 from '../../Assests/Submit1.jpeg';
-import Submit2 from '../../Assests/Submit2.jpg';
-import Submit3 from '../../Assests/Submit3.jpg';
+import Navbarpages from '../Navbar/NavbarForPages';
 import Submit4 from '../../Assests/Submit4.png';
 const customTheme = (outerTheme) =>
   createTheme({
@@ -149,26 +147,64 @@ const EmailForm2 = () => {
 
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
+      <div className="curved-background-quote">
+        <Navbarpages />
+      </div>
+
       <Box
         ml={{ xs: 2, sm: 5, md: 10, lg: 15 }}
-        mt={10}
+        mt={5}
+        mb={10}
         sx={{ minHeight: '90vh' }}
       >
-        <Typography
-          color="#1E1E1E"
-          fontWeight="500"
-          fontSize={{ xs: '24px', sm: '30px' }}
-          mb={2}
+        <Box sx={{ display: 'flex', justifyContent: 'start', m: 1 }}>
+          <Stack spacing={2} mb="30px">
+            <Typography
+              color="#1E1E1E"
+              fontWeight="500"
+              fontSize={{ xs: '24px', sm: '30px' }}
+            >
+              Submit an Enquiry<span className="dotColor">.</span>
+            </Typography>
+
+            <div className="aboutline"></div>
+          </Stack>
+        </Box>
+
+        <Box
+          sx={{
+            display: 'flex',
+
+            justifyContent: 'start',
+
+            alignItems: 'center',
+
+            textAlign: 'justify',
+
+            mt: 0,
+          }}
         >
-          Submit an Enquiry <span className="dotColor">.</span>
-        </Typography>
-        <div className="aboutline"></div>
+          <Box
+            sx={{
+              width: '600px',
 
-        <Typography>
-          Please use this sections for enquiries like looking for a job etc
-        </Typography>
+              height: '150px',
 
-        <Grid container spacing={5} mt={5}>
+              justifyContent: 'center',
+
+              alignContent: 'center',
+            }}
+          >
+            <Typography sx={{ fontSize: '14px', color: '#333333' }}>
+              Please complete the form to the best of your ability to request a
+              booking. Once your request is received, we will contact you to
+              confirm the booking, provide the price, and address any additional
+              details needed.
+            </Typography>
+          </Box>
+        </Box>
+
+        <Grid container spacing={5} mt={0}>
           {/* Form Section */}
           <Grid item xs={12} sm={12} md={7} lg={7}>
             <Grid container spacing={2}>

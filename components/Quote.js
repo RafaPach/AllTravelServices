@@ -33,6 +33,7 @@ import Image from 'next/image';
 import ReturnJourney from '../Assests/ReturnJourney.png';
 import Oneway from '../Assests/OneWay.png';
 import JourneyCard from './CardJourneyTest';
+import Navbarpages from './Navbar/NavbarForPages';
 
 const customTheme = (outerTheme) =>
   createTheme({
@@ -168,16 +169,70 @@ function TravelQuoteForm() {
 
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
-      {/* <Stack spacing={2} mb="30px">
-        <Typography
-          color="#1E1E1E"
-          fontWeight="500"
-          fontSize={{ xs: '24px', sm: '30px' }}
-        >
-          Request a Quote <span className="dotColor">.</span>
-        </Typography>
-        <div className="aboutline"></div>
-      </Stack> */}
+      <div className="curved-background-quote">
+        <Navbarpages />
+      </div>
+
+      <Box sx={{ display: 'flex', justifyContent: 'center', m: 5 }}>
+        <Stack spacing={2} mb="30px">
+          <Typography
+            color="#1E1E1E"
+            fontWeight="500"
+            fontSize={{ xs: '24px', sm: '30px' }}
+          >
+            Request a Quote <span className="dotColor">.</span>
+          </Typography>
+
+          <div className="aboutline"></div>
+        </Stack>
+      </Box>
+
+      <Box
+        sx={{
+          display: 'flex',
+
+          justifyContent: 'center',
+
+          alignItems: 'center',
+
+          textAlign: 'justify',
+
+          mb: 10,
+        }}
+      >
+        <Stack sx={{ width: '600px', height: '250px', direction: 'column' }}>
+          <Box sx={{ width: '600px', height: '250px' }}>
+            <Typography sx={{ fontSize: '14px', color: '#333333' }}>
+              Please complete the form to the best of your ability to request a
+              booking. Once your request is received, we will contact you to
+              confirm the booking, provide the price, and address any additional
+              details needed.
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              width: '600px',
+              height: '250px',
+              backgroundColor: 'rgba(255, 193, 7, 0.2)',
+              justifyContent: 'center',
+              alignContent: 'center',
+              p: 2,
+            }}
+          >
+            <Box>
+              <Typography
+                sx={{ fontWeight: 700, fontSize: '14px', color: '#8C6D1F' }}
+              >
+                Kindly note that we will reach out to confirm your booking and
+                provide the price. Your booking is not finalized until we have
+                shared the price and confirmed availability. We strive to
+                respond to you as promptly as possible.
+              </Typography>
+            </Box>
+          </Box>
+        </Stack>
+      </Box>
       <Box
         sx={{
           display: 'flex',
@@ -206,7 +261,7 @@ function TravelQuoteForm() {
       <Container
         maxWidth="md"
         // height="100vh"
-        sx={{ mt: 4, bgcolor: '#f9f9f9', p: 3, borderRadius: 2 }}
+        sx={{ mt: 5, bgcolor: '#f0f0f0 ', p: 3, borderRadius: 4, mb: 10 }}
       >
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
           <Box display="flex" justifyContent="center" sx={{ m: 3 }}>
@@ -308,18 +363,18 @@ function TravelQuoteForm() {
                 type="time"
                 value={time}
                 onChange={handleTimeChange}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AccessTimeIcon style={{ width: 15 }} />
-                    </InputAdornment>
-                  ),
+                sx={{
+                  '& input[type="time"]::-webkit-calendar-picker-indicator': {
+                    order: -1, // Moves the default clock icon to the start (not always reliable across browsers)
+                    position: 'absolute',
+                    left: '10px',
+                    filter:
+                      'invert(0) sepia(0) saturate(100%) hue-rotate(0deg) brightness(0) contrast(100%)', // Makes the icon blac
+                  },
+                  '& .MuiInputBase-input': {
+                    paddingLeft: 8,
+                  },
                 }}
-                // sx={{
-                //   '& .MuiInputBase-input': {
-                //     textAlign: 'center',
-                //   },
-                // }}
               />
             </Box>
           </Stack>
@@ -392,12 +447,17 @@ function TravelQuoteForm() {
                   type="time"
                   fullWidth
                   required
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <AccessTimeIcon style={{ width: 15 }} />
-                      </InputAdornment>
-                    ),
+                  sx={{
+                    '& input[type="time"]::-webkit-calendar-picker-indicator': {
+                      order: -1, // Moves the default clock icon to the start (not always reliable across browsers)
+                      position: 'absolute',
+                      left: '10px',
+                      filter:
+                        'invert(0) sepia(0) saturate(100%) hue-rotate(0deg) brightness(0) contrast(100%)', // Makes the icon blac
+                    },
+                    '& .MuiInputBase-input': {
+                      paddingLeft: 8,
+                    },
                   }}
                 />
               </Box>

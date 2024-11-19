@@ -29,12 +29,12 @@ export default function Try() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Box className="fullScreen">
-        {/* <NavbarAlt2 />
+        <NavbarAlt2 />
         <HelloPageAlt2 />
         <HomeServicesAlt />
         <WhyUs />
         <InfoCards />
-        <Testimonials /> */}
+        <Testimonials />
 
         {/* <SubmitEnquiry /> */}
         {/* <HomeServicesAlt2 /> */}
@@ -44,9 +44,8 @@ export default function Try() {
         {/* <EmailForm2 /> */}
         {/* <TravelQuoteForm /> */}
 
-        <AboutUs />
-
-        <About2 />
+        {/* <AboutUs />
+        <Testimonials /> */}
       </Box>
     </>
   );

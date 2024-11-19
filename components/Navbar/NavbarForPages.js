@@ -21,9 +21,9 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Image from 'next/image';
 import Logo from '../../Assests/Logo.png';
 
-export default function NavbarAlt2({ color }) {
+export default function Navbarpages({ color }) {
   const [open, setOpen] = useState(false);
-  const links = ['Home', 'About', 'Services', 'Enquiries', 'Get a Quote'];
+  const links = ['Home', 'About', 'Enquiries', 'Get a Quote'];
 
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -90,104 +90,84 @@ export default function NavbarAlt2({ color }) {
         ) : (
           isLargeScreen && (
             // Desktop Nav
-            <AppBar position="sticky" sx={{ boxShadow: 0, bgcolor: '#faf6f0' }}>
+            <AppBar
+              position="sticky"
+              sx={{ boxShadow: 0, bgcolor: 'transparent' }}
+            >
               <Toolbar
                 sx={{
-                  px: { xs: 2, sm: 4, md: 20 }, // Adjusted for consistent horizontal padding
-                  mt: 4,
+                  p: 2,
+                  ml: { lg: 15, md: 8 },
+                  mr: { lg: '100px', m: '60px' },
                   display: 'flex',
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   position: 'sticky',
-                  top: 0, // Keeps the navbar at the top
-                  zIndex: 100, // Ensures the navbar stays on top
                 }}
               >
                 <Image
                   src={Logo}
                   alt="Logo"
-                  width={200} // Default size for large screens
-                  height={85} // Default size for large screens
+                  width={155} // adjust for medium screens
+                  height={70} // adjust for medium screens
                   sx={{
-                    width: { xs: 130, sm: 150, md: 200, lg: 255 }, // Logo size responsive
-                    height: { xs: 50, sm: 70, md: 90, lg: 95 },
+                    width: { lg: 250, md: 200, sm: 150 },
+                    height: { lg: 100, md: 90, sm: 70 },
                   }}
                   id="logoIMG"
                 />
-
                 <Stack
                   direction="row"
-                  spacing={{ xs: 2, sm: 4, md: 6 }} // Adjusted for consistent button spacing
-                  justifyContent="flex-end"
-                  width="auto" // Ensures the buttons don’t stretch
+                  spacing={{ lg: 6, md: 4, sm: 2 }}
+                  display="flex"
+                  justifyContent="end"
+                  width="100%"
+                  // sx={{ backgroundColor: 'red' }}
                 >
-                  {links.map(
-                    (link, index) =>
-                      // <Link
-
-                      //   href={`/${link.toLowerCase().replace(/\s+/g, '')}`}
-
-                      //   passHref
-
-                      // >
-
-                      link.toLowerCase().replace(/\s+/g, '') == 'services' ? (
-                        <Button
-                          key={index}
-                          className="btn-like"
-                          href={`#${link.toLowerCase().replace(/\s+/g, '')}`}
-                          onClick={() =>
-                            document
-
-                              .getElementById('services')
-
-                              .scrollIntoView({ behavior: 'smooth' })
-                          }
-                          sx={{
-                            borderRadius: 3,
-
-                            height: { lg: 50, md: 40, sm: 30 },
-
-                            width: { lg: 130, md: 100, sm: 80 },
-
-                            fontSize: {
-                              lg: '0.9rem',
-
-                              md: '0.75rem',
-
-                              sm: '0.45rem',
-                            },
-                          }}
-                        >
-                          {link}
-                        </Button>
-                      ) : (
-                        <Button
-                          key={index}
-                          className="btn-like"
-                          href={`/${link.toLowerCase().replace(/\s+/g, '')}`}
-                          sx={{
-                            borderRadius: 3,
-
-                            height: { lg: 50, md: 40, sm: 30 },
-
-                            width: { lg: 130, md: 100, sm: 80 },
-
-                            fontSize: {
-                              lg: '0.9rem',
-
-                              md: '0.75rem',
-
-                              sm: '0.45rem',
-                            },
-                          }}
-                        >
-                          {link}
-                        </Button>
-                      )
-
-                    // </Link>
+                  {links.map((link, index) =>
+                    link.toLowerCase().replace(/\s+/g, '') == 'services' ? (
+                      <Button
+                        key={index}
+                        className="btn-like"
+                        href={`#${link.toLowerCase().replace(/\s+/g, '')}`}
+                        onClick={() =>
+                          document
+                            .getElementById('services')
+                            .scrollIntoView({ behavior: 'smooth' })
+                        }
+                        sx={{
+                          borderRadius: 3,
+                          height: { lg: 40, md: 40, sm: 30 },
+                          width: { lg: 100, md: 100, sm: 80 },
+                          fontSize: {
+                            lg: '0.75rem',
+                            md: '0.75rem',
+                            sm: '0.45rem',
+                          },
+                        }}
+                      >
+                        {link}
+                      </Button>
+                    ) : (
+                      <Button
+                        key={index}
+                        className="btn-like"
+                        href={`/${link.toLowerCase().replace(/\s+/g, '')}`}
+                        sx={{
+                          borderRadius: 3,
+                          height: { lg: 40, md: 40, sm: 30 },
+                          width: { lg: 110, md: 100, sm: 80 },
+                          fontSize: {
+                            lg: '0.75rem',
+                            md: '0.75rem',
+                            sm: '0.45rem',
+                          },
+                        }}
+                      >
+                        {link}
+                      </Button>
+                    )
                   )}
                 </Stack>
               </Toolbar>

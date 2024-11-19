@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Container,
   Typography,
@@ -51,14 +51,32 @@ const Testimonials = () => {
   const itemsPerPage = 2;
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const myRef = useRef();
+  const [isVisible, setIsVisible] = useState();
+
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      setIsVisible(entry.isIntersecting);
+    });
+
+    if (myRef.current) {
+      observer.observe(myRef.current);
+    }
+
     const interval = setInterval(() => {
       setCurrentIndex(
         (prevIndex) => (prevIndex + itemsPerPage) % testimonials.length
       );
-    }, 5000); // Change every 15 seconds
+    }, 5000); // Change every 5 seconds
 
-    return () => clearInterval(interval);
+    return () => {
+      // Cleanup both the observer and the interval
+      if (myRef.current) {
+        observer.disconnect();
+      }
+      clearInterval(interval);
+    };
   }, []);
 
   // Dynamically select 2 testimonials at a time
@@ -86,6 +104,8 @@ const Testimonials = () => {
           padding: '10px 0',
           flexGrow: 1,
         }}
+        ref={myRef}
+        className={`${isVisible}view`}
       >
         {/* TESTIMONIALS Heading */}
 

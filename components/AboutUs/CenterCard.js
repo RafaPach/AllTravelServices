@@ -27,16 +27,25 @@ const CenterCard = () => {
         sx={{
           width: '100%',
           height: '400px',
-          display: 'flex ',
+          display: 'flex',
           justifyContent: 'space-around',
-          backgroundImage:
-            'url(https://m.media-amazon.com/images/I/91eh8LsPtML.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          opacity: 0.9,
+          position: 'relative', // Add this line
         }}
       >
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundImage: `url(/assets/CardTaxiImage.jpeg)`, // Correct path to the image
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            opacity: 0.18,
+          }}
+        />
         <CardContent
           sx={{
             display: 'flex ',
@@ -46,8 +55,10 @@ const CenterCard = () => {
             mt: 5,
           }}
         >
-          <Typography sx={{ fontSize: '24px' }}>Proud Achievements</Typography>
-          <Typography sx={{ color: 'text.secondary', fontSize: '16px' }}>
+          <Typography sx={{ fontSize: '28px' }}>
+            Our Standards of Excellence
+          </Typography>
+          <Typography sx={{ fontSize: '20px' }}>
             At All Travel Service we deeply care about this and how our drivers
             etc etc and make sure costumer at heard As well as no smooke etc etc
           </Typography>
@@ -58,6 +69,7 @@ const CenterCard = () => {
                 width={115}
                 height={120}
                 className="imageabout-hover"
+                style={{ position: 'relative', zIndex: 1 }} // Ensures the image stays on top
               />
               <Typography sx={{ fontWeight: 700, fontSize: '17px' }}>
                 DBS Cleared
@@ -66,9 +78,10 @@ const CenterCard = () => {
             <Grid item xs={3} textAlign="center">
               <Image
                 src={Smoke}
-                width={165}
+                width={104}
                 height={120}
                 className="imageabout-hover"
+                style={{ position: 'relative', zIndex: 1 }}
               />
               <Typography sx={{ fontWeight: 700, fontSize: '17px' }}>
                 No Smoking Policies
@@ -80,6 +93,7 @@ const CenterCard = () => {
                 width={115}
                 height={110}
                 className="imageabout-hover"
+                style={{ position: 'relative', zIndex: 1 }}
               />
               <Typography sx={{ fontWeight: 700, fontSize: '17px' }}>
                 Punctual
@@ -91,6 +105,7 @@ const CenterCard = () => {
                 width={120}
                 height={120}
                 className="imageabout-hover"
+                style={{ position: 'relative', zIndex: 1 }}
               />
               <Typography sx={{ fontWeight: 700, fontSize: '17px' }}>
                 Safeguarding Training

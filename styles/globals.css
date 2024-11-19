@@ -330,7 +330,7 @@ a {
 .cta {
   position: relative;
 
-  padding: 19px 22px;
+  padding: 17px 22px;
 
   transition: all 0.2s ease;
 }
@@ -604,7 +604,7 @@ a {
   left: 0;
   width: 100%;
   height: 300px; /* Adjust for curvature size */
-  background-image: url('https://media.istockphoto.com/id/1324413691/photo/beautiful-sky-with-white-clouds.jpg?b=1&s=612x612&w=0&k=20&c=1PZj5YunYSSl_UJBQusU9nyoHrg8PbF4Ul9ZCxv3eDo='); /* Replace with your image */
+  background-image: url('https://a.travel-assets.com/findyours-php/viewfinder/images/res70/300000/300847-Suffolk.jpg'); /* Replace with your image */
   background-size: cover;
   background-position: center;
   clip-path: ellipse(59% 65% at 53% 29%);
@@ -617,21 +617,45 @@ a {
     height: 200px; /* Adjust for smaller screens */
   }
 }
-/* .background-box {
+
+.curved-background-quote {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px; /* Adjust for curvature size */
+  background-image: url('https://media.istockphoto.com/id/1466527775/photo/ponquogue-beach-in-the-hamptons.jpg?s=2048x2048&w=is&k=20&c=eVghKy9FKZvmZ97fymkRSNEXv2WKR9OdTFk4O5ebte0='); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  clip-path: ellipse(59% 65% at 53% 29%);
+
+}
+
+
+@media (max-width: 768px) {
+  .curved-background-quote {
+    height: 200px; /* Adjust for smaller screens */
+  }
+}
+
+
+
+
+.background-box {
   padding-bottom: 30px;
 
   background-image: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0) 40%,
+      to top,
+      rgba(255, 255, 255, 0) 10%,
       white 80%
     ),
     
-      linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+      linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.4)),
     url('../Assests/Submit5.jpg');
   background-size: 100% 100%; 
   background-position: center;
   background-repeat: no-repeat;
-} */
+}
 
 .card-content {
   position: relative;
@@ -704,7 +728,7 @@ a {
 
   color: #2f2f2f;
 
-  background-color: #faf6f0;
+  /* background-color: #faf6f0; */
 
   border-top: 1px solid #e5e5e5;
 }
@@ -824,10 +848,92 @@ a {
 }
 
 .imageabout-hover {
-  opacity: 2;
+  opacity: 1;
   transition: opacity 0.3s ease;
 }
 
 .imageabout-hover:hover {
   opacity: 0.5;
+}
+
+
+
+
+
+
+.falseview {
+  opacity: 0;
+  transform: translateY(150px);
+  transition: all 2.5s ease;
+
+}
+
+ 
+
+.trueview {
+  opacity: 0;
+  transform: translateY(150px);
+  animation: fadeInup2 2.5s ease forwards;
+
+}
+
+
+@keyframes fadeInup2 {
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
+
+
+
+.cardEffect {
+  opacity: 0;
+  transform: translateX(0); /* Default starting position */
+}
+
+/* Fade from right */
+.fadeInLeft {
+  animation: fadeInLeft 2s ease forwards;
+}
+
+.fadeInRight {
+  animation: fadeInRight 2s ease forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    transform: translateX(-100px); /* Starts from the left */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(100px); /* Starts from the right */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.fadeInUp {
+  animation: fadeInUp 2s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(100px); /* Starts from the right */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,11 +1,12 @@
-import About from '../components/about';
-import Journey from '../components/journey';
+import AboutUs from '../components/AboutUs/About';
+import FooterComp from '../components/Footer/Footer';
+import Testimonials from '../components/Testimonials/Testimonials';
 
 export default function AboutPage() {
   return (
-    // <div id="aboutEase">
     <div>
-      <About />
+      <AboutUs />
+      <Testimonials />
     </div>
   );
 }

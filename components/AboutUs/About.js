@@ -15,6 +15,7 @@ import {
 import Grid from '@mui/material/Grid2';
 import { styled } from '@mui/system';
 import CenterCard from './CenterCard';
+import NavOnlyAbout from '../Navbar/NavOnlyAbout';
 
 const theme = createTheme();
 
@@ -31,7 +32,7 @@ const AboutUs = () => {
     <ThemeProvider theme={theme}>
       <div>
         <div className="curved-background">
-          {/* Content goes here, if needed */}
+          <NavOnlyAbout />
         </div>
 
         <Stack
@@ -43,7 +44,7 @@ const AboutUs = () => {
           <Typography
             color="#1E1E1E"
             fontWeight="500"
-            fontSize={{ lg: '32px', md: '32px', sm: '28px', xs: '24px' }}
+            fontSize={{ lg: '28px', md: '26px', sm: '24px', xs: '22px' }}
           >
             About Us<span className="dotColor">.</span>
           </Typography>
@@ -70,6 +71,7 @@ const AboutUs = () => {
             margin: '0 auto', // Centers the box horizontally by setting equal left and right margins
             borderRadius: '8px',
             padding: '20px',
+            textAlign: 'justify',
           }}
         >
           {isMobile ? (
@@ -118,7 +120,7 @@ const AboutUs = () => {
                 style={{
                   marginBottom: '30px',
                   color: '#6F7E8C',
-                  fontSize: '14px',
+                  fontSize: '16px',
                 }}
               >
                 <span style={{ fontWeight: '700' }}>All Travel Services</span>{' '}
@@ -147,7 +149,7 @@ const AboutUs = () => {
                 style={{
                   marginBottom: '30px',
                   color: '#6F7E8C',
-                  fontSize: '14px',
+                  fontSize: '16px',
                 }}
               >
                 Our team, including{' '}
@@ -172,7 +174,7 @@ const AboutUs = () => {
                 style={{
                   marginBottom: '30px',
                   color: '#6F7E8C',
-                  fontSize: '14px',
+                  fontSize: '16px',
                 }}
               >
                 Our exceptional service is widely recognized as one of the best
@@ -188,7 +190,7 @@ const AboutUs = () => {
                 consistently go above and beyond to uphold the company’s values
                 of customer care and satisfaction.
               </li>
-              <li style={{ color: '#6F7E8C', fontSize: '14px' }}>
+              <li style={{ color: '#6F7E8C', fontSize: '16px' }}>
                 If you have any enquiries,{' '}
                 <a
                   href="/contact"
@@ -205,32 +207,6 @@ const AboutUs = () => {
             </ol>
           )}
         </Box>
-
-        {/* <Grid item xs={12} md={4}>
-            <Sidebar elevation={3}>
-              <List>
-                <ListItem>
-                  <ListItemText primary="Introduction to Ctrip Travel" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="ESG Sustainable Development" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="Commitment to Family-friendly" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="Eco-friendly" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="Investor Relations" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="Recent News" />
-                </ListItem>
-              </List>
-            </Sidebar>
-          </Grid> */}
-        {/* </Grid> */}
       </div>
       <CenterCard />
     </ThemeProvider>

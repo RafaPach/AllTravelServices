@@ -4,20 +4,37 @@ import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import LocalTaxiIcon from '@mui/icons-material/LocalTaxi';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import Grid from '@mui/material/Grid2';
+import { useRef, useEffect, useState } from 'react';
 
 const WhyBookWithUs = () => {
+  const myRef = useRef();
+
+  const [isVisible, setIsVisible] = useState();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+
+      setIsVisible(entry.isIntersecting);
+    });
+
+    observer.observe(myRef.current);
+  }, []);
+
   return (
     <Box
       sx={{
         textAlign: 'center',
         py: 5,
         mt: 15,
-        mb: 15,
+        mb: 8,
         backgroundColor: '#f9f9f9',
         height: { lg: '750px', md: '1200px' },
         position: 'relative',
         top: 0,
       }}
+      ref={myRef}
+      className={`${isVisible}view`}
     >
       <Typography variant="h4" component="h2" gutterBottom>
         Why Choose Us
