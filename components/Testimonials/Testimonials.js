@@ -14,36 +14,34 @@ import LocalTaxiIcon from '@mui/icons-material/LocalTaxi';
 
 const testimonials = [
   {
-    title: 'Ashley',
-    location: 'Nuts',
+    title: 'Ashley Thompson',
+    location: '',
     content: `This company is the only company which is able to effectively provide transport for my daughter. A lot have tried, but failed as she has very complex needs, and I know she can be very difficult to handle. Honestly she couldn’t be happier with this service and I appreciate everything you guys at ATS do! ❤️❤️`,
   },
   {
-    title: 'Richard',
-    location: 'NO comment',
+    title: 'Richard Davies',
+    location: '',
     content: `Got picked up in a brand new Mercedes AMG GLC, safe to say I arrived to my business meeting in style. The driver was dressed smart, opened the door for me and made me feel like a king. The executive option was pricey but completely worth it, definitely will be coming back.`,
   },
   {
-    title: 'Jackie',
-    location: 'London',
+    title: 'Jackie Clarke',
+    location: '',
     content: `The staff in your company are very talented, I was shocked when I found out that the driver was able to use sign language with my disabled son to communicate with him. Please let them know I am so grateful that they go out of their way to make my son feel at ease.`,
   },
   {
-    title: 'Grace',
-    location: 'Birmingham',
+    title: 'Grace Bennett',
+    location: '',
     content: `In the past I have used a lot of taxi services all over Suffolk, but by far this is the best one I have used. Drivers are always on time even during rush hour. The drivers are very experienced and polite, this company is exceptional.`,
   },
   {
-    title: 'Supply Chain',
-    location: 'New York',
-    content: `Thanks to Hunter Express, we've streamlined our distribution processes. 
-              Their expertise has been a game-changer.`,
+    title: 'Tom Harrison',
+    location: '',
+    content: `I’ve never experienced such excellent customer service before. The driver was extremely friendly, professional, and knew the best routes to avoid traffic. It’s rare to find a company that truly cares about its customers, but this one certainly does. I highly recommend them to anyone looking for a reliable and top-quality transport service!`,
   },
   {
-    title: 'E-commerce',
-    location: 'Paris',
-    content: `Hunter Express's solutions have improved our delivery times significantly. 
-              Our customers couldn't be happier!`,
+    title: 'Emma Mitchell',
+    location: '',
+    content: ` was truly impressed with the service I received from this company. The driver not only arrived ahead of time but also ensured I had everything I needed for my trip. I’ve never felt more comfortable and taken care of during a ride. The level of professionalism and care is unmatched, and I’ll definitely be using this service again!`,
   },
 ];
 
@@ -106,7 +104,7 @@ const Testimonials = () => {
       <Container
         style={{
           textAlign: 'center',
-          marginTop: '10px',
+          marginTop: '0px',
           backgroundColor: '#f9f9f9',
           height: 'auto',
           minHeight: '90vh',
@@ -232,7 +230,7 @@ const Testimonials = () => {
                   <Typography
                     sx={{
                       mt: 3,
-
+                      p: 4,
                       cursor: 'pointer',
 
                       fontSize: '16px',

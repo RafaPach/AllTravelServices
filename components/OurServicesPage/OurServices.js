@@ -20,7 +20,14 @@ import RealAssisted from '../../Assests/RealAssisted.jpeg';
 import RealExecute from '../../Assests/RealExecute.jpeg';
 import RealSchool from '../../Assests/RealSchool.jpeg';
 
-import Submit1 from '../../Assests/Submit1.jpeg';
+import GroupIcon from '@mui/icons-material/Group';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import PaymentIcon from '@mui/icons-material/Payment';
+import AccessibleIcon from '@mui/icons-material/Accessible';
+import LuggageIcon from '@mui/icons-material/Luggage';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 import FeatureComp from './Features';
 
@@ -73,7 +80,7 @@ function InfoCards() {
       <Container maxWidth="lg">
         <Grid
           container
-          spacing={8}
+          spacing={3}
           sx={{
             marginLeft: { xs: '0', lg: '-80px' },
           }}
@@ -102,6 +109,31 @@ function InfoCards() {
                   description={
                     'Delivering premium, discreet chauffeur services for VIP clients, ensuring comfort, professionalism, and a luxury experience tailored to your specific needs.'
                   }
+                  backContent={[
+                    { icon: GroupIcon, description: '4-8 Seater Vehicles ' },
+                    {
+                      icon: DirectionsCarIcon,
+                      description: 'Luxury Sedans, SUVs and Minibuses ',
+                    },
+                    {
+                      icon: PaymentIcon,
+                      description:
+                        'Prepayment Required (invoice sent to email) ',
+                    },
+                    {
+                      icon: AccessTimeIcon,
+                      description: 'Punctual and Professional Chauffeur  ',
+                    },
+                    {
+                      icon: EmojiPeopleIcon,
+                      description: 'Meet And Greet Provided ',
+                    },
+                    {
+                      icon: WorkspacePremiumIcon,
+                      description:
+                        'DBS Cleared Driver With Extensive Experience ',
+                    },
+                  ]}
                 />
               </Grid>
               <Grid
@@ -117,6 +149,34 @@ function InfoCards() {
                   description={
                     'Reliable transport solutions for private clients, including long-term partnerships with schools, businesses, and healthcare for scheduled travel.'
                   }
+                  backContent={[
+                    { icon: GroupIcon, description: '4-8 Seater Vehicles ' },
+                    {
+                      icon: DirectionsCarIcon,
+                      description: (
+                        <>
+                          Sedans, SUVs and Minibuses -{' '}
+                          <strong>Multiple Vehicles if required</strong>
+                        </>
+                      ),
+                    },
+                    {
+                      icon: PaymentIcon,
+                      description: 'Monthly Prepayment (Invoice Sent To Email)',
+                    },
+                    {
+                      icon: AccessTimeIcon,
+                      description: 'Punctual And Reliable Staff',
+                    },
+                    {
+                      icon: EmojiPeopleIcon,
+                      description: 'Meet And Greet Provided ',
+                    },
+                    {
+                      icon: WorkspacePremiumIcon,
+                      description: 'DBS Cleared Staff',
+                    },
+                  ]}
                 />
               </Grid>
               <Grid
@@ -132,6 +192,30 @@ function InfoCards() {
                   description={
                     'Safe, comfortable transport for disabled passengers, with trained drivers offering personalized assistance and support throughout the journey.'
                   }
+                  backContent={[
+                    {
+                      icon: GroupIcon,
+                      description:
+                        '4-8 Seater Vehicles (Can Fit 1-2 wheelchairs which extra seats for additional passengers)',
+                    },
+                    {
+                      icon: DirectionsCarIcon,
+                      description:
+                        'Vehicles Fitted With Automatic Electric Tailgate Lifts',
+                    },
+                    {
+                      icon: EmojiPeopleIcon,
+                      description: 'Meet And Greet Provided ',
+                    },
+                    {
+                      icon: AccessTimeIcon,
+                      description: 'Punctual And Reliable Staff',
+                    },
+                    {
+                      icon: WorkspacePremiumIcon,
+                      description: 'DBS Cleared Driver',
+                    },
+                  ]}
                 />
               </Grid>
               <Grid
@@ -147,6 +231,29 @@ function InfoCards() {
                   description={
                     'Providing safe, punctual, and convenient transportation for students, with a strong focus on reliability, care, and flexibility for schools and families.'
                   }
+                  backContent={[
+                    {
+                      icon: GroupIcon,
+                      description: 'Sedans, SUVs and Minibuses',
+                    },
+                    {
+                      icon: PaymentIcon,
+                      description:
+                        'Monthly Prepayment (invoice sent to email) ',
+                    },
+                    {
+                      icon: EmojiPeopleIcon,
+                      description: 'Meet And Greet Provided ',
+                    },
+                    {
+                      icon: AccessibleIcon,
+                      description: 'Passenger Assistant Can Be Provided ',
+                    },
+                    {
+                      icon: WorkspacePremiumIcon,
+                      description: 'DBS Cleared Staff',
+                    },
+                  ]}
                 />
               </Grid>
             </Grid>

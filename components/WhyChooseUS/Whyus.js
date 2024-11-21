@@ -49,7 +49,7 @@ const WhyBookWithUs = () => {
         textAlign: 'center',
         py: 5,
         mt: 15,
-        mb: 8,
+        mb: -7.5,
         backgroundColor: '#f9f9f9',
         height: { lg: '750px', md: '1200px' },
         position: 'relative',

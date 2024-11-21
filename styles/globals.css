@@ -127,8 +127,8 @@ a {
   display: block;
   width: 30px;
   height: 30px;
-  border-bottom: 5px solid rgb(99, 97, 97);
-  border-right: 5px solid #fcb017;
+  border-bottom: 5px solid #fcb017;
+  border-right: 5px solid rgb(99, 97, 97);
   transform: rotate(45deg);
   /* margin-left: 1550px; */
   animation: scroll 2s infinite;
@@ -541,6 +541,7 @@ a {
   width: 350px;
   height: 400px;
   margin: auto;
+  
 }
 
 .flip-card-inner {
@@ -549,6 +550,8 @@ a {
   transition: transform 0.8s;
   transform-style: preserve-3d;
   position: relative;
+  
+ 
 }
 
 .flip-card.flipped .flip-card-inner {
@@ -561,11 +564,12 @@ a {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .flip-card-back {
   transform: rotateY(180deg);
+  
 }
 
 /* Hover effect for lifting and shadow */
@@ -573,6 +577,7 @@ a {
   transform: translateY(-20px);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
   transition: transform 0.5s, box-shadow 0.5s;
+  
 }
 
 .flip-card:hover .flip-card-front img {
@@ -640,22 +645,34 @@ a {
 
 
 
-
-/* .background-box {
+.background-box {
+  position: relative; /* Needed to position the pseudo-element */
   padding-bottom: 30px;
+  padding-top: 0px;
+}
 
-  background-image: linear-gradient(
-      to top,
-      rgba(255, 255, 255, 0) 10%,
-      white 80%
+.background-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 20%,
+      rgb(245, 239, 239) 60%
     ),
-    
-      linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.4)),
+    linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.5)),
     url('../Assests/Submit5.jpg');
-  background-size: 100% 100%; 
+  opacity: 0.42;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-} */
+  z-index: -1; /* Ensure the background stays behind the content */
+}
+
 
 .card-content {
   position: relative;
@@ -935,5 +952,21 @@ a {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+
+@media screen and (max-width: 640px) {
+  .footer {
+    flex-flow: column wrap;
+    width: 58%;
+    text-align: justify;
+  }
+  .footer__addr {
+    margin-top: 2em;
+    margin-right: 0em;
+    margin-left: 0em;
+    margin-bottom: 0em;
+    flex: 1 1 30%;
   }
 }

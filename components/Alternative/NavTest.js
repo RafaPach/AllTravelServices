@@ -93,102 +93,94 @@ export default function NavbarAlt2({ color }) {
             <AppBar position="sticky" sx={{ boxShadow: 0, bgcolor: '#faf6f0' }}>
               <Toolbar
                 sx={{
-                  px: { xs: 2, sm: 4, md: 20 }, // Adjusted for consistent horizontal padding
+                  pr: { xs: 2, sm: 4, md: '5vw', xl: '6vw' }, // Adjusted for consistent horizontal padding
                   mt: 4,
-                  display: 'flex',
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
                   position: 'sticky',
                   top: 0, // Keeps the navbar at the top
                   zIndex: 100, // Ensures the navbar stays on top
                 }}
               >
-                <Image
-                  src={Logo}
-                  alt="Logo"
-                  width={200} // Default size for large screens
-                  height={85} // Default size for large screens
-                  sx={{
-                    width: { xs: 130, sm: 150, md: 200, lg: 255 }, // Logo size responsive
-                    height: { xs: 50, sm: 70, md: 90, lg: 95 },
-                  }}
-                  id="logoIMG"
-                />
-
+                <Box sx={{ ml: { xl: 15, lg: 9 } }}>
+                  <a href="/" style={{ textDecoration: 'none' }}>
+                    <Image
+                      src={Logo}
+                      alt="Logo"
+                      width={200} // Default size for large screens
+                      height={85} // Default size for large screens
+                      sx={{
+                        width: { xs: 130, sm: 150, md: 200, lg: 255 }, // Logo size responsive
+                        height: { xs: 50, sm: 70, md: 90, lg: 95 },
+                      }}
+                      id="logoIMG"
+                    />
+                  </a>
+                </Box>
                 <Stack
                   direction="row"
-                  spacing={{ xs: 2, sm: 4, md: 6 }} // Adjusted for consistent button spacing
+                  spacing={{ xs: 2, sm: 4, md: 5, xl: 6 }} // Adjusted for consistent button spacing
                   justifyContent="flex-end"
-                  width="auto" // Ensures the buttons don’t stretch
+                  width="100%" // Ensures the buttons don’t stretch
                 >
-                  {links.map(
-                    (link, index) =>
-                      // <Link
+                  {links.map((link, index) =>
+                    // <Link
 
-                      //   href={`/${link.toLowerCase().replace(/\s+/g, '')}`}
+                    //   href={`/${link.toLowerCase().replace(/\s+/g, '')}`}
 
-                      //   passHref
+                    //   passHref
 
-                      // >
+                    // >
 
-                      link.toLowerCase().replace(/\s+/g, '') == 'services' ? (
-                        <Button
-                          key={index}
-                          className="btn-like"
-                          href={`#${link.toLowerCase().replace(/\s+/g, '')}`}
-                          onClick={() =>
-                            document
+                    link.toLowerCase().replace(/\s+/g, '') == 'services' ? (
+                      <Button
+                        key={index}
+                        className="btn-like"
+                        href={`#${link.toLowerCase().replace(/\s+/g, '')}`}
+                        onClick={() =>
+                          document
 
-                              .getElementById('services')
+                            .getElementById('services')
 
-                              .scrollIntoView({ behavior: 'smooth' })
-                          }
-                          sx={{
-                            borderRadius: 3,
+                            .scrollIntoView({ behavior: 'smooth' })
+                        }
+                        sx={{
+                          borderRadius: 3,
 
-                            height: { lg: 50, md: 40, sm: 30 },
+                          height: { lg: 50, md: 40, sm: 30 },
 
-                            width: { lg: 130, md: 100, sm: 80 },
+                          width: { lg: 130, md: 100, sm: 80 },
 
-                            fontSize: {
-                              lg: '0.9rem',
+                          fontSize: {
+                            lg: '0.9rem',
 
-                              md: '0.75rem',
+                            md: '0.75rem',
 
-                              sm: '0.45rem',
-                            },
-                          }}
-                        >
-                          {link}
-                        </Button>
-                      ) : (
-                        <Button
-                          key={index}
-                          className="btn-like"
-                          href={`/${link.toLowerCase().replace(/\s+/g, '')}`}
-                          sx={{
-                            borderRadius: 3,
-
-                            height: { lg: 50, md: 40, sm: 30 },
-
-                            width: { lg: 130, md: 100, sm: 80 },
-
-                            fontSize: {
-                              lg: '0.9rem',
-
-                              md: '0.75rem',
-
-                              sm: '0.45rem',
-                            },
-                            textAlign: 'center',
-                          }}
-                        >
-                          {link}
-                        </Button>
-                      )
-
-                    // </Link>
+                            sm: '0.45rem',
+                          },
+                        }}
+                      >
+                        {link}
+                      </Button>
+                    ) : (
+                      <Button
+                        key={index}
+                        className="btn-like"
+                        href={`/${link.toLowerCase().replace(/\s+/g, '')}`}
+                        sx={{
+                          borderRadius: 3,
+                          height: { xl: 50, lg: 45, md: 40, sm: 30 },
+                          width: { xl: 130, lg: 110, md: 100, sm: 80 },
+                          fontSize: {
+                            xl: '0.9rem ',
+                            lg: '0.8rem',
+                            md: '0.75rem',
+                            sm: '0.45rem',
+                          },
+                          textAlign: 'center',
+                        }}
+                      >
+                        {link}
+                      </Button>
+                    )
                   )}
                 </Stack>
               </Toolbar>

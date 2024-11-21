@@ -260,7 +260,13 @@ function TravelQuoteForm() {
       <Container
         maxWidth="md"
         // height="100vh"
-        sx={{ mt: 5, bgcolor: '#f0f0f0 ', p: 3, borderRadius: 4, mb: 10 }}
+        sx={{
+          mt: 5,
+          bgcolor: 'rgba(255, 245, 230, 1)',
+          p: 3,
+          borderRadius: 4,
+          mb: 10,
+        }}
       >
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
           <Box display="flex" justifyContent="center" sx={{ m: 3 }}>

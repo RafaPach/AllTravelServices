@@ -10,46 +10,13 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 
-import GroupIcon from '@mui/icons-material/Group';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import PaymentIcon from '@mui/icons-material/Payment';
-import AccessibleIcon from '@mui/icons-material/Accessible';
-import LuggageIcon from '@mui/icons-material/Luggage';
-import PetsIcon from '@mui/icons-material/Pets';
-import PregnantWomanIcon from '@mui/icons-material/PregnantWoman';
-
-function ServCards({ title, pic, description }) {
+function ServCards({ title, pic, description, backContent }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => {
     setIsFlipped((prev) => !prev);
   };
 
-  const icons = [
-    { icon: GroupIcon, title: 'Passengers', description: '10' },
-    {
-      icon: DirectionsCarIcon,
-      title: 'Vehicle Type',
-      description: 'Sedan, SUV, Minivan',
-    },
-    { icon: LuggageIcon, title: 'Luggage', description: 'Up to 3 bags' },
-    {
-      icon: PaymentIcon,
-      title: 'Payment Options',
-      description: 'Credit, Cash, Mobile',
-    },
-    {
-      icon: AccessibleIcon,
-      title: 'Accessibility',
-      description: 'Wheelchair Accessible',
-    },
-    { icon: PetsIcon, title: 'Pets', description: 'Pets Allowed' },
-    {
-      icon: PregnantWomanIcon,
-      title: 'Pregnancy Support',
-      description: 'Extra Comfort',
-    },
-  ];
   return (
     <Box className={`flip-card ${isFlipped ? 'flipped' : ''}`}>
       <Box className="flip-card-inner">
@@ -105,17 +72,19 @@ function ServCards({ title, pic, description }) {
                 display="flex"
                 justifyContent="space-around"
               >
-                <Button
-                  className="btn-svcard"
-                  sx={{
-                    borderRadius: 2,
-                    height: { lg: 30, md: 30, sm: 30 },
-                    width: { lg: 90, md: 25, sm: 25 },
-                    fontSize: { lg: '0.6rem', md: '0.55rem', sm: '0.5rem' },
-                  }}
-                >
-                  Get a Quote
-                </Button>
+                <a href="/getaquote">
+                  <Button
+                    className="btn-svcard"
+                    sx={{
+                      borderRadius: 2,
+                      height: { lg: 30, md: 30, sm: 30 },
+                      width: { lg: 90, md: 25, sm: 25 },
+                      fontSize: { lg: '0.6rem', md: '0.55rem', sm: '0.5rem' },
+                    }}
+                  >
+                    Get a Quote
+                  </Button>
+                </a>
                 <Button
                   sx={{
                     borderRadius: 2,
@@ -144,7 +113,7 @@ function ServCards({ title, pic, description }) {
             backgroundColor: '#f0f0f0',
           }}
         >
-          {icons.map((item, index) => (
+          {backContent.map((item, index) => (
             <Stack
               direction="row"
               alignItems="center"
@@ -155,8 +124,20 @@ function ServCards({ title, pic, description }) {
               <Box>
                 <item.icon />
               </Box>
-              <Box width="150px" display="flex" justifyContent="center">
-                <Typography sx={{ fontSize: '12px' }} color="textSecondary">
+              <Box
+                width="150px"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                textAlign="center" // Ensures text is centered within the Box
+              >
+                <Typography
+                  sx={{
+                    fontSize: '12px',
+                    lineHeight: 1.5, // Consistent line spacing
+                  }}
+                  color="textSecondary"
+                >
                   {item.description}
                 </Typography>
               </Box>

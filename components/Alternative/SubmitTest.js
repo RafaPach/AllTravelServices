@@ -153,7 +153,7 @@ const EmailForm2 = () => {
 
       <Box
         ml={{ xs: 2, sm: 5, md: 10, lg: 15 }}
-        mt={5}
+        mt={{ lg: 2, xl: 4 }}
         mb={10}
         sx={{ minHeight: '90vh' }}
       >

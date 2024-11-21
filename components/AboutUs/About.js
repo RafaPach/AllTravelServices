@@ -36,9 +36,9 @@ const AboutUs = () => {
         </div>
 
         <Stack
-          mt={{ lg: '50px', md: '100px', xs: '50px' }}
+          mt={{ xl: '50px', lg: '20px', md: '100px', xs: '50px' }}
           mb="30px"
-          mx={26}
+          mx={{ xl: 26, lg: 22 }}
           spacing={2}
         >
           <Typography
@@ -59,14 +59,10 @@ const AboutUs = () => {
           />
         </Stack>
 
-        {/* <Grid container spacing={3} padding={3} marginLeft="120px"> */}
         {/* Main Content Area */}
 
         <Box
           sx={{
-            // maxWidth: { lg: '60%', xs: '80%' },
-            // backgroundColor: '#f9f9f9',
-            // border: '2px solid #fcb017',
             maxWidth: { lg: '80%', md: '70%', sm: '80%' }, // Restricts the content width to 80% of the parent container
             margin: '0 auto', // Centers the box horizontally by setting equal left and right margins
             borderRadius: '8px',
@@ -134,7 +130,7 @@ const AboutUs = () => {
                 services, offering high-end vehicles for special occasions and
                 VIP clientele.{' '}
                 <a
-                  href="/services"
+                  href="/#services"
                   style={{
                     fontWeight: '700',
                     color: '#fcb017',
@@ -190,19 +186,42 @@ const AboutUs = () => {
                 consistently go above and beyond to uphold the company’s values
                 of customer care and satisfaction.
               </li>
-              <li style={{ color: '#6F7E8C', fontSize: '16px' }}>
-                If you have any enquiries,{' '}
+              <li
+                style={{
+                  marginBottom: '30px',
+                  color: '#6F7E8C',
+                  fontSize: '16px',
+                }}
+              >
+                Looking for a customized travel solution? We’d be happy to
+                provide you with a quote tailored to your needs -{' '}
                 <a
-                  href="/contact"
+                  href="/enquiries"
                   style={{
                     fontWeight: '700',
                     color: '#fcb017',
                     textDecoration: 'none',
                   }}
                 >
-                  please submit your enquiry here{' '}
+                  Click here to request a quote{' '}
                 </a>
-                to get in touch with us - we look forward to hearing from you!
+                - Our team will get back to you promptly with all the details
+                you need.
+              </li>
+              <li style={{ color: '#6F7E8C', fontSize: '16px' }}>
+                Finally, if you have any enquiries, whether about our services,
+                job opportunities, or anything else, feel free to{' '}
+                <a
+                  href="/enquiries"
+                  style={{
+                    fontWeight: '700',
+                    color: '#fcb017',
+                    textDecoration: 'none',
+                  }}
+                >
+                  submit your enquiry here.{' '}
+                </a>
+                We look forward to hearing from you!
               </li>
             </ol>
           )}

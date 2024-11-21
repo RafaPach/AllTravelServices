@@ -114,17 +114,19 @@ export default function Navbarpages({ color }) {
                 }}
               >
                 {!isAboutPage && (
-                  <Image
-                    src={Logo}
-                    alt="Logo"
-                    width={155} // Adjust for medium screens
-                    height={70} // Adjust for medium screens
-                    sx={{
-                      width: { lg: 250, md: 200, sm: 150 },
-                      height: { lg: 100, md: 90, sm: 70 },
-                    }}
-                    id="logoIMG"
-                  />
+                  <a href="/" style={{ textDecoration: 'none' }}>
+                    <Image
+                      src={Logo}
+                      alt="Logo"
+                      width={155} // Adjust for medium screens
+                      height={70} // Adjust for medium screens
+                      sx={{
+                        width: { lg: 250, md: 200, sm: 150 },
+                        height: { lg: 100, md: 90, sm: 70 },
+                      }}
+                      id="logoIMG"
+                    />
+                  </a>
                 )}
 
                 <Stack
@@ -133,6 +135,7 @@ export default function Navbarpages({ color }) {
                   display="flex"
                   justifyContent="end"
                   width="100%"
+                  sx={{ mt: isAboutPage ? 2 : 0 }}
                 >
                   {links.map((link, index) => (
                     <Button

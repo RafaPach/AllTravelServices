@@ -20,6 +20,7 @@ import InfoCards from '../components/OurServicesPage/OurServices.js';
 import AboutUs from '../components/AboutUs/About.js';
 import WhyUs from '../components/WhyChooseUS/Whyus.js';
 import Testimonials from '../components/Testimonials/Testimonials.js';
+import FooterComp from '../components/Footer/Footer.js';
 
 export default function Try() {
   return (

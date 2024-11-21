@@ -11,13 +11,13 @@ import { useInView } from 'react-intersection-observer';
 
 const HomeServicesAlt = () => {
   const images = [
-    { name: 'School Transport', img: Bus, width: 120, height: 106 },
+    { name: 'School Transport', img: Bus, width: 110, height: 106 },
     { name: 'Private Contracts', img: Private, width: 105, height: 106 },
     { name: 'Assisted Travel', img: WheelChair, width: 100, height: 106 },
     {
       name: 'VIP Chauffeur Services',
       img: VIP,
-      width: 90,
+      width: 105,
       height: 106,
     },
   ];

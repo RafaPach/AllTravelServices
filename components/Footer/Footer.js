@@ -98,9 +98,14 @@ function FooterComp() {
         </ul>
 
         <Stack
-          direction="row" // Ensure the children are aligned in a row
+          direction={{ xs: 'column', sm: 'row' }}
+          spacing={{ xs: 2 }}
           justifyContent="space-between" // Space out the children
-          sx={{ width: '100%', padding: '1em 8.5%' }} // Add padding for spacing and full width
+          padding={{ xs: '0 em', sm: '1em 8.5%' }}
+          sx={{
+            width: '100%',
+            mt: { xs: 3, sm: 0 },
+          }} // Add padding for spacing and full width
         >
           <div>
             <Typography sx={{ fontSize: '12px', color: '#999' }}>
