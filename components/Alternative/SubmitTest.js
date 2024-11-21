@@ -152,12 +152,19 @@ const EmailForm2 = () => {
       </div>
 
       <Box
-        ml={{ xs: 2, sm: 5, md: 10, lg: 15 }}
-        mt={{ lg: 2, xl: 4 }}
+        ml={{ xs: 1, sm: 5, md: 10, lg: 15 }}
+        mr={{ xs: 1, sm: 0 }}
+        mt={{ lg: 2, xl: 4, xs: 3 }}
         mb={10}
         sx={{ minHeight: '90vh' }}
       >
-        <Box sx={{ display: 'flex', justifyContent: 'start', m: 1 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: { xs: 'center', sm: 'start' },
+            m: 1,
+          }}
+        >
           <Stack spacing={2} mb="30px">
             <Typography
               color="#1E1E1E"
@@ -186,9 +193,12 @@ const EmailForm2 = () => {
               height: '150px',
               justifyContent: 'center',
               alignContent: 'center',
+              p: 2,
             }}
           >
-            <Typography sx={{ fontSize: '14px', color: '#333333' }}>
+            <Typography
+              sx={{ fontSize: { xs: '13px', sm: '14px' }, color: '#333333' }}
+            >
               Please complete the form to the best of your ability to request a
               booking. Once your request is received, we will contact you to
               confirm the booking, provide the price, and address any additional

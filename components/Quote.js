@@ -173,8 +173,8 @@ function TravelQuoteForm() {
         <Navbarpages />
       </div>
 
-      <Box sx={{ display: 'flex', justifyContent: 'center', m: 5 }}>
-        <Stack spacing={2} mb="30px">
+      <Box sx={{ display: 'flex', justifyContent: 'center', m: 3 }}>
+        <Stack spacing={2} mb={{ xs: 0, sm: '30px' }}>
           <Typography
             color="#1E1E1E"
             fontWeight="500"
@@ -190,19 +190,30 @@ function TravelQuoteForm() {
       <Box
         sx={{
           display: 'flex',
-
           justifyContent: 'center',
-
           alignItems: 'center',
-
           textAlign: 'justify',
-
           mb: 5,
         }}
       >
-        <Stack sx={{ width: '600px', height: '250px', direction: 'column' }}>
-          <Box sx={{ width: '600px', height: '250px' }}>
-            <Typography sx={{ fontSize: '14px', color: '#333333' }}>
+        <Stack
+          sx={{
+            width: { xs: '95%', sm: '600px' },
+            height: '250px',
+            direction: 'column',
+            mb: '20px',
+          }}
+        >
+          <Box
+            sx={{ width: { xs: '95%', sm: '600px' }, height: '250px', p: 2 }}
+          >
+            <Typography
+              sx={{
+                fontSize: { xs: '13px', sm: '14px' },
+                color: '#333333',
+                lineHeight: '1.6',
+              }}
+            >
               Please complete the form to the best of your ability to request a
               booking. Once your request is received, we will contact you to
               confirm the booking, provide the price, and address any additional
@@ -211,7 +222,7 @@ function TravelQuoteForm() {
           </Box>
           <Box
             sx={{
-              width: '600px',
+              width: { xs: '95%', sm: '600px' },
               height: '250px',
               backgroundColor: 'rgba(255, 193, 7, 0.2)',
               justifyContent: 'center',
@@ -221,7 +232,11 @@ function TravelQuoteForm() {
           >
             <Box>
               <Typography
-                sx={{ fontWeight: 700, fontSize: '14px', color: '#8C6D1F' }}
+                sx={{
+                  fontWeight: 700,
+                  fontSize: { xs: '13px', sm: '14px' },
+                  color: '#8C6D1F',
+                }}
               >
                 Kindly note that we will reach out to confirm your booking and
                 provide the price. Your booking is not finalized until we have
@@ -241,7 +256,11 @@ function TravelQuoteForm() {
       >
         <Typography
           // className="drop-shadow-service"
-          sx={{ mb: 2, fontSize: '24px', fontFamily: 'Courier, monospace' }}
+          sx={{
+            mb: 2,
+            fontSize: { xs: '20px', sm: '24px' },
+            fontFamily: 'Courier, monospace',
+          }}
         >
           CHOOSE YOUR JOURNEY TYPE
         </Typography>
@@ -262,7 +281,7 @@ function TravelQuoteForm() {
         // height="100vh"
         sx={{
           mt: 5,
-          bgcolor: 'rgba(255, 245, 230, 1)',
+          bgcolor: 'rgba(245, 245, 245, 1)',
           p: 3,
           borderRadius: 4,
           mb: 10,
@@ -326,7 +345,12 @@ function TravelQuoteForm() {
               />
             </Stack>
           </Box>
-          <Stack mb="20px" direction="row" display="flex" spacing={1}>
+          <Stack
+            mb="20px"
+            direction={{ xs: 'column', md: 'row' }}
+            display="flex"
+            spacing={1}
+          >
             <Box sx={{ width: '50%' }}>
               <Typography
                 sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
@@ -350,7 +374,7 @@ function TravelQuoteForm() {
                       ),
                       readOnly: true,
                     }}
-                    sx={{ width: '400px' }}
+                    sx={{ width: { md: '400px', xs: '380px' } }}
                   />
                 }
               />
@@ -362,7 +386,7 @@ function TravelQuoteForm() {
                 <span style={{ color: '#fcb017' }}>4.</span> Pickup Time
               </Typography>
               <TextField
-                fullWidth
+                // fullWidth
                 variant="outlined"
                 // placeholder="hh:mm"
                 type="time"
@@ -379,13 +403,19 @@ function TravelQuoteForm() {
                   '& .MuiInputBase-input': {
                     paddingLeft: 8,
                   },
+                  width: { md: '100%', sm: '380px', xs: '380px' },
                 }}
               />
             </Box>
           </Stack>
 
           {journeyType === 'return' && (
-            <Stack direction="row" display="flex" spacing={1} mb="20px">
+            <Stack
+              direction={{ xs: 'column', md: 'row' }}
+              display="flex"
+              spacing={1}
+              mb="20px"
+            >
               <Box sx={{ width: '50%' }}>
                 <Typography
                   sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
@@ -409,38 +439,10 @@ function TravelQuoteForm() {
                         ),
                         readOnly: true,
                       }}
-                      sx={{ width: '400px' }}
+                      sx={{ width: { md: '400px', xs: '380px' } }}
                     />
                   }
                 />
-
-                {/* <div className="return-date-quote">
-                  <div className="control">
-                    <input
-                      className="wpcf7-form-control wpcf7-date wpcf7-validates-as-required wpcf7-validates-as-date input"
-                      aria-required="true"
-                      aria-invalid="false"
-                      placeholder="mm/dd/yy"
-                      value={selectedDate}
-                      type="date"
-                      name="Inbound_Date"
-                      style={{
-                        width: '100%',
-                        padding: '0.75em',
-                        paddingLeft: '2.5em', // Add left padding for the icon
-                        fontSize: '1em',
-                        lineHeight: '2.5em',
-                        borderRadius: '4px',
-                        boxSizing: 'border-box',
-                        backgroundColor: '#faf6f0',
-                        border: '1px solid #333',
-                        color: '#333',
-                        appearance: 'none', // Remove native date picker icon
-                      }}
-                      onChange={handleDateChange}
-                    />
-                  </div>
-                </div> */}
               </Box>
               <Box sx={{ width: '50%' }}>
                 <Typography
@@ -450,7 +452,7 @@ function TravelQuoteForm() {
                 </Typography>
                 <TextField
                   type="time"
-                  fullWidth
+                  // fullWidth
                   required
                   sx={{
                     '& input[type="time"]::-webkit-calendar-picker-indicator': {
@@ -463,6 +465,7 @@ function TravelQuoteForm() {
                     '& .MuiInputBase-input': {
                       paddingLeft: 8,
                     },
+                    width: { md: '100%', sm: '380px', xs: '380px' },
                   }}
                 />
               </Box>

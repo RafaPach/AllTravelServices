@@ -38,7 +38,7 @@ const AboutUs = () => {
         <Stack
           mt={{ xl: '50px', lg: '20px', md: '100px', xs: '50px' }}
           mb="30px"
-          mx={{ xl: 26, lg: 22 }}
+          mx={{ xl: 26, lg: 22, md: 21, xs: 3 }}
           spacing={2}
         >
           <Typography
@@ -71,38 +71,110 @@ const AboutUs = () => {
           }}
         >
           {isMobile ? (
-            <Box sx={{ pr: { lg: 4, xs: 0 } }}>
-              <Typography
-                variant="body1"
-                lineHeight={1.8}
-                sx={{
-                  fontSize: {
-                    lg: '18px',
-                    md: '16px',
-                    sm: '15px',
-                    xs: '14px',
-                  },
+            <ol
+              style={{
+                listStyle: 'none',
+                lineHeight: '1.6',
+                paddingLeft: '0px',
+                margin: '0',
+              }}
+            >
+              <li
+                style={{
+                  marginBottom: '30px',
+                  color: '#6F7E8C',
+                  fontSize: '13px',
                 }}
               >
-                <b>All Travel Services</b> offers diverse transport solutions
-                across East Anglia, including{' '}
-                <b>School Transport, Private Contracts, Assisted Travel</b>, and{' '}
-                <b>VIP Chauffeur</b> services for special occasions.
-              </Typography>
-              <Typography
-                lineHeight={1.8}
-                sx={{ mt: 2, color: '#6F7E8C', fontSize: '16px' }}
+                <span style={{ fontWeight: '700' }}>All Travel Services</span>{' '}
+                is a trusted transport provider across East Anglia, specializing
+                in{' '}
+                <span style={{ fontWeight: '700' }}>
+                  School Transport, Private Contracts, Assisted Travel,
+                </span>{' '}
+                and <span style={{ fontWeight: '700' }}>VIP Chauffeur</span>{' '}
+                services. We offer luxury vehicles for special events.{' '}
+                <a
+                  href="/#services"
+                  style={{
+                    fontWeight: '700',
+                    color: '#fcb017',
+                    textDecoration: 'none',
+                  }}
+                >
+                  Learn more here
+                </a>
+                .
+              </li>
+              <li
+                style={{
+                  marginBottom: '30px',
+                  color: '#6F7E8C',
+                  fontSize: '13px',
+                }}
               >
-                Our team is certified with <b>DBS, Safeguarding</b>, and{' '}
-                <b>First Aid</b> training, ensuring safety and peace of mind.
-              </Typography>
-              <Typography variant="body1" lineHeight={1.8} sx={{ mt: 2 }}>
-                <Link href="#contact" color="#fcb017">
-                  <b>Contact us</b>
-                </Link>{' '}
-                to discuss your travel needs—we look forward to assisting you!
-              </Typography>
-            </Box>
+                Our team, including{' '}
+                <span style={{ fontWeight: '700' }}>
+                  Drivers, Passenger Assistants,
+                </span>{' '}
+                and <span style={{ fontWeight: '700' }}>Office Staff</span>, are
+                fully certified with{' '}
+                <span style={{ fontWeight: '700' }}>
+                  DBS checks, Safeguarding
+                </span>{' '}
+                and{' '}
+                <span style={{ fontWeight: '700' }}>First Aid training</span>,
+                ensuring safety and care at all times.
+              </li>
+              <li
+                style={{
+                  marginBottom: '30px',
+                  color: '#6F7E8C',
+                  fontSize: '13px',
+                }}
+              >
+                Our service is recognized for being one of the best in{' '}
+                <span style={{ fontWeight: '700' }}>Suffolk</span>. Our staff
+                are{' '}
+                <span style={{ fontWeight: '700' }}>
+                  punctual, professional,
+                </span>{' '}
+                and dedicated to providing top-tier travel experiences.
+              </li>
+              <li
+                style={{
+                  marginBottom: '30px',
+                  color: '#6F7E8C',
+                  fontSize: '13px',
+                }}
+              >
+                Need a personalized solution?{' '}
+                <a
+                  href="/enquiries"
+                  style={{
+                    fontWeight: '700',
+                    color: '#fcb017',
+                    textDecoration: 'none',
+                  }}
+                >
+                  Request a quote here
+                </a>
+                , and we'll provide the details.
+              </li>
+              <li style={{ color: '#6F7E8C', fontSize: '13px' }}>
+                For any enquiries about services, jobs, or more, feel free to{' '}
+                <a
+                  href="/enquiries"
+                  style={{
+                    fontWeight: '700',
+                    color: '#fcb017',
+                    textDecoration: 'none',
+                  }}
+                >
+                  submit your enquiry here.
+                </a>
+              </li>
+            </ol>
           ) : (
             <ol
               style={{

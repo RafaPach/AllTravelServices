@@ -31,11 +31,16 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 import FeatureComp from './Features';
 
+import { useTheme, useMediaQuery } from '@mui/material';
+
 function InfoCards() {
   const serviceRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [scrollDirection, setScrollDirection] = useState(null); // "up" or "down"
   const [prevY, setPrevY] = useState(0); // Tracks the previous position of the section
+
+  const theme = useTheme(); // Use the theme
+  const isMediumUp = useMediaQuery(theme.breakpoints.up('md')); // Use breakpoints
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -71,7 +76,7 @@ function InfoCards() {
   }, [scrollDirection, prevY]); // Add new dependencies
 
   return (
-    <Box className="background-box" id="services">
+    <Box className={isMediumUp ? 'background-box' : ''} id="services">
       <Box sx={{ textAlign: 'center', mb: 8 }}>
         {/* <Typography variant="h4" component="h2" gutterBottom>
           Our Services
@@ -82,7 +87,7 @@ function InfoCards() {
           container
           spacing={3}
           sx={{
-            marginLeft: { xs: '0', lg: '-80px' },
+            marginLeft: { xs: '-30px', lg: '-80px' },
           }}
         >
           {/* Cards Section */}
@@ -262,12 +267,15 @@ function InfoCards() {
           {/* Feature Box Section */}
           <Grid
             item
-            xs={12}
+            xs={10}
             md={4}
             ref={serviceRef}
             className={`cardEffect ${isVisible ? 'fadeInLeft' : ''}`}
             sx={{
               order: { xs: 2, md: 1 }, // Moves to the end on small screens
+              display: { xs: 'flex', md: 'block' }, // Flex only on xs devices
+              justifyContent: { xs: 'center' }, // Center horizontally on xs
+              ml: { xs: 5, sm: 0 },
             }}
           >
             <Box
@@ -278,7 +286,7 @@ function InfoCards() {
                 borderRadius: '8px',
                 padding: '20px',
                 height: '97%',
-                width: { xs: '100%', md: '400px' }, // Full width on small screens
+                width: { xs: '95%', md: '400px' }, // Full width on small screens
                 marginLeft: { md: '100px', xs: 0 },
               }}
             >

@@ -7,6 +7,7 @@ import {
   Typography,
   Grid,
 } from '@mui/material';
+import { useTheme, useMediaQuery } from '@mui/material';
 import Dbs from '../../Assests/DBSS.png';
 import Smoke from '../../Assests/NoSmoke.png';
 import Time from '../../Assests/Punctual.png';
@@ -14,19 +15,21 @@ import Image from 'next/image';
 import SafeGuarding from '../../Assests/SafeGuarding.png';
 
 const CenterCard = () => {
+  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+
   return (
     <Box
       sx={{
         display: 'flex ',
         alignContent: 'space-around',
         justifyContent: 'space-around',
-        mt: 20,
+        mt: { xs: 10, sm: 20 },
       }}
     >
       <Card
         sx={{
           width: '100%',
-          height: '400px',
+          height: { xs: '450px', sm: '400px' },
           display: 'flex',
           justifyContent: 'space-around',
           position: 'relative', // Add this line
@@ -39,7 +42,7 @@ const CenterCard = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            backgroundImage: `url(/assets/CardTaxiImage.jpeg)`, // Correct path to the image
+            backgroundImage: `url(/assets/CardTaxiImage.jpeg)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -52,67 +55,41 @@ const CenterCard = () => {
             flexDirection: 'column',
             textAlign: 'center',
             gap: 2,
-            mt: 5,
+            mt: 2,
           }}
         >
-          <Typography sx={{ fontSize: '24px' }}>
+          <Typography sx={{ fontSize: { xs: '20px', sm: '24px' } }}>
             Our Standards of Excellence
           </Typography>
-          <Typography sx={{ fontSize: '18px' }}>
-            At All Travel Service we deeply care about this and how our drivers
-            etc etc and make sure costumer at heard As well as no smooke etc etc
-          </Typography>
-          {/* <Grid container spacing={2} mt="10px">
-            <Grid item xs={3} textAlign="center">
-              <Image
-                src={Dbs}
-                width={115}
-                height={120}
-                className="imageabout-hover"
-                style={{ position: 'relative', zIndex: 1 }} // Ensures the image stays on top
-              />
-              <Typography sx={{ fontWeight: 700, fontSize: '17px' }}>
-                DBS Cleared
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center', // Centers horizontally
+              alignItems: 'center', // Centers vertically
+            }}
+          >
+            <Box
+              sx={{
+                textAlign: 'center',
+                width: { xs: '100%', sm: '50%' },
+              }}
+            >
+              <Typography sx={{ fontSize: { xs: '14px', sm: '16px' } }}>
+                At All Travel Service, we are deeply committed to ensuring our
+                drivers uphold the highest standards of professionalism,
+                prioritizing customer needs, fostering open communication, and
+                maintaining a smoke-free, respectful environment.
               </Typography>
-            </Grid>
-            <Grid item xs={3} textAlign="center">
-              <Image
-                src={Smoke}
-                width={104}
-                height={120}
-                className="imageabout-hover"
-                style={{ position: 'relative', zIndex: 1 }}
-              />
-              <Typography sx={{ fontWeight: 700, fontSize: '17px' }}>
-                No Smoking Policies
-              </Typography>
-            </Grid>
-            <Grid item xs={3} textAlign="center" mt={1}>
-              <Image
-                src={Time}
-                width={140}
-                height={130}
-                className="imageabout-hover"
-                style={{ position: 'relative', zIndex: 1 }}
-              />
-              <Typography sx={{ fontWeight: 700, fontSize: '17px' }}>
-                Punctual
-              </Typography>
-            </Grid>
-            <Grid item xs={3} textAlign="center">
-              <Image
-                src={SafeGuarding}
-                width={120}
-                height={120}
-                className="imageabout-hover"
-                style={{ position: 'relative', zIndex: 1 }}
-              />
-              <Typography sx={{ fontWeight: 700, fontSize: '17px' }}>
-                Safeguarding Training
-              </Typography>
-            </Grid>
-          </Grid> */}
-          <Grid container spacing={2} mt="10px" alignItems="stretch">
+            </Box>
+          </Box>
+          <Grid
+            container
+            spacing={{ xs: 3, sm: 0, md: 0 }} // Reduce spacing on md and larger devices
+            mt="0px"
+            justifyContent="center" // Centers the content horizontally
+            sx={{ width: '100%' }} // Ensure it takes up the full width
+            // alignItems="stretch"
+          >
             {[
               { src: Dbs, width: 115, height: 120, text: 'DBS Cleared' },
               {
@@ -124,24 +101,27 @@ const CenterCard = () => {
               { src: Time, width: 140, height: 130, text: 'Punctual' },
               {
                 src: SafeGuarding,
-                width: 120,
+                width: 115,
                 height: 120,
                 text: 'Safeguarding Training',
               },
             ].map((item, index) => (
               <Grid
                 item
-                xs={3}
+                xs={6} // 2 images per row on xs and sm devices
+                sm={6} // 2 images per row on sm devices
+                md={2} // 4 images per row on md and higher devices
                 textAlign="center"
                 key={index}
                 style={{ position: 'relative', zIndex: 1 }}
+                mt={{ xs: 2, sm: 0 }}
               >
                 <Box
                   display="flex"
                   flexDirection="column"
                   alignItems="center"
                   justifyContent="center"
-                  height="200px" // Ensure a consistent height for all items
+                  height={{ xs: '90px', sm: '200px' }} // Ensure a consistent height for all items
                 >
                   <Box
                     display="flex"
@@ -151,16 +131,17 @@ const CenterCard = () => {
                   >
                     <Image
                       src={item.src}
-                      width={item.width}
-                      height={item.height}
+                      width={isSmallScreen ? item.width * 0.8 : item.width} // Adjust for small screens
+                      height={isSmallScreen ? item.height * 0.8 : item.height} // Adjust for small screens
+                      alt={item.text}
                       className="imageabout-hover"
                     />
                   </Box>
                   <Typography
                     sx={{
                       fontWeight: 700,
-                      fontSize: '17px',
-                      marginTop: '10px',
+                      fontSize: { xs: '13px', sm: '17px' },
+                      marginTop: { xs: '0px', sm: '1px' },
                     }}
                   >
                     {item.text}

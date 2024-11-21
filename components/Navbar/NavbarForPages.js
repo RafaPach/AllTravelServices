@@ -50,7 +50,16 @@ export default function Navbarpages({ color }) {
       <Box>
         {isSmallScreen ? (
           // Mobile Nav
-          <AppBar position="sticky" color="default">
+          <AppBar
+            position="static"
+            color="default"
+            sx={{
+              width: '100%',
+              maxWidth: 'none',
+              display: 'flex',
+              justifyContent: 'space-between',
+            }}
+          >
             <Toolbar disableGutters sx={{ px: 2 }}>
               <Box sx={{ mr: 'auto', width: 120, height: 50 }}>
                 {' '}
@@ -80,11 +89,17 @@ export default function Navbarpages({ color }) {
                 {links.map((item, index) => (
                   <ListItem key={index}>
                     <Button
-                      href={`#${item.replace(/\s+/g, '').toLowerCase()}`}
+                      href={
+                        item.trim().toLowerCase() === 'home' // Check for 'home'
+                          ? '/' // Navigate to root
+                          : item.trim().toLowerCase() === 'services' // Check for 'services'
+                          ? '#services' // Navigate to section with anchor
+                          : `/${item.trim().toLowerCase().replace(/\s+/g, '')}` // For other links
+                      }
                       sx={{
                         width: '100%',
                         textAlign: 'center',
-                        color: '#fcb017;',
+                        color: '#fcb017',
                       }}
                     >
                       {item}

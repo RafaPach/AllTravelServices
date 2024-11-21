@@ -7,15 +7,15 @@ export default function HelloPageAlt2() {
   return (
     <Box
       display="flex"
-      justifyContent="flex-start"
-      textAlign="start"
+      justifyContent={{ sm: 'flex-start', xs: 'center' }}
+      textAlign={{ sm: 'end', xs: 'center' }}
       id="welcome"
       sx={{
         pt: { xs: 2, sm: 3, lg: 5 },
 
         ml: { xl: 12, lg: 5, md: 4, sm: 2, xs: 1 },
 
-        mb: 15,
+        mb: { sm: 15, xs: 5 },
       }}
     >
       <Stack
@@ -74,10 +74,11 @@ export default function HelloPageAlt2() {
           <Button
             className="btn-like"
             href="/about"
-            style={{
-              borderRadius: 15,
-              height: 60,
-              width: 170,
+            sx={{
+              borderRadius: 3,
+              height: { sm: 60, xs: 50 },
+              width: { sm: 170, xs: 130 },
+              fontSize: { xs: '12px', sm: '13px' },
             }}
           >
             Submit an Enquiry
@@ -89,6 +90,7 @@ export default function HelloPageAlt2() {
           sx={{
             width: { lg: '65%', md: '60%', sm: '80%', xs: '90%' },
             mb: 3,
+            mt: { xs: 6, sm: 0 },
           }}
         >
           <Image

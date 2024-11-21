@@ -25,7 +25,7 @@ function ServCards({ title, pic, description, backContent }) {
           <Card
             variant="outlined"
             sx={{
-              width: '350px',
+              width: { xs: '300px', sm: '350px' },
               mx: 'auto',
               display: 'flex',
               flexDirection: 'column',
@@ -77,9 +77,14 @@ function ServCards({ title, pic, description, backContent }) {
                     className="btn-svcard"
                     sx={{
                       borderRadius: 2,
-                      height: { lg: 30, md: 30, sm: 30 },
-                      width: { lg: 90, md: 25, sm: 25 },
-                      fontSize: { lg: '0.6rem', md: '0.55rem', sm: '0.5rem' },
+                      height: { lg: 35, md: 30, sm: 30, xs: 35 },
+                      width: { lg: 95, md: 25, sm: 25, xs: 100 },
+                      fontSize: {
+                        lg: '0.6rem',
+                        md: '0.55rem',
+                        sm: '0.5rem',
+                        xs: '10px',
+                      },
                     }}
                   >
                     Get a Quote
@@ -88,9 +93,14 @@ function ServCards({ title, pic, description, backContent }) {
                 <Button
                   sx={{
                     borderRadius: 2,
-                    height: { lg: 30, md: 30, sm: 30 },
-                    width: { lg: 95, md: 25, sm: 25 },
-                    fontSize: { lg: '0.6rem', md: '0.55rem', sm: '0.5rem' },
+                    height: { lg: 35, md: 30, sm: 30, xs: 35 },
+                    width: { lg: 100, md: 25, sm: 25, xs: 100 },
+                    fontSize: {
+                      lg: '0.65rem',
+                      md: '0.55rem',
+                      sm: '0.5rem',
+                      xs: '10px',
+                    },
                   }}
                   className="btn-svcard"
                   onClick={handleFlip}
@@ -147,9 +157,14 @@ function ServCards({ title, pic, description, backContent }) {
           <Button
             sx={{
               borderRadius: 2,
-              height: { lg: 30, md: 30, sm: 30 },
-              width: { lg: 95, md: 25, sm: 25 },
-              fontSize: { lg: '0.6rem', md: '0.55rem', sm: '0.5rem' },
+              height: { lg: 35, md: 30, sm: 30, xs: 35 },
+              width: { lg: 100, md: 25, sm: 25, xs: 100 },
+              fontSize: {
+                lg: '0.6rem',
+                md: '0.55rem',
+                sm: '0.5rem',
+                xs: '10px',
+              },
             }}
             className="btn-like"
             onClick={handleFlip}

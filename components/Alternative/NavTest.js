@@ -73,7 +73,13 @@ export default function NavbarAlt2({ color }) {
                 {links.map((item, index) => (
                   <ListItem key={index}>
                     <Button
-                      href={`#${item.replace(/\s+/g, '').toLowerCase()}`}
+                      href={
+                        item.trim().toLowerCase() === 'home' // Check for 'home'
+                          ? '/' // Navigate to root
+                          : item.trim().toLowerCase() === 'services' // Check for 'services'
+                          ? '#services' // Navigate to section with anchor
+                          : `/${item.trim().toLowerCase().replace(/\s+/g, '')}` // For other links
+                      }
                       sx={{
                         width: '100%',
                         textAlign: 'center',
@@ -122,14 +128,6 @@ export default function NavbarAlt2({ color }) {
                   width="100%" // Ensures the buttons don’t stretch
                 >
                   {links.map((link, index) =>
-                    // <Link
-
-                    //   href={`/${link.toLowerCase().replace(/\s+/g, '')}`}
-
-                    //   passHref
-
-                    // >
-
                     link.toLowerCase().replace(/\s+/g, '') == 'services' ? (
                       <Button
                         key={index}

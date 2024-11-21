@@ -11,10 +11,16 @@ function Feature({ icon, title, description }) {
     <Box display="flex" alignItems="center">
       <Box sx={{ marginRight: 2 }}>{icon}</Box>
       <Box>
-        <Typography variant="subtitle1" mb="3px">
+        <Typography sx={{ fontSize: { xs: '15px', sm: '16px' } }} mb="3px">
           {title}
         </Typography>
-        <Typography variant="body2" color="textSecondary">
+        <Typography
+          sx={{
+            fontSize: { xs: '13px', sm: '15px' },
+            mb: { xs: '20px', sm: '0px' },
+          }}
+          color="textSecondary"
+        >
           {description}
         </Typography>
       </Box>

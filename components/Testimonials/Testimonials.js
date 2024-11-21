@@ -82,7 +82,7 @@ const Testimonials = () => {
       setCurrentIndex(
         (prevIndex) => (prevIndex + itemsPerPage) % testimonials.length
       );
-    }, 5000); // Change every 5 seconds
+    }, 3000); // Change every 5 seconds
 
     return () => {
       // Cleanup both the observer and the interval
@@ -138,7 +138,10 @@ const Testimonials = () => {
             marginTop: '50px',
           }}
         >
-          <Typography variant="h4" component="h2" gutterBottom>
+          <Typography
+            sx={{ fontSize: { xs: '20px', sm: '32px' } }}
+            gutterBottom
+          >
             TESTIMONIALS
           </Typography>
         </Box>
@@ -213,31 +216,29 @@ const Testimonials = () => {
               <CardContent className="card-content">
                 <div key={currentIndex} className="content">
                   <Typography
-                    variant="h6"
-                    style={{ fontWeight: 'bold', marginBottom: '10px' }}
+                    sx={{
+                      fontWeight: 'bold',
+                      marginBottom: '10px',
+                      fontSize: { xs: '16px', sm: '18px', md: '20px' }, // Responsive font size
+                      wordBreak: 'break-word', // Break words to prevent overflow
+                      textAlign: 'center', // Center the text
+                    }}
                   >
                     {testimonial.title}
                   </Typography>
-
-                  <Typography
-                    variant="subtitle1"
-                    color="textSecondary"
-                    gutterBottom
-                  >
-                    {testimonial.location.toUpperCase()}
-                  </Typography>
-
                   <Typography
                     sx={{
-                      mt: 3,
+                      mt: { xs: 0, sm: 3 },
                       p: 4,
                       cursor: 'pointer',
-
-                      fontSize: '16px',
-
+                      fontSize: { xs: '14px', sm: '15px', md: '16px' }, // Responsive font size for content
                       color: '#6F7E8C',
-
                       fontStyle: 'italic',
+                      textAlign: 'center', // Center content text
+                      lineHeight: 1.5, // Adjust line-height for readability
+                      wordBreak: 'break-word', // Ensures the text does not overflow
+                      overflow: 'hidden', // Hides overflow content
+                      textOverflow: 'ellipsis', // Adds ellipsis when content overflows
                     }}
                   >
                     {testimonial.content}

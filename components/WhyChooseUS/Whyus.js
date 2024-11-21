@@ -58,11 +58,11 @@ const WhyBookWithUs = () => {
       ref={myRef}
       className={`${isVisible}view`}
     >
-      <Typography variant="h4" component="h2" gutterBottom>
+      <Typography sx={{ fontSize: { xs: '22px', sm: '32px' } }} gutterBottom>
         Why Choose Us
       </Typography>
       <Typography
-        variant="subtitle1"
+        sx={{ fontSize: { xs: '15px', sm: '18px' } }}
         color="textSecondary"
         gutterBottom
         mt="20px"
@@ -71,13 +71,18 @@ const WhyBookWithUs = () => {
         service for every journey.
       </Typography>
 
-      <Grid container spacing={15} justifyContent="center" sx={{ mt: 10 }}>
+      <Grid
+        container
+        spacing={{ sm: 15, xs: 10 }}
+        justifyContent="center"
+        sx={{ mt: { sm: 10, xs: 5 } }}
+      >
         {/* First Card */}
         <Grid item xs={12} sm={6} md={4}>
           <Card
             sx={{
               p: 3,
-              width: '320px',
+              width: { xs: '300px', sm: '320px' },
               height: '370px',
               borderRadius: '10px',
               display: 'flex', // Makes the card flexible
@@ -124,7 +129,7 @@ const WhyBookWithUs = () => {
           <Card
             sx={{
               p: 3,
-              width: '320px',
+              width: { xs: '300px', sm: '320px' },
               height: '370px',
               borderRadius: '10px',
               display: 'flex', // Makes the card flexible
@@ -167,11 +172,21 @@ const WhyBookWithUs = () => {
         </Grid>
 
         {/* Third Card */}
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          md={4}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           <Card
             sx={{
               p: 3,
-              width: '320px',
+              width: { xs: '300px', sm: '320px' },
               height: '370px',
               borderRadius: '10px',
               display: 'flex', // Makes the card flexible

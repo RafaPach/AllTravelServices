@@ -541,9 +541,17 @@ a {
   width: 350px;
   height: 400px;
   margin: auto;
-  
 }
 
+@media screen and (max-width: 640px) {
+  .flip-card {
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 .flip-card-inner {
   width: 100%;
   height: 100%;
@@ -629,7 +637,7 @@ a {
   left: 0;
   width: 100%;
   height: 300px; /* Adjust for curvature size */
-  background-image: url('https://media.istockphoto.com/id/1466527775/photo/ponquogue-beach-in-the-hamptons.jpg?s=2048x2048&w=is&k=20&c=eVghKy9FKZvmZ97fymkRSNEXv2WKR9OdTFk4O5ebte0='); /* Replace with your image */
+  background-image: url('../Assests/BeachImg.jpeg');; /* Replace with your image */
   background-size: cover;
   background-position: center;
   clip-path: ellipse(59% 65% at 53% 29%);
@@ -646,7 +654,7 @@ a {
 
 
 .background-box {
-  position: relative; /* Needed to position the pseudo-element */
+  position: relative; 
   padding-bottom: 30px;
   padding-top: 0px;
 }
@@ -670,7 +678,7 @@ a {
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: -1; /* Ensure the background stays behind the content */
+  z-index: -1; 
 }
 
 
@@ -955,6 +963,20 @@ a {
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .footer {
+    flex-flow: row wrap;
+    width: 95%;
+    text-align: justify;
+  }
+  .footer__addr {
+    margin-top: 2em;
+    margin-right: 0em;
+    margin-left: 0em;
+    margin-bottom: 0em;
+    flex: 1 1 30%;
+  }
+}
 
 @media screen and (max-width: 640px) {
   .footer {

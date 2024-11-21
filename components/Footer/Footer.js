@@ -31,11 +31,11 @@ function FooterComp() {
 
             <ul className="nav__ul">
               <li>
-                <a href="#">Home</a>
+                <a href="/">Home</a>
               </li>
 
               <li>
-                <a href="#">About Us</a>
+                <a href="/about">About Us</a>
               </li>
 
               <li>
@@ -43,11 +43,11 @@ function FooterComp() {
               </li>
 
               <li>
-                <a href="#">Request a Quote</a>
+                <a href="/getaquote">Request a Quote</a>
               </li>
 
               <li>
-                <a href="#">Contact Us</a>
+                <a href="/enquiries">Contact Us</a>
               </li>
             </ul>
           </li>
@@ -79,7 +79,7 @@ function FooterComp() {
 
             <ul className="nav__ul">
               <li>
-                <a href="#"> @outlook.com </a>
+                <a href="#"> alltravelservices@outlook.com </a>
               </li>
 
               <li>
@@ -87,11 +87,7 @@ function FooterComp() {
               </li>
 
               <li>
-                <a href="#">Norwich </a>
-              </li>
-
-              <li>
-                <a href="#">Submit Enquiry Form </a>
+                <a href="#">, Ipswich, </a>
               </li>
             </ul>
           </li>
