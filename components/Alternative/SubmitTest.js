@@ -5,6 +5,8 @@ import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import emailjs from '@emailjs/browser';
 import Image from 'next/image';
 import ReCAPTCHA from 'react-google-recaptcha';
+import Recaptcha from '../FunctionsTemplates/Recaptcha';
+import EmailJs from '../FunctionsTemplates/emailjs';
 
 import Navbarpages from '../Navbar/NavbarForPages';
 import Submit4 from '../../Assests/Submit4.png';
@@ -58,7 +60,7 @@ const EmailForm2 = () => {
     phone: false,
   });
 
-  const [recaptchaToken, setRecaptchaToken] = useState(null);
+  const [token, setToken] = useState(null);
 
   const templateParams = {
     from_name: formData.name,
@@ -74,11 +76,12 @@ const EmailForm2 = () => {
     message: formData.message,
   };
 
-  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY;
+  const EmailJs_Sid = process.env.NEXT_PUBLIC_EmailJs_Sid;
+  const EmailJs_Tid = process.env.NEXT_PUBLIC_EnquiryEmailJs_Tid;
+  const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EmailJs_PublicKey;
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
-  //   Initialize reCAPTCHA when the component mounts
   useEffect(() => {
-    // Load reCAPTCHA if not already loaded
     if (typeof window !== 'undefined' && !window.grecaptcha) {
       const script = document.createElement('script');
       script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
@@ -108,49 +111,18 @@ const EmailForm2 = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Get reCAPTCHA token
-    const token = await new Promise((resolve) => {
-      window.grecaptcha.execute(siteKey, { action: 'submit' }).then(resolve);
-    });
+    await Recaptcha({ siteKey });
 
-    if (!token) {
-      console.error('ReCAPTCHA token is missing');
-      return;
-    }
+    console.log('Form submitted');
 
-    // Verify reCAPTCHA token with your backend
-    const res = await fetch('/api/verify-recaptcha', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token }),
-    });
-
-    const data = await res.json();
-
-    if (!data.success) {
-      console.error('reCAPTCHA verification failed');
-      return;
-    }
-
-    // If reCAPTCHA verification passes, proceed with sending the email
-    console.log('Verification successful');
-    emailjs
-      .send(
-        process.env.EmailJs_Sid, // EmailJS service ID
-        process.env.EmailJs_Tid, // EmailJS template ID
-        formData, // Pass the form data to the template
-        {
-          publicKey: process.env.EMAILJS_PUBLIC_KEY, // Ensure public key is correct
-        }
-      )
-      .then(
-        function (response) {
-          console.log('SUCCESS!', response.status, response.text);
-        },
-        function (error) {
-          console.log('FAILED...', error);
-        }
-      );
+    // EmailJs({
+    //   EmailJs_Sid,
+    //   EmailJs_Tid,
+    //   EMAILJS_PUBLIC_KEY,
+    //   formData,
+    //   setFormData,
+    // });
+    // setFormData({ name: '', subject: '', email: '', phoneNr: '', message: '' });
   };
 
   return (

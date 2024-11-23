@@ -21,7 +21,7 @@ function EmailJs({
         dropoff: '',
         service: '',
         special_request: false,
-        notes: 'N/A',
+        notes: '',
       });
     },
     (error) => {

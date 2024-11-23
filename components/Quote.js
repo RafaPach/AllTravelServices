@@ -87,11 +87,22 @@ function TravelQuoteForm() {
 
     const updatedFormData = {
       ...formData,
+      journeyType,
       special_request:
         formData.special_request.toString() === 'true'
           ? 'Yes, check below.'
           : 'No special requests required.',
+
+      returndate:
+        formData.returndate && formData.returntime
+          ? formData.returndate
+          : 'Theres no Return Date as this is a one way journey',
+      returntime:
+        formData.returndate && formData.returntime
+          ? formData.returntime
+          : 'Theres no Return Time as this is a one way journey',
     };
+
     EmailJs({
       EmailJs_Sid,
       EmailJs_Tid,
@@ -112,10 +123,17 @@ function TravelQuoteForm() {
       service: '',
       special_request: false,
       notes: '',
+      journeyType: '',
     });
+    setErrors((prev) => ({
+      ...prev,
+      phone: false, // Reset phone error
+    }));
+    setServiceType(null);
+    setSelectedDate(null);
+    setSelectedDateReturn(null);
 
-    setServiceType('');
-    setSelectedDate(null); // Or use '' depending on your state structure
+    console.log(formData);
   };
 
   const handleTimeChange = (e) => {
@@ -166,6 +184,7 @@ function TravelQuoteForm() {
     service: '',
     special_request: false,
     notes: '',
+    journeyType: journeyType,
   });
 
   const handleFormChange = (e) => {
@@ -647,7 +666,7 @@ function TravelQuoteForm() {
             sx={{ mb: '20px' }}
             name="notes"
             onChange={handleFormChange}
-            value={formData.notes}
+            value={formData.notes || ''}
           />
 
           <Box className="cta" width="155px" mb={5} onClick={handleSubmit}>

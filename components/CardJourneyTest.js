@@ -1,40 +1,9 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Container,
-  TextField,
-  Button,
-  Typography,
-  FormControl,
-  Checkbox,
-  Stack,
-  FormControlLabel,
-  RadioGroup,
-  Radio,
-  InputAdornment,
-  Select,
-  MenuItem,
-  Card,
-  CardContent,
-  InputLabel,
-} from '@mui/material';
-import { styled } from '@mui/system';
+import { Box, Typography, Card, CardContent } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import ReturnJourney from '../Assests/ReturnJourney.png';
+import ReturnJourney from '../Assests/ReturnCar.png';
 import Image from 'next/image';
 import Oneway from '../Assests/OneWay.png';
-
-// const JourneyTypeCard = styled(Card)(({ selected }) => ({
-//   backgroundColor: selected ? '#FFC107' : '#F5F5F5', // Highlight selected card with a color
-//   boxShadow: selected
-//     ? '0 4px 8px rgba(0, 0, 0, 0.3)'
-//     : '0 2px 4px rgba(0, 0, 0, 0.1)',
-//   transition: '0.3s',
-//   '&:hover': {
-//     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
-//     cursor: 'pointer',
-//   },
-// }));
 
 const JourneyCard = ({ journeyType, setJourneyType, setReturnDate }) => {
   const handleJourneyTypeChange = (type) => {
@@ -144,7 +113,7 @@ const JourneyCard = ({ journeyType, setJourneyType, setReturnDate }) => {
                 justifyContent: 'center',
               }}
             >
-              <Image src={Oneway} width={110} height={50} />{' '}
+              <Image src={ReturnJourney} width={60} height={50} />{' '}
               <Typography
                 sx={
                   {

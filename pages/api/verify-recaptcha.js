@@ -1,21 +1,25 @@
 export default async function handler(req, res) {
   const { token } = req.body;
-  const secretKey = process.env.Re_KEY;
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY; // Secret key on the server side
 
+  // Verify reCAPTCHA token with Google's reCAPTCHA API
   const response = await fetch(
-    `https://www.google.com/recaptcha/api/siteverify`,
+    'https://www.google.com/recaptcha/api/siteverify',
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `secret=${secretKey}&response=${token}`,
+      body: new URLSearchParams({
+        secret: secretKey,
+        response: token,
+      }),
     }
   );
+
   const data = await response.json();
 
-  if (data.success && data.score >= 0.5) {
-    // Adjust the threshold as needed
-    res.status(200).json({ success: true });
+  if (data.success) {
+    return res.status(200).json({ success: true });
   } else {
-    res.status(400).json({ success: false, error: data['error-codes'] });
+    return res.status(400).json({ success: false });
   }
 }
