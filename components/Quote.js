@@ -3,37 +3,26 @@ import {
   Box,
   Container,
   TextField,
-  Button,
   Typography,
   FormControl,
   Checkbox,
   Stack,
   FormControlLabel,
-  RadioGroup,
-  Radio,
   InputAdornment,
   Select,
   MenuItem,
-  Card,
-  CardContent,
-  InputLabel,
 } from '@mui/material';
 import PhoneIcon from '@mui/icons-material/Phone';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LocalTaxiIcon from '@mui/icons-material/LocalTaxi';
 import PersonIcon from '@mui/icons-material/Person';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
-// import DatePicker from 'react-datepicker';
 import DatePicker from 'react-datepicker';
-import Grid from '@mui/material/Grid2';
 import 'react-datepicker/dist/react-datepicker.css'; // Import the styles
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday'; // (Optional) Calendar icon for adornment
-import Image from 'next/image';
-import ReturnJourney from '../Assests/ReturnJourney.png';
-import Oneway from '../Assests/OneWay.png';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import JourneyCard from './CardJourneyTest';
 import Navbarpages from './Navbar/NavbarForPages';
+import EmailJs from './FunctionsTemplates/emailjs';
 
 const customTheme = (outerTheme) =>
   createTheme({
@@ -75,72 +64,63 @@ function TravelQuoteForm() {
   const outerTheme = useTheme();
 
   const [selectedDate, setSelectedDate] = useState(null);
-
   const [selectedDateReturn, setSelectedDateReturn] = useState(null);
-
   const [specialRequests, setSpecialRequests] = useState(false);
-
   const [returnDate, setReturnDate] = useState(null); // State for return date
-
-  const [time, setTime] = useState('');
+  const [pickupTime, setPickupTime] = useState('');
+  const [returnTime, setReturnTime] = useState('');
 
   const [journeyType, setJourneyType] = useState('');
   const [serviceType, setServiceType] = useState('');
 
+  const [errors, setErrors] = useState({
+    email: false,
+    phone: false,
+  });
+
+  const EmailJs_Sid = process.env.NEXT_PUBLIC_EmailJs_Sid;
+  const EmailJs_Tid = process.env.NEXT_PUBLIC_QuoteEmailJs_Tid;
+  const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EmailJs_PublicKey;
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Submit form logic
+
+    const updatedFormData = {
+      ...formData,
+      special_request:
+        formData.special_request.toString() === 'true'
+          ? 'Yes, check below.'
+          : 'No special requests required.',
+    };
+    EmailJs({
+      EmailJs_Sid,
+      EmailJs_Tid,
+      EMAILJS_PUBLIC_KEY,
+      formData: updatedFormData,
+      setFormData,
+    });
+
+    setFormData({
+      fullname: '',
+      phonenr: '',
+      pickupdate: '',
+      pickuptime: '',
+      returndate: '',
+      returntime: ' ',
+      location: '',
+      dropoff: '',
+      service: '',
+      special_request: false,
+      notes: '',
+    });
+
+    setServiceType('');
+    setSelectedDate(null); // Or use '' depending on your state structure
   };
 
-  const handleDateChange = (event) => {
-    setSelectedDateReturn(event.target.value);
-  };
-
-  const handleJourneyTypeChange = (type) => {
-    setJourneyType(type);
-    setReturnDate(null); // Reset return date if they switch back to one-way
-  };
-
-  const returnJourneyFields = journeyType === 'return' && (
-    <Box mt={3}>
-      <Typography sx={{ mb: '10px', fontSize: '14px' }}>
-        <span style={{ color: '#fcb017' }}>Return Date</span>
-      </Typography>
-      <DatePicker
-        selected={returnDate}
-        onChange={(date) => setReturnDate(date)}
-        dateFormat="dd/MM/yyyy"
-        placeholderText="Select return date"
-        renderCustomHeader={({ date, decreaseMonth, increaseMonth }) => (
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <button onClick={decreaseMonth}>&lt;</button>
-            <span>
-              {date.toLocaleString('default', { month: 'long' })}{' '}
-              {date.getFullYear()}
-            </span>
-            <button onClick={increaseMonth}>&gt;</button>
-          </div>
-        )}
-        customInput={
-          <TextField
-            variant="outlined"
-            placeholder="dd/mm/yyyy"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <CalendarTodayIcon style={{ width: 15 }} />
-                </InputAdornment>
-              ),
-              readOnly: true,
-            }}
-          />
-        }
-      />
-    </Box>
-  );
-
-  const handleTimeChange = (event) => {
-    let value = event.target.value;
+  const handleTimeChange = (e) => {
+    const { name } = e.target;
+    let value = e.target.value;
 
     // Remove any non-numeric characters except colon
     value = value.replace(/[^\d:]/g, '');
@@ -164,7 +144,88 @@ function TravelQuoteForm() {
       value = hours + ':59';
     }
 
-    setTime(value);
+    if (name === 'pickuptime') {
+      setPickupTime(value);
+      setFormData((prev) => ({ ...prev, pickuptime: value }));
+    } else if (name === 'returntime') {
+      setReturnTime(value);
+      setFormData((prev) => ({ ...prev, returntime: value }));
+    }
+    console.log(formData);
+  };
+
+  const [formData, setFormData] = useState({
+    fullname: '',
+    phonenr: '',
+    pickupdate: '',
+    pickuptime: '',
+    returndate: '',
+    returntime: ' ',
+    location: '',
+    dropoff: '',
+    service: '',
+    special_request: false,
+    notes: '',
+  });
+
+  const handleFormChange = (e) => {
+    const { name, value, checked } = e.target;
+
+    if (name === 'phonenr') {
+      setErrors((prev) => ({
+        ...prev,
+        phone: value.length < 10 || isNaN(value),
+      }));
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+    if (name === 'service') {
+      setErrors((prev) => ({
+        ...prev,
+        phone: value.length < 10 || isNaN(value),
+      }));
+      setServiceType(value);
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    } else if (name === 'special_request') {
+      setSpecialRequests(checked);
+
+      console.log(specialRequests);
+
+      setFormData((prev) => ({ ...prev, [name]: checked }));
+    } else if (name === 'pickupdate' && value) {
+      const date = new Date(value);
+
+      if (!isNaN(date)) {
+        const formattedDate = `${('0' + date.getDate()).slice(-2)}/${(
+          '0' +
+          (date.getMonth() + 1)
+        ).slice(-2)}/${date.getFullYear()} `;
+
+        setFormData((prev) => ({ ...prev, [name]: formattedDate }));
+
+        setSelectedDate(date);
+      } else {
+        console.log('invalid date format');
+      }
+    } else if (name === 'returndate' && value) {
+      const date = new Date(value);
+
+      if (!isNaN(date)) {
+        const formattedDate = `${('0' + date.getDate()).slice(-2)}/${(
+          '0' +
+          (date.getMonth() + 1)
+        ).slice(-2)}/${date.getFullYear()} `;
+
+        setFormData((prev) => ({ ...prev, [name]: formattedDate }));
+
+        setSelectedDateReturn(date);
+      } else {
+        console.log('invalid date format');
+      }
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+
+    console.log(formData);
   };
 
   return (
@@ -323,6 +384,9 @@ function TravelQuoteForm() {
                     </InputAdornment>
                   ),
                 }}
+                value={formData.fullname}
+                name="fullname"
+                onChange={handleFormChange}
               />
             </Stack>
           </Box>
@@ -342,6 +406,11 @@ function TravelQuoteForm() {
                     </InputAdornment>
                   ),
                 }}
+                error={errors.phone}
+                helperText={errors.phone ? 'Please enter a valid number' : ''}
+                name="phonenr"
+                onChange={handleFormChange}
+                value={formData.phonenr}
               />
             </Stack>
           </Box>
@@ -357,13 +426,22 @@ function TravelQuoteForm() {
               >
                 <span style={{ color: '#fcb017' }}>3.</span> Pickup Date
               </Typography>
+
               <DatePicker
                 selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
+                onChange={(date) => {
+                  if (date) {
+                    handleFormChange({
+                      target: { name: 'pickupdate', type: 'date', value: date },
+                    });
+                  }
+                }}
+                name="pickupdate"
                 dateFormat="dd/MM/yyyy"
                 placeholderText="dd/mm/yyyy"
                 customInput={
                   <TextField
+                    value={formData.pickupdate}
                     variant="outlined"
                     placeholder="dd/mm/yyyy"
                     InputProps={{
@@ -372,6 +450,7 @@ function TravelQuoteForm() {
                           <CalendarTodayIcon style={{ width: 15 }} />
                         </InputAdornment>
                       ),
+
                       readOnly: true,
                     }}
                     sx={{ width: { md: '400px', xs: '380px' } }}
@@ -390,8 +469,9 @@ function TravelQuoteForm() {
                 variant="outlined"
                 // placeholder="hh:mm"
                 type="time"
-                value={time}
+                value={formData.pickuptime}
                 onChange={handleTimeChange}
+                name="pickuptime"
                 sx={{
                   '& input[type="time"]::-webkit-calendar-picker-indicator': {
                     order: -1, // Moves the default clock icon to the start (not always reliable across browsers)
@@ -423,12 +503,23 @@ function TravelQuoteForm() {
                   <span style={{ color: '#fcb017' }}>5.</span> Return Date
                 </Typography>
                 <DatePicker
-                  selected={returnDate}
-                  onChange={(date) => setReturnDate(date)}
+                  selected={selectedDateReturn}
+                  onChange={(date) => {
+                    if (date) {
+                      handleFormChange({
+                        target: {
+                          name: 'returndate',
+                          type: 'date',
+                          value: date,
+                        },
+                      });
+                    }
+                  }}
                   dateFormat="dd/MM/yyyy"
                   placeholderText="dd/mm/yyyy"
                   customInput={
                     <TextField
+                      value={formData.returndate}
                       variant="outlined"
                       placeholder="dd/mm/yyyy"
                       InputProps={{
@@ -452,6 +543,9 @@ function TravelQuoteForm() {
                 </Typography>
                 <TextField
                   type="time"
+                  value={formData.returntime}
+                  onChange={handleTimeChange} // Calls the adjusted function
+                  name="returntime"
                   // fullWidth
                   required
                   sx={{
@@ -486,6 +580,9 @@ function TravelQuoteForm() {
                   </InputAdornment>
                 ),
               }}
+              name="location"
+              onChange={handleFormChange}
+              value={formData.location}
             />
           </Box>
 
@@ -503,6 +600,9 @@ function TravelQuoteForm() {
                   </InputAdornment>
                 ),
               }}
+              name="dropoff"
+              onChange={handleFormChange}
+              value={formData.dropoff}
             />
           </Box>
 
@@ -514,11 +614,14 @@ function TravelQuoteForm() {
             <FormControl fullWidth>
               <Select
                 value={serviceType}
-                onChange={(e) => setServiceType(e.target.value)}
+                name="service"
+                onChange={handleFormChange}
                 startAdornment={<LocalTaxiIcon sx={{ mr: 1, width: 15 }} />}
               >
                 <MenuItem value="standard">Standard</MenuItem>
+
                 <MenuItem value="luxury">Luxury</MenuItem>
+
                 <MenuItem value="van">Van</MenuItem>
               </Select>
             </FormControl>
@@ -527,8 +630,9 @@ function TravelQuoteForm() {
           <FormControlLabel
             control={
               <Checkbox
+                name="special_request"
                 checked={specialRequests}
-                onChange={(e) => setSpecialRequests(e.target.checked)}
+                onChange={handleFormChange}
               />
             }
             label="Special Requests (e.g., child seat)"
@@ -541,6 +645,9 @@ function TravelQuoteForm() {
             rows={4}
             fullWidth
             sx={{ mb: '20px' }}
+            name="notes"
+            onChange={handleFormChange}
+            value={formData.notes}
           />
 
           <Box className="cta" width="155px" mb={5} onClick={handleSubmit}>

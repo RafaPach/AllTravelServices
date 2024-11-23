@@ -74,19 +74,21 @@ const EmailForm2 = () => {
     message: formData.message,
   };
 
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY;
+
   //   Initialize reCAPTCHA when the component mounts
   useEffect(() => {
     // Load reCAPTCHA if not already loaded
     if (typeof window !== 'undefined' && !window.grecaptcha) {
       const script = document.createElement('script');
-      script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.GA}`;
+      script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
       script.async = true;
       script.onload = () => {
         console.log('reCAPTCHA script loaded');
       };
       document.body.appendChild(script);
     }
-  }, []);
+  }, [siteKey]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -106,13 +108,9 @@ const EmailForm2 = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Call execute to get the token
+    // Get reCAPTCHA token
     const token = await new Promise((resolve) => {
-      window.grecaptcha
-        .execute(process.env.ReCAPTCHA_ID, {
-          action: 'submit',
-        })
-        .then(resolve);
+      window.grecaptcha.execute(siteKey, { action: 'submit' }).then(resolve);
     });
 
     if (!token) {
@@ -120,29 +118,39 @@ const EmailForm2 = () => {
       return;
     }
 
+    // Verify reCAPTCHA token with your backend
     const res = await fetch('/api/verify-recaptcha', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token }),
     });
+
     const data = await res.json();
 
-    if (data.success) {
-      console.log('Verification successful');
-      emailjs
-        .send(process.env.emailJS1, process.env.emailJS2, templateParams, {
-          publicKey: process.env.email_pubKey,
-        })
-
-        .then(
-          function (response) {
-            console.log('SUCCESS!', response.status, response.text);
-          },
-          function (error) {
-            console.log('FAILED...', error);
-          }
-        );
+    if (!data.success) {
+      console.error('reCAPTCHA verification failed');
+      return;
     }
+
+    // If reCAPTCHA verification passes, proceed with sending the email
+    console.log('Verification successful');
+    emailjs
+      .send(
+        process.env.EmailJs_Sid, // EmailJS service ID
+        process.env.EmailJs_Tid, // EmailJS template ID
+        formData, // Pass the form data to the template
+        {
+          publicKey: process.env.EMAILJS_PUBLIC_KEY, // Ensure public key is correct
+        }
+      )
+      .then(
+        function (response) {
+          console.log('SUCCESS!', response.status, response.text);
+        },
+        function (error) {
+          console.log('FAILED...', error);
+        }
+      );
   };
 
   return (
@@ -193,7 +201,7 @@ const EmailForm2 = () => {
               height: '150px',
               justifyContent: 'center',
               alignContent: 'center',
-              p: 2,
+              p: { xs: 2, sm: 0 },
             }}
           >
             <Typography

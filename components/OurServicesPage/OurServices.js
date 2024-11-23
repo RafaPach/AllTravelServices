@@ -200,8 +200,16 @@ function InfoCards() {
                   backContent={[
                     {
                       icon: GroupIcon,
-                      description:
-                        '4-8 Seater Vehicles (Can Fit 1-2 wheelchairs which extra seats for additional passengers)',
+                      description: (
+                        <>
+                          4-8 Seater Vehicles -{' '}
+                          <strong>
+                            {' '}
+                            Can Fit up to 2 wheelchairs which extra seats for
+                            additional passengers{' '}
+                          </strong>
+                        </>
+                      ),
                     },
                     {
                       icon: DirectionsCarIcon,

@@ -41,7 +41,7 @@ const testimonials = [
   {
     title: 'Emma Mitchell',
     location: '',
-    content: ` was truly impressed with the service I received from this company. The driver not only arrived ahead of time but also ensured I had everything I needed for my trip. I’ve never felt more comfortable and taken care of during a ride. The level of professionalism and care is unmatched, and I’ll definitely be using this service again!`,
+    content: ` Was truly impressed with the service I received from this company. The driver not only arrived ahead of time but also ensured I had everything I needed for my trip. I’ve never felt more comfortable and taken care of during a ride. The level of professionalism and care is unmatched, and I’ll definitely be using this service again!`,
   },
 ];
 
@@ -82,7 +82,7 @@ const Testimonials = () => {
       setCurrentIndex(
         (prevIndex) => (prevIndex + itemsPerPage) % testimonials.length
       );
-    }, 3000); // Change every 5 seconds
+    }, 3000); // Change every 3 seconds
 
     return () => {
       // Cleanup both the observer and the interval
