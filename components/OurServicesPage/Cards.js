@@ -68,6 +68,7 @@ function ServCards({ title, pic, description, backContent }) {
               </Stack>
               <Stack
                 mt={3}
+                pb={10}
                 direction="row"
                 display="flex"
                 justifyContent="space-around"

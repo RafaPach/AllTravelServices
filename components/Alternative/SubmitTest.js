@@ -51,7 +51,7 @@ const EmailForm2 = () => {
     name: '',
     subject: '',
     email: '',
-    phoneNr: '',
+    phonenr: '',
     message: '',
   });
 
@@ -67,7 +67,7 @@ const EmailForm2 = () => {
 
     to_name: 'Pamal',
 
-    phonenr: '07517391612',
+    phonenr: formData.phonenr,
 
     subject: formData.subject,
 
@@ -100,12 +100,13 @@ const EmailForm2 = () => {
     if (name === 'email') {
       setErrors((prev) => ({ ...prev, email: !e.target.validity.valid }));
     }
-    if (name === 'phoneNr') {
+    if (name === 'phonenr') {
       setErrors((prev) => ({
         ...prev,
         phone: value.length > 9 || isNaN(value) || !value,
       }));
     }
+    console.log(formData);
   };
 
   const handleSubmit = async (e) => {
@@ -115,14 +116,14 @@ const EmailForm2 = () => {
 
     console.log('Form submitted');
 
-    // EmailJs({
-    //   EmailJs_Sid,
-    //   EmailJs_Tid,
-    //   EMAILJS_PUBLIC_KEY,
-    //   formData,
-    //   setFormData,
-    // });
-    // setFormData({ name: '', subject: '', email: '', phoneNr: '', message: '' });
+    EmailJs({
+      EmailJs_Sid,
+      EmailJs_Tid,
+      EMAILJS_PUBLIC_KEY,
+      formData: templateParams,
+      setFormData,
+    });
+    setFormData({ name: '', subject: '', email: '', phonenr: '', message: '' });
   };
 
   return (
@@ -218,9 +219,9 @@ const EmailForm2 = () => {
               {/* Second Row: Phone Number & Email */}
               <Grid item xs={12} sm={6}>
                 <TextField
-                  name="phoneNr"
+                  name="phonenr"
                   label="Phone Number"
-                  value={formData.phoneNr}
+                  value={formData.phonenr}
                   variant="outlined"
                   onChange={handleChange}
                   error={errors.phone}

@@ -33,6 +33,10 @@ import FeatureComp from './Features';
 
 import { useTheme, useMediaQuery } from '@mui/material';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
+
 function InfoCards() {
   const serviceRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -40,7 +44,9 @@ function InfoCards() {
   const [prevY, setPrevY] = useState(0); // Tracks the previous position of the section
 
   const theme = useTheme(); // Use the theme
-  const isMediumUp = useMediaQuery(theme.breakpoints.up('md')); // Use breakpoints
+  const isMediumUp = useMediaQuery(theme.breakpoints.up('md'));
+
+  const isMediumDown = useMediaQuery(theme.breakpoints.down('md'));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -75,14 +81,40 @@ function InfoCards() {
     };
   }, [scrollDirection, prevY]); // Add new dependencies
 
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    swipe: true,
+  };
+
   return (
     <Box className={isMediumUp ? 'background-box' : ''} id="services">
-      <Box sx={{ textAlign: 'center', mb: 8 }}>
-        {/* <Typography variant="h4" component="h2" gutterBottom>
-          Our Services
-        </Typography> */}
-      </Box>
       <Container maxWidth="lg">
+        <Box sx={{ textAlign: 'center', mt: 3, mb: 6 }}>
+          {isMediumDown && (
+            <>
+              <Typography
+                sx={{ fontSize: { xs: '22px', sm: '32px' } }}
+                gutterBottom
+              >
+                Our Services
+              </Typography>
+              <Typography
+                sx={{ fontSize: { xs: '15px', sm: '18px' } }}
+                color="textSecondary"
+                gutterBottom
+              >
+                Explore our range of premium services below. <br /> Scroll down
+                to discover the perfect solution tailored to your needs.
+              </Typography>
+            </>
+          )}
+        </Box>
+
         <Grid
           container
           spacing={3}
@@ -96,180 +128,350 @@ function InfoCards() {
             xs={12}
             md={8}
             sx={{ marginBottom: '30px' }}
-            className={`cardEffect ${isVisible ? 'fadeInRight' : ''}`}
+            className={
+              isMediumDown ? '' : `cardEffect ${isVisible ? 'fadeInRight' : ''}`
+            }
           >
-            <Grid container spacing={6}>
-              {' '}
-              {/* Increased spacing between cards */}
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                ref={serviceRef}
-                // className={`cardEffect ${isVisible ? 'fadeInRight' : ''}`}
-              >
-                <ServCards
-                  pic={RealExecute}
-                  title={'Executive Travel for VIP clients'}
-                  description={
-                    'Delivering premium, discreet chauffeur services for VIP clients, ensuring comfort, professionalism, and a luxury experience tailored to your specific needs.'
-                  }
-                  backContent={[
-                    { icon: GroupIcon, description: '4-8 Seater Vehicles ' },
-                    {
-                      icon: DirectionsCarIcon,
-                      description: 'Luxury Sedans, SUVs and Minibuses ',
-                    },
-                    {
-                      icon: PaymentIcon,
-                      description:
-                        'Prepayment Required (invoice sent to email) ',
-                    },
-                    {
-                      icon: AccessTimeIcon,
-                      description: 'Punctual and Professional Chauffeur  ',
-                    },
-                    {
-                      icon: EmojiPeopleIcon,
-                      description: 'Meet And Greet Provided ',
-                    },
-                    {
-                      icon: WorkspacePremiumIcon,
-                      description:
-                        'DBS Cleared Driver With Extensive Experience ',
-                    },
-                  ]}
-                />
+            {isMediumDown ? (
+              // Use Slider for smaller devices
+              <Slider {...sliderSettings}>
+                <div>
+                  <ServCards
+                    pic={RealExecute}
+                    title={'Executive Travel for VIP clients'}
+                    description={
+                      'Delivering premium, discreet chauffeur services for VIP clients, ensuring comfort, professionalism, and a luxury experience tailored to your specific needs.'
+                    }
+                    backContent={[
+                      { icon: GroupIcon, description: '4-8 Seater Vehicles ' },
+                      {
+                        icon: DirectionsCarIcon,
+                        description: 'Luxury Sedans, SUVs and Minibuses ',
+                      },
+                      {
+                        icon: PaymentIcon,
+                        description:
+                          'Prepayment Required (invoice sent to email) ',
+                      },
+                      {
+                        icon: AccessTimeIcon,
+                        description: 'Punctual and Professional Chauffeur  ',
+                      },
+                      {
+                        icon: EmojiPeopleIcon,
+                        description: 'Meet And Greet Provided ',
+                      },
+                      {
+                        icon: WorkspacePremiumIcon,
+                        description:
+                          'DBS Cleared Driver With Extensive Experience ',
+                      },
+                    ]}
+                  />
+                </div>
+                <div>
+                  <ServCards
+                    pic={RealPrivate}
+                    title={'Private Contracts'}
+                    description={
+                      'Reliable transport solutions for private clients, including long-term partnerships with schools, businesses, and healthcare for scheduled travel.'
+                    }
+                    backContent={[
+                      { icon: GroupIcon, description: '4-8 Seater Vehicles ' },
+                      {
+                        icon: DirectionsCarIcon,
+                        description: (
+                          <>
+                            Sedans, SUVs and Minibuses -{' '}
+                            <strong>Multiple Vehicles if required</strong>
+                          </>
+                        ),
+                      },
+                      {
+                        icon: PaymentIcon,
+                        description:
+                          'Monthly Prepayment (Invoice Sent To Email)',
+                      },
+                      {
+                        icon: AccessTimeIcon,
+                        description: 'Punctual And Reliable Staff',
+                      },
+                      {
+                        icon: EmojiPeopleIcon,
+                        description: 'Meet And Greet Provided ',
+                      },
+                      {
+                        icon: WorkspacePremiumIcon,
+                        description: 'DBS Cleared Staff',
+                      },
+                    ]}
+                  />
+                </div>
+                <div>
+                  <ServCards
+                    pic={RealAssisted}
+                    title={'Assisted Travel'}
+                    description={
+                      'Safe, comfortable transport for disabled passengers, with trained drivers offering personalized assistance and support throughout the journey.'
+                    }
+                    backContent={[
+                      {
+                        icon: GroupIcon,
+                        description: (
+                          <>
+                            4-8 Seater Vehicles -{' '}
+                            <strong>
+                              {' '}
+                              Can Fit up to 2 wheelchairs which extra seats for
+                              additional passengers{' '}
+                            </strong>
+                          </>
+                        ),
+                      },
+                      {
+                        icon: DirectionsCarIcon,
+                        description:
+                          'Vehicles Fitted With Automatic Electric Tailgate Lifts',
+                      },
+                      {
+                        icon: EmojiPeopleIcon,
+                        description: 'Meet And Greet Provided ',
+                      },
+                      {
+                        icon: AccessTimeIcon,
+                        description: 'Punctual And Reliable Staff',
+                      },
+                      {
+                        icon: WorkspacePremiumIcon,
+                        description: 'DBS Cleared Driver',
+                      },
+                    ]}
+                  />
+                </div>
+                <div>
+                  <ServCards
+                    pic={RealSchool}
+                    title={'School Transport'}
+                    description={
+                      'Providing safe, punctual, and convenient transportation for students, with a strong focus on reliability, care, and flexibility for schools and families.'
+                    }
+                    backContent={[
+                      {
+                        icon: GroupIcon,
+                        description: 'Sedans, SUVs and Minibuses',
+                      },
+                      {
+                        icon: PaymentIcon,
+                        description:
+                          'Monthly Prepayment (invoice sent to email) ',
+                      },
+                      {
+                        icon: EmojiPeopleIcon,
+                        description: 'Meet And Greet Provided ',
+                      },
+                      {
+                        icon: AccessibleIcon,
+                        description: 'Passenger Assistant Can Be Provided ',
+                      },
+                      {
+                        icon: WorkspacePremiumIcon,
+                        description: 'DBS Cleared Staff',
+                      },
+                    ]}
+                  />
+                </div>
+              </Slider>
+            ) : (
+              <Grid container spacing={6}>
+                {' '}
+                {/* Increased spacing between cards */}
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  // ref={serviceRef}
+                  // className={
+                  //   isMediumUp
+                  //     ? ''
+                  //     : `cardEffect ${isVisible ? 'fadeInRight' : ''}`
+                  // }
+                >
+                  <ServCards
+                    pic={RealExecute}
+                    title={'Executive Travel for VIP clients'}
+                    description={
+                      'Delivering premium, discreet chauffeur services for VIP clients, ensuring comfort, professionalism, and a luxury experience tailored to your specific needs.'
+                    }
+                    backContent={[
+                      { icon: GroupIcon, description: '4-8 Seater Vehicles ' },
+                      {
+                        icon: DirectionsCarIcon,
+                        description: 'Luxury Sedans, SUVs and Minibuses ',
+                      },
+                      {
+                        icon: PaymentIcon,
+                        description:
+                          'Prepayment Required (invoice sent to email) ',
+                      },
+                      {
+                        icon: AccessTimeIcon,
+                        description: 'Punctual and Professional Chauffeur  ',
+                      },
+                      {
+                        icon: EmojiPeopleIcon,
+                        description: 'Meet And Greet Provided ',
+                      },
+                      {
+                        icon: WorkspacePremiumIcon,
+                        description:
+                          'DBS Cleared Driver With Extensive Experience ',
+                      },
+                    ]}
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  // ref={serviceRef}
+                  // className={
+                  //   isMediumUp
+                  //     ? ''
+                  //     : `cardEffect ${isVisible ? 'fadeInRight' : ''}`
+                  // }
+                >
+                  <ServCards
+                    pic={RealPrivate}
+                    title={'Private Contracts'}
+                    description={
+                      'Reliable transport solutions for private clients, including long-term partnerships with schools, businesses, and healthcare for scheduled travel.'
+                    }
+                    backContent={[
+                      { icon: GroupIcon, description: '4-8 Seater Vehicles ' },
+                      {
+                        icon: DirectionsCarIcon,
+                        description: (
+                          <>
+                            Sedans, SUVs and Minibuses -{' '}
+                            <strong>Multiple Vehicles if required</strong>
+                          </>
+                        ),
+                      },
+                      {
+                        icon: PaymentIcon,
+                        description:
+                          'Monthly Prepayment (Invoice Sent To Email)',
+                      },
+                      {
+                        icon: AccessTimeIcon,
+                        description: 'Punctual And Reliable Staff',
+                      },
+                      {
+                        icon: EmojiPeopleIcon,
+                        description: 'Meet And Greet Provided ',
+                      },
+                      {
+                        icon: WorkspacePremiumIcon,
+                        description: 'DBS Cleared Staff',
+                      },
+                    ]}
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  // ref={serviceRef}
+                  // className={
+                  //   isMediumUp
+                  //     ? ''
+                  //     : `cardEffect ${isVisible ? 'fadeInLeft' : ''}`
+                  // }
+                >
+                  <ServCards
+                    pic={RealAssisted}
+                    title={'Assisted Travel'}
+                    description={
+                      'Safe, comfortable transport for disabled passengers, with trained drivers offering personalized assistance and support throughout the journey.'
+                    }
+                    backContent={[
+                      {
+                        icon: GroupIcon,
+                        description: (
+                          <>
+                            4-8 Seater Vehicles -{' '}
+                            <strong>
+                              {' '}
+                              Can Fit up to 2 wheelchairs which extra seats for
+                              additional passengers{' '}
+                            </strong>
+                          </>
+                        ),
+                      },
+                      {
+                        icon: DirectionsCarIcon,
+                        description:
+                          'Vehicles Fitted With Automatic Electric Tailgate Lifts',
+                      },
+                      {
+                        icon: EmojiPeopleIcon,
+                        description: 'Meet And Greet Provided ',
+                      },
+                      {
+                        icon: AccessTimeIcon,
+                        description: 'Punctual And Reliable Staff',
+                      },
+                      {
+                        icon: WorkspacePremiumIcon,
+                        description: 'DBS Cleared Driver',
+                      },
+                    ]}
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  // ref={serviceRef}
+                  // className={
+                  //   isMediumUp
+                  //     ? ''
+                  //     : `cardEffect ${isVisible ? 'fadeInLeft' : ''}`
+                  // }
+                >
+                  <ServCards
+                    pic={RealSchool}
+                    title={'School Transport'}
+                    description={
+                      'Providing safe, punctual, and convenient transportation for students, with a strong focus on reliability, care, and flexibility for schools and families.'
+                    }
+                    backContent={[
+                      {
+                        icon: GroupIcon,
+                        description: 'Sedans, SUVs and Minibuses',
+                      },
+                      {
+                        icon: PaymentIcon,
+                        description:
+                          'Monthly Prepayment (invoice sent to email) ',
+                      },
+                      {
+                        icon: EmojiPeopleIcon,
+                        description: 'Meet And Greet Provided ',
+                      },
+                      {
+                        icon: AccessibleIcon,
+                        description: 'Passenger Assistant Can Be Provided ',
+                      },
+                      {
+                        icon: WorkspacePremiumIcon,
+                        description: 'DBS Cleared Staff',
+                      },
+                    ]}
+                  />
+                </Grid>
               </Grid>
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                ref={serviceRef}
-                // className={`cardEffect ${isVisible ? 'fadeInLeft' : ''}`}
-              >
-                <ServCards
-                  pic={RealPrivate}
-                  title={'Private Contracts'}
-                  description={
-                    'Reliable transport solutions for private clients, including long-term partnerships with schools, businesses, and healthcare for scheduled travel.'
-                  }
-                  backContent={[
-                    { icon: GroupIcon, description: '4-8 Seater Vehicles ' },
-                    {
-                      icon: DirectionsCarIcon,
-                      description: (
-                        <>
-                          Sedans, SUVs and Minibuses -{' '}
-                          <strong>Multiple Vehicles if required</strong>
-                        </>
-                      ),
-                    },
-                    {
-                      icon: PaymentIcon,
-                      description: 'Monthly Prepayment (Invoice Sent To Email)',
-                    },
-                    {
-                      icon: AccessTimeIcon,
-                      description: 'Punctual And Reliable Staff',
-                    },
-                    {
-                      icon: EmojiPeopleIcon,
-                      description: 'Meet And Greet Provided ',
-                    },
-                    {
-                      icon: WorkspacePremiumIcon,
-                      description: 'DBS Cleared Staff',
-                    },
-                  ]}
-                />
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                ref={serviceRef}
-                // className={`cardEffect ${isVisible ? 'fadeInRight' : ''}`}
-              >
-                <ServCards
-                  pic={RealAssisted}
-                  title={'Assisted Travel'}
-                  description={
-                    'Safe, comfortable transport for disabled passengers, with trained drivers offering personalized assistance and support throughout the journey.'
-                  }
-                  backContent={[
-                    {
-                      icon: GroupIcon,
-                      description: (
-                        <>
-                          4-8 Seater Vehicles -{' '}
-                          <strong>
-                            {' '}
-                            Can Fit up to 2 wheelchairs which extra seats for
-                            additional passengers{' '}
-                          </strong>
-                        </>
-                      ),
-                    },
-                    {
-                      icon: DirectionsCarIcon,
-                      description:
-                        'Vehicles Fitted With Automatic Electric Tailgate Lifts',
-                    },
-                    {
-                      icon: EmojiPeopleIcon,
-                      description: 'Meet And Greet Provided ',
-                    },
-                    {
-                      icon: AccessTimeIcon,
-                      description: 'Punctual And Reliable Staff',
-                    },
-                    {
-                      icon: WorkspacePremiumIcon,
-                      description: 'DBS Cleared Driver',
-                    },
-                  ]}
-                />
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                ref={serviceRef}
-                // className={`cardEffect ${isVisible ? 'fadeInLeft' : ''}`}
-              >
-                <ServCards
-                  pic={RealSchool}
-                  title={'School Transport'}
-                  description={
-                    'Providing safe, punctual, and convenient transportation for students, with a strong focus on reliability, care, and flexibility for schools and families.'
-                  }
-                  backContent={[
-                    {
-                      icon: GroupIcon,
-                      description: 'Sedans, SUVs and Minibuses',
-                    },
-                    {
-                      icon: PaymentIcon,
-                      description:
-                        'Monthly Prepayment (invoice sent to email) ',
-                    },
-                    {
-                      icon: EmojiPeopleIcon,
-                      description: 'Meet And Greet Provided ',
-                    },
-                    {
-                      icon: AccessibleIcon,
-                      description: 'Passenger Assistant Can Be Provided ',
-                    },
-                    {
-                      icon: WorkspacePremiumIcon,
-                      description: 'DBS Cleared Staff',
-                    },
-                  ]}
-                />
-              </Grid>
-            </Grid>
+            )}
           </Grid>
 
           {/* Feature Box Section */}

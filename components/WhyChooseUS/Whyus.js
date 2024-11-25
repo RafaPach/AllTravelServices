@@ -49,7 +49,7 @@ const WhyBookWithUs = () => {
         textAlign: 'center',
         py: 5,
         mt: 15,
-        mb: -7.5,
+        mb: { xs: 0, sm: 0, md: -7.5 },
         backgroundColor: '#f9f9f9',
         height: { lg: '750px', md: '1200px' },
         position: 'relative',
@@ -75,15 +75,15 @@ const WhyBookWithUs = () => {
         container
         spacing={{ sm: 15, xs: 10 }}
         justifyContent="center"
-        sx={{ mt: { sm: 10, xs: 5 } }}
+        sx={{ mt: { sm: 10, xs: 10 } }}
       >
         {/* First Card */}
         <Grid item xs={12} sm={6} md={4}>
           <Card
             sx={{
               p: 3,
-              width: { xs: '300px', sm: '320px' },
-              height: '370px',
+              width: { xs: '270px', sm: '320px' },
+              height: { xs: '330px', sm: '370px' },
               borderRadius: '10px',
               display: 'flex', // Makes the card flexible
               flexDirection: 'column', // Stacks the content vertically
@@ -129,8 +129,8 @@ const WhyBookWithUs = () => {
           <Card
             sx={{
               p: 3,
-              width: { xs: '300px', sm: '320px' },
-              height: '370px',
+              width: { xs: '270px', sm: '320px' },
+              height: { xs: '330px', sm: '370px' },
               borderRadius: '10px',
               display: 'flex', // Makes the card flexible
               flexDirection: 'column', // Stacks the content vertically
@@ -186,8 +186,8 @@ const WhyBookWithUs = () => {
           <Card
             sx={{
               p: 3,
-              width: { xs: '300px', sm: '320px' },
-              height: '370px',
+              width: { xs: '270px', sm: '320px' },
+              height: { xs: '330px', sm: '370px' },
               borderRadius: '10px',
               display: 'flex', // Makes the card flexible
               flexDirection: 'column', // Stacks the content vertically

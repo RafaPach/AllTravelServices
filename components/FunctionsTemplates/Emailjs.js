@@ -10,19 +10,19 @@ function EmailJs({
   emailjs.send(EmailJs_Sid, EmailJs_Tid, formData, EMAILJS_PUBLIC_KEY).then(
     (response) => {
       console.log('SUCCESS!', response.status, response.text);
-      setFormData({
-        fullname: '',
-        phonenr: '',
-        pickupdate: '',
-        pickuptime: '',
-        returndate: '',
-        returntime: ' ',
-        location: '',
-        dropoff: '',
-        service: '',
-        special_request: false,
-        notes: '',
-      });
+      // setFormData({
+      //   fullname: '',
+      //   phonenr: '',
+      //   pickupdate: '',
+      //   pickuptime: '',
+      //   returndate: '',
+      //   returntime: ' ',
+      //   location: '',
+      //   dropoff: '',
+      //   service: '',
+      //   special_request: false,
+      //   notes: '',
+      // });
     },
     (error) => {
       console.log('FAILED...', error);
