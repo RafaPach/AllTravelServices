@@ -10,6 +10,9 @@ import EmailJs from '../FunctionsTemplates/emailjs';
 
 import Navbarpages from '../Navbar/NavbarForPages';
 import Submit4 from '../../Assests/Submit4.png';
+
+import { useMediaQuery } from '@mui/material';
+
 const customTheme = (outerTheme) =>
   createTheme({
     palette: {
@@ -75,6 +78,8 @@ const EmailForm2 = () => {
 
     message: formData.message,
   };
+  const theme = useTheme();
+  const isMediumUp = useMediaQuery(theme.breakpoints.up('lg'));
 
   const EmailJs_Sid = process.env.NEXT_PUBLIC_EmailJs_Sid;
   const EmailJs_Tid = process.env.NEXT_PUBLIC_EnquiryEmailJs_Tid;
@@ -134,7 +139,7 @@ const EmailForm2 = () => {
 
       <Box
         ml={{ xs: 1, sm: 5, md: 10, lg: 15 }}
-        mr={{ xs: 1, sm: 0 }}
+        mr={{ xs: 1, sm: 5, md: 0 }}
         mt={{ lg: 2, xl: 4, xs: 3 }}
         mb={10}
         sx={{ minHeight: '90vh' }}
@@ -142,7 +147,7 @@ const EmailForm2 = () => {
         <Box
           sx={{
             display: 'flex',
-            justifyContent: { xs: 'center', sm: 'start' },
+            justifyContent: { xs: 'center', lg: 'start' },
             m: 1,
           }}
         >
@@ -162,7 +167,7 @@ const EmailForm2 = () => {
         <Box
           sx={{
             display: 'flex',
-            justifyContent: 'start',
+            justifyContent: { lg: 'start', xs: 'center' },
             alignItems: 'center',
             textAlign: 'justify',
             mt: 0,
@@ -170,27 +175,34 @@ const EmailForm2 = () => {
         >
           <Box
             sx={{
-              width: '600px',
+              width: { lg: '500px', sm: '600px', xs: '100%' },
               height: '150px',
               justifyContent: 'center',
               alignContent: 'center',
-              p: { xs: 2, sm: 0 },
+              p: { xs: 2, sm: 2, md: 0 },
+              textAlign: 'justify',
             }}
           >
             <Typography
-              sx={{ fontSize: { xs: '13px', sm: '14px' }, color: '#333333' }}
+              sx={{ fontSize: { xs: '13px', sm: '15px' }, color: '#333333' }}
             >
-              Please complete the form to the best of your ability to request a
-              booking. Once your request is received, we will contact you to
-              confirm the booking, provide the price, and address any additional
-              details needed.
+              Please complete this form to let us know about your interest in
+              collaborating with us or learning more about the services we
+              provide. Once we receive your submission, our team will carefully
+              review your request and reach out to discuss additional details
+              and next steps.
             </Typography>
           </Box>
         </Box>
 
-        <Grid container spacing={5} mt={0}>
+        <Grid
+          container
+          spacing={5}
+          mt={0}
+          justifyContent={{ xs: 'center', md: 'center' }}
+        >
           {/* Form Section */}
-          <Grid item xs={12} sm={12} md={7} lg={7}>
+          <Grid item xs={12} sm={12} md={10} lg={7}>
             <Grid container spacing={2}>
               {/* First Row: Name & Subject */}
               <Grid item xs={12} sm={6}>
@@ -280,16 +292,18 @@ const EmailForm2 = () => {
           </Grid>
 
           {/* Image Section */}
-          <Grid item xs={12} sm={12} md={5} lg={5}>
-            <Box sx={{ display: { xs: 'none', sm: 'block' }, ml: 4 }}>
-              <Image
-                src={Submit4}
-                width={400}
-                height={400}
-                style={{ opacity: '0.6' }}
-              />
-            </Box>
-          </Grid>
+          {isMediumUp && (
+            <Grid item xs={12} sm={12} md={5} lg={5}>
+              <Box sx={{ display: { xs: 'none', sm: 'block' }, ml: 4 }}>
+                <Image
+                  src={Submit4}
+                  width={400}
+                  height={400}
+                  style={{ opacity: '0.6' }}
+                />
+              </Box>
+            </Grid>
+          )}
         </Grid>
       </Box>
     </ThemeProvider>

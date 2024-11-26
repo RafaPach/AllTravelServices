@@ -61,7 +61,9 @@ export default function Navbarpages({ color }) {
             }}
           >
             <Toolbar disableGutters sx={{ px: 2 }}>
-              <Box sx={{ mr: 'auto', width: 120, height: 50 }}>
+              <Box
+                sx={{ mr: 'auto', width: 120, height: 50, mb: 1.5, mt: 1.5 }}
+              >
                 {' '}
                 {/* Adjust width/height as needed */}
                 <Image
@@ -167,7 +169,7 @@ export default function Navbarpages({ color }) {
                       sx={{
                         borderRadius: 3,
                         height: { lg: 40, md: 40, sm: 30 },
-                        width: { lg: 110, md: 100, sm: 80 },
+                        width: { lg: 110, md: 102, sm: 80 },
                         fontSize: {
                           lg: '0.75rem',
                           md: '0.75rem',

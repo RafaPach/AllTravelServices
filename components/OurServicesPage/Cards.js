@@ -79,7 +79,7 @@ function ServCards({ title, pic, description, backContent }) {
                     sx={{
                       borderRadius: 2,
                       height: { lg: 35, md: 30, sm: 30, xs: 35 },
-                      width: { lg: 95, md: 25, sm: 25, xs: 100 },
+                      width: { xl: 100, lg: 95, md: 85, sm: 75, xs: 100 },
                       fontSize: {
                         lg: '0.6rem',
                         md: '0.55rem',
@@ -95,7 +95,7 @@ function ServCards({ title, pic, description, backContent }) {
                   sx={{
                     borderRadius: 2,
                     height: { lg: 35, md: 30, sm: 30, xs: 35 },
-                    width: { lg: 100, md: 25, sm: 25, xs: 100 },
+                    width: { xl: 100, lg: 95, md: 85, sm: 75, xs: 100 },
                     fontSize: {
                       lg: '0.65rem',
                       md: '0.55rem',

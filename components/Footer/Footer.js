@@ -1,121 +1,175 @@
-import { Stack, Typography } from '@mui/material';
-import Logo from '../../Assests/Logo.png';
+import { Box, Typography, Grid, Link, Stack } from '@mui/material';
 import Image from 'next/image';
+import Logo from '../../Assests/Logo.png';
 
 function FooterComp() {
   return (
-    <>
-      <header>{/* Content */}</header>
-
-      <main>{/* Content */}</main>
-
-      <footer className="footer">
-        <div className="footer__addr">
-          <Image src={Logo} height={45} width={100} alt="Logo" />{' '}
-          <div className="nav__ul">
-            <a href="#">
-              All Travel Services offers transport solutions in East Anglia{' '}
-              <br />
-              specializing in school transport, private contracts, assisted
-              travel, <br />
-              and VIP chauffeur services. Our trained, DBS-certified staff
-              ensures <br />
-              safety and exceptional service.
-            </a>{' '}
-          </div>
-        </div>
-
-        <ul className="footer__nav">
-          <li className="nav__item">
-            <h2 className="nav__title">Information</h2>
-
-            <ul className="nav__ul">
-              <li>
-                <a href="/">Home</a>
-              </li>
-
-              <li>
-                <a href="/about">About Us</a>
-              </li>
-
-              <li>
-                <a href="#">Services</a>
-              </li>
-
-              <li>
-                <a href="/getaquote">Request a Quote</a>
-              </li>
-
-              <li>
-                <a href="/enquiries">Contact Us</a>
-              </li>
-            </ul>
-          </li>
-
-          <li className="nav__item nav__item--extra">
-            <h2 className="nav__title">Services</h2>
-
-            <ul className="nav__ul nav__ul--extra">
-              <li>
-                <a href="#">Executive Travel for VIPs</a>
-              </li>
-
-              <li>
-                <a href="#">Private Contracts</a>
-              </li>
-
-              <li>
-                <a href="#">School Runs</a>
-              </li>
-
-              <li>
-                <a href="#">Assisted Travel</a>
-              </li>
-            </ul>
-          </li>
-
-          <li className="nav__item">
-            <h2 className="nav__title">Contact Us</h2>
-
-            <ul className="nav__ul">
-              <li>
-                <a href="#"> alltravelservices@outlook.com </a>
-              </li>
-
-              <li>
-                <a href="#">+44</a>
-              </li>
-
-              <li>
-                <a href="#">, Ipswich, </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-        <Stack
-          direction={{ xs: 'column', sm: 'row' }}
-          spacing={{ xs: 2 }}
-          justifyContent="space-between" // Space out the children
-          padding={{ xs: '0 em', sm: '1em 8.5%' }}
+    <Box
+      component="footer"
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        px: 2,
+        py: 2,
+        color: '#2f2f2f',
+        borderTop: '1px solid #e5e5e5',
+        flexDirection: { xs: 'column', sm: 'row' },
+        backgroundColor: '#faf6f0',
+      }}
+    >
+      {/* Address Section */}
+      <Box
+        sx={{
+          flex: { md: '0 0 auto' }, // Prevent flex from overriding the width
+          mt: 2,
+          mr: 3,
+          ml: { xs: 0, sm: 1, md: 1, lg: 20 },
+          mb: 3,
+          width: {
+            xl: '500px',
+            lg: '450px',
+            md: '300px',
+            sm: '250px',
+            xs: '100%',
+          }, // Explicit width for md devices
+          textAlign: 'justify',
+        }}
+      >
+        <Image src={Logo} height={45} width={100} alt="Logo" />
+        <Typography
+          variant="body2"
           sx={{
-            width: '100%',
-            mt: { xs: 3, sm: 0 },
-          }} // Add padding for spacing and full width
+            mt: 2,
+            color: '#999',
+          }}
         >
-          <div>
-            <Typography sx={{ fontSize: '12px', color: '#999' }}>
-              © 2024 All Travel Services. All rights reserved.
+          All Travel Services offers transport solutions in East Anglia
+          specializing in school transport, private contracts, assisted travel,
+          and VIP chauffeur services. Our trained, DBS-certified staff ensures
+          safety and exceptional service.
+        </Typography>
+      </Box>
+
+      {/* Navigation Links */}
+      <Box
+        sx={{
+          flex: '1 1 50%',
+          display: 'flex',
+          flexWrap: 'wrap',
+          ml: { xs: 0, sm: 0, md: 2, lg: 20 },
+          height: { xs: 'auto', sm: '260px', md: 'auto' },
+        }}
+      >
+        {/* Information Section */}
+        <Grid
+          container
+          spacing={{ xs: 0, sm: 2 }}
+          sx={{
+            flexDirection: { xs: 'column', sm: 'column', md: 'row' }, // Stack links on sm and below
+            mt: { xs: 0, sm: 5, md: 5, lg: 0 },
+          }}
+        >
+          <Grid item xs={4} sm={7} md={3}>
+            <Typography variant="h6" sx={{ fontSize: '15px', fontWeight: 400 }}>
+              Information
             </Typography>
-          </div>
-          <div style={{ marginRight: '30px' }}>
-            <Typography sx={{ fontSize: '12px', color: '#999' }}>
-              Made with <span className="heart">♥</span> remotely by Burberryx
+            <Stack spacing={1} mt={1.5}>
+              <Link href="/" color="#999" underline="none" fontSize="13px">
+                Home
+              </Link>
+              <Link href="/about" color="#999" underline="none" fontSize="13px">
+                About Us
+              </Link>
+              <Link href="#" color="#999" underline="none" fontSize="13px">
+                Services
+              </Link>
+              <Link
+                href="/getaquote"
+                color="#999"
+                underline="none"
+                fontSize="13px"
+              >
+                Request a Quote
+              </Link>
+              <Link
+                href="/enquiries"
+                color="#999"
+                underline="none"
+                fontSize="13px"
+              >
+                Contact Us
+              </Link>
+            </Stack>
+          </Grid>
+
+          {/* Services Section */}
+          <Grid item xs={4} sm={7} md={3}>
+            <Typography variant="h6" sx={{ fontSize: '15px', fontWeight: 400 }}>
+              Services
             </Typography>
-          </div>
-        </Stack>
-      </footer>
-    </>
+            <Stack spacing={1} mt={1.5}>
+              <Link href="#" color="#999" underline="none" fontSize="13px">
+                Executive Travel for VIPs
+              </Link>
+              <Link href="#" color="#999" underline="none" fontSize="13px">
+                Private Contracts
+              </Link>
+              <Link href="#" color="#999" underline="none" fontSize="13px">
+                School Runs
+              </Link>
+              <Link href="#" color="#999" underline="none" fontSize="13px">
+                Assisted Travel
+              </Link>
+            </Stack>
+          </Grid>
+
+          {/* Contact Section */}
+          <Grid item xs={4} sm={7} md={3}>
+            <Typography variant="h6" sx={{ fontSize: '15px', fontWeight: 400 }}>
+              Contact Us
+            </Typography>
+            <Stack spacing={1} mt={1.5}>
+              <Link href="#" color="#999" underline="none" fontSize="13px">
+                alltravelservices@outlook.com
+              </Link>
+              {/* <Link href="#" color="#999" underline="none" fontSize="13px">
+                +44
+              </Link> */}
+              <Link href="#" color="#999" underline="none" fontSize="13px">
+                Ipswich, Suffolk
+              </Link>
+            </Stack>
+          </Grid>
+        </Grid>
+      </Box>
+
+      {/* Legal */}
+      <Box
+        sx={{
+          width: '100%',
+          mt: { xs: 0, sm: 1.5 },
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          ml: { xs: 0, sm: 1, md: 1, lg: 20 },
+        }}
+      >
+        <Typography sx={{ fontSize: '12px', color: '#999' }}>
+          © 2023 All Travel Services
+        </Typography>
+        {/* <Typography
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            fontSize: '12px',
+            color: '#999',
+          }}
+        >
+          Made with <span style={{ color: '#2f2f2f', margin: '0 4px' }}>♥</span>{' '}
+          by Your Company
+        </Typography> */}
+      </Box>
+    </Box>
   );
 }
 

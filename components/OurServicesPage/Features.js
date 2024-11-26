@@ -10,7 +10,7 @@ function Feature({ icon, title, description }) {
   return (
     <Box display="flex" alignItems="center">
       <Box sx={{ marginRight: 2 }}>{icon}</Box>
-      <Box>
+      <Box sx={{ mb: { xs: 2, sm: 4, md: 4, lg: 0 } }}>
         <Typography sx={{ fontSize: { xs: '15px', sm: '16px' } }} mb="3px">
           {title}
         </Typography>

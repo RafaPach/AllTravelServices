@@ -21,7 +21,7 @@ const testimonials = [
   {
     title: 'Richard Davies',
     location: '',
-    content: `Got picked up in a brand new Mercedes AMG GLC, safe to say I arrived to my business meeting in style. The driver was dressed smart, opened the door for me and made me feel like a king. The executive option was pricey but completely worth it, definitely will be coming back.`,
+    content: `Picked up in a pristine Mercedes AMG GLC, I arrived at my business meeting feeling confident and sophisticated. The driver was dressed smart, opened the door for me and made me feel like a king. The executive option was pricey but completely worth it, definitely will be coming back.`,
   },
   {
     title: 'Jackie Clarke',
@@ -36,12 +36,12 @@ const testimonials = [
   {
     title: 'Tom Harrison',
     location: '',
-    content: `I’ve never experienced such excellent customer service before. The driver was extremely friendly, professional, and knew the best routes to avoid traffic. It’s rare to find a company that truly cares about its customers, but this one certainly does. I highly recommend them to anyone looking for a reliable and top-quality transport service!`,
+    content: `The customer service was outstanding! The driver was friendly, professional, and knew the best routes to avoid traffic. It's rare to find a company so dedicated to its customers. Highly recommended for reliable, top-quality transport!`,
   },
   {
     title: 'Emma Mitchell',
     location: '',
-    content: ` Was truly impressed with the service I received from this company. The driver not only arrived ahead of time but also ensured I had everything I needed for my trip. I’ve never felt more comfortable and taken care of during a ride. The level of professionalism and care is unmatched, and I’ll definitely be using this service again!`,
+    content: `Truly impressed by the exceptional service! The driver arrived early, ensuring a comfortable trip. Their professionalism and attention to detail were evident throughout. I felt well cared for during the ride and will definitely book with them again!`,
   },
 ];
 
@@ -82,7 +82,7 @@ const Testimonials = () => {
       setCurrentIndex(
         (prevIndex) => (prevIndex + itemsPerPage) % testimonials.length
       );
-    }, 3000); // Change every 3 seconds
+    }, 4000); // Change every 3 seconds
 
     return () => {
       // Cleanup both the observer and the interval
@@ -101,28 +101,25 @@ const Testimonials = () => {
 
   return (
     <>
-      <Container
-        style={{
+      <Box
+        sx={{
           textAlign: 'center',
-          marginTop: '0px',
+          marginTop: 0,
           backgroundColor: '#f9f9f9',
-          height: 'auto',
-          minHeight: '90vh',
-          width: '100%', // Use 100% instead of 100vw
-          maxWidth: '100%', // Ensure no overflow due to max-width
+          height: 'auto', // Automatically adjusts height based on content
+          minHeight: { xs: 'auto', sm: 'auto', md: '55vh', lg: '90vh' }, // Dynamic minHeight based on screen size
+          width: '100%', // Take full width of parent container
+          maxWidth: '100%', // Ensure no overflow beyond container width
           display: 'flex',
           flexDirection: 'column', // Stack content vertically
-          // justifyContent:'center',
-          alignItems: 'center', // Center all content horizontally
-          overflowX: 'hidden', // Hide any accidental horizontal overflow
+          alignItems: 'center', // Center content horizontally
+          overflowX: 'hidden', // Prevent any horizontal overflow
           padding: '10px 0',
-          flexGrow: 1,
+          flexGrow: 1, // Allow container to grow and take available space
         }}
         ref={myRef}
         className={`${isVisible}view`}
       >
-        {/* TESTIMONIALS Heading */}
-
         <Box
           sx={{
             display: 'flex',
@@ -156,7 +153,7 @@ const Testimonials = () => {
 
             alignItems: 'center',
 
-            gap: { xs: 8, sm: 5 }, // Reduce gap size to prevent overflow
+            gap: { xs: 8, sm: 15, md: 5 },
 
             flexWrap: 'wrap', // Allow wrapping on smaller screens
 
@@ -169,13 +166,14 @@ const Testimonials = () => {
             boxSizing: 'border-box', // Include padding in width calculations
 
             flexGrow: 0,
+            marginBottom: { xs: 5, sm: 7, md: 0, lg: 0 },
           }}
         >
           {displayedTestimonials.map((testimonial, index) => (
             <Card
               key={index} // Key for list rendering
               sx={{
-                width: { xs: '100%', sm: '45%', md: '40%' },
+                width: { xs: '85%', sm: '45%', md: '40%' },
                 height: '350px',
                 display: 'flex',
                 flexDirection: 'column',
@@ -184,7 +182,7 @@ const Testimonials = () => {
                 borderRadius: '15px',
                 margin: '10px',
                 textAlign: 'center', // Centers text inside the card
-                paddingTop: '50px', // Add space for the image overlap
+                paddingTop: { lg: '50px', md: '30px', sm: '20px', xs: '40px' }, // Add space for the image overlap
                 position: 'relative', // Enable absolute positioning for the image
                 overflow: 'visible', // Allow content to overflow outside the card
               }}
@@ -222,16 +220,17 @@ const Testimonials = () => {
                       fontSize: { xs: '16px', sm: '18px', md: '20px' }, // Responsive font size
                       wordBreak: 'break-word', // Break words to prevent overflow
                       textAlign: 'center', // Center the text
+                      p: 0,
                     }}
                   >
                     {testimonial.title}
                   </Typography>
                   <Typography
                     sx={{
-                      mt: { xs: 0, sm: 3 },
+                      mt: { xs: 0, lg: 3, xl: 3 },
                       p: 4,
                       cursor: 'pointer',
-                      fontSize: { xs: '14px', sm: '15px', md: '16px' }, // Responsive font size for content
+                      fontSize: { xs: '14px', sm: '15px', md: '15.5px' }, // Responsive font size for content
                       color: '#6F7E8C',
                       fontStyle: 'italic',
                       textAlign: 'center', // Center content text
@@ -248,7 +247,7 @@ const Testimonials = () => {
             </Card>
           ))}
         </Box>
-      </Container>
+      </Box>
       <FooterComp />
     </>
   );

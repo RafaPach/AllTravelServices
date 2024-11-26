@@ -127,59 +127,33 @@ export default function NavbarAlt2({ color }) {
                   justifyContent="flex-end"
                   width="100%" // Ensures the buttons don’t stretch
                 >
-                  {links.map((link, index) =>
-                    link.toLowerCase().replace(/\s+/g, '') == 'services' ? (
-                      <Button
-                        key={index}
-                        className="btn-like"
-                        href={`#${link.toLowerCase().replace(/\s+/g, '')}`}
-                        onClick={() =>
-                          document
-
-                            .getElementById('services')
-
-                            .scrollIntoView({ behavior: 'smooth' })
-                        }
-                        sx={{
-                          borderRadius: 3,
-
-                          height: { lg: 50, md: 40, sm: 30 },
-
-                          width: { lg: 130, md: 100, sm: 80 },
-
-                          fontSize: {
-                            lg: '0.9rem',
-
-                            md: '0.75rem',
-
-                            sm: '0.45rem',
-                          },
-                        }}
-                      >
-                        {link}
-                      </Button>
-                    ) : (
-                      <Button
-                        key={index}
-                        className="btn-like"
-                        href={`/${link.toLowerCase().replace(/\s+/g, '')}`}
-                        sx={{
-                          borderRadius: 3,
-                          height: { xl: 50, lg: 45, md: 40, sm: 30 },
-                          width: { xl: 130, lg: 110, md: 100, sm: 80 },
-                          fontSize: {
-                            xl: '0.9rem ',
-                            lg: '0.8rem',
-                            md: '0.75rem',
-                            sm: '0.45rem',
-                          },
-                          textAlign: 'center',
-                        }}
-                      >
-                        {link}
-                      </Button>
-                    )
-                  )}
+                  {links.map((link, index) => (
+                    <Button
+                      key={index}
+                      className="btn-like"
+                      href={
+                        link.trim().toLowerCase() === 'home' // Check for 'home'
+                          ? '/' // Navigate to root
+                          : link.trim().toLowerCase() === 'services' // Check for 'services'
+                          ? '#services' // Navigate to section with anchor
+                          : `/${link.trim().toLowerCase().replace(/\s+/g, '')}` // For other links
+                      }
+                      sx={{
+                        borderRadius: 3,
+                        height: { xl: 50, lg: 45, md: 40, sm: 30 },
+                        width: { xl: 130, lg: 110, md: 102, sm: 80 },
+                        fontSize: {
+                          xl: '0.9rem ',
+                          lg: '0.8rem',
+                          md: '0.75rem',
+                          sm: '0.45rem',
+                        },
+                        textAlign: 'center',
+                      }}
+                    >
+                      {link}
+                    </Button>
+                  ))}
                 </Stack>
               </Toolbar>
             </AppBar>

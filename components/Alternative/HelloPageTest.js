@@ -90,7 +90,7 @@ export default function HelloPageAlt2() {
           sx={{
             width: { lg: '65%', md: '60%', sm: '80%', xs: '90%' },
             mb: 3,
-            mt: { xs: 6, sm: 0 },
+            mt: { xs: 5, sm: 6, md: 0, lg: 0, xl: 0 },
           }}
         >
           <Image

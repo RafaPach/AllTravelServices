@@ -9,10 +9,10 @@ import {
 } from '@mui/material';
 import { useTheme, useMediaQuery } from '@mui/material';
 import Dbs from '../../Assests/DBSS.png';
-import Smoke from '../../Assests/NoSmoke.png';
+import Smoke from '../../Assests/SmokeTry.png';
 import Time from '../../Assests/Punctual.png';
 import Image from 'next/image';
-import SafeGuarding from '../../Assests/SafeGuarding.png';
+import SafeGuarding from '../../Assests/SafeTry.png';
 
 const CenterCard = () => {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
@@ -29,7 +29,7 @@ const CenterCard = () => {
       <Card
         sx={{
           width: '100%',
-          height: { xs: '450px', sm: '400px' },
+          height: { xs: '450px', sm: '430px' },
           display: 'flex',
           justifyContent: 'space-around',
           position: 'relative', // Add this line
@@ -71,7 +71,7 @@ const CenterCard = () => {
             <Box
               sx={{
                 textAlign: 'center',
-                width: { xs: '100%', sm: '50%' },
+                width: { xs: '100%', sm: '70%', md: '50%' },
               }}
             >
               <Typography sx={{ fontSize: { xs: '14px', sm: '16px' } }}>
@@ -94,8 +94,8 @@ const CenterCard = () => {
               { src: Dbs, width: 115, height: 120, text: 'DBS Cleared' },
               {
                 src: Smoke,
-                width: 104,
-                height: 120,
+                width: 105,
+                height: 110,
                 text: 'No Smoking Policies',
               },
               { src: Time, width: 140, height: 130, text: 'Punctual' },
@@ -109,8 +109,9 @@ const CenterCard = () => {
               <Grid
                 item
                 xs={6} // 2 images per row on xs and sm devices
-                sm={6} // 2 images per row on sm devices
-                md={2} // 4 images per row on md and higher devices
+                sm={3} // 2 images per row on sm devices
+                md={3} // 4 images per row on md and higher devices
+                lg={2}
                 textAlign="center"
                 key={index}
                 style={{ position: 'relative', zIndex: 1 }}
@@ -140,7 +141,7 @@ const CenterCard = () => {
                   <Typography
                     sx={{
                       fontWeight: 700,
-                      fontSize: { xs: '13px', sm: '17px' },
+                      fontSize: { xs: '13px', sm: '16px', md: '17px' },
                       marginTop: { xs: '0px', sm: '1px' },
                     }}
                   >

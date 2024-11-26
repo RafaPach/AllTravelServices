@@ -28,6 +28,8 @@ import LuggageIcon from '@mui/icons-material/Luggage';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 import FeatureComp from './Features';
 
@@ -81,14 +83,46 @@ function InfoCards() {
     };
   }, [scrollDirection, prevY]); // Add new dependencies
 
+  const SamplePrevArrow = (props) => {
+    const { className, style, onClick } = props;
+
+    return (
+      <div
+        onClick={onClick}
+        style={{
+          position: 'absolute',
+          left: '0px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+        }}
+        className={`arrow ${className}`}
+      >
+        <ArrowBackIcon class="arrows" />
+      </div>
+    );
+  };
+
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+
+    return (
+      <div onClick={onClick} className={`arrow ${className}`}>
+        <ArrowForwardIcon class="arrows" />
+      </div>
+    );
+  }
+
   const sliderSettings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
     swipe: true,
+    className: 'slides',
+    nextArrow: <SampleNextArrow to="next" />,
+    prevArrow: <SamplePrevArrow to="prev" />,
   };
 
   return (
@@ -123,11 +157,19 @@ function InfoCards() {
           }}
         >
           {/* Cards Section */}
+
           <Grid
             item
             xs={12}
-            md={8}
-            sx={{ marginBottom: '30px' }}
+            md={10}
+            lg={8}
+            sx={{
+              marginBottom: '30px',
+
+              marginLeft: { xs: 0, md: 10, lg: 0 },
+
+              marginTop: { xs: 0, md: 5, lg: 0 },
+            }}
             className={
               isMediumDown ? '' : `cardEffect ${isVisible ? 'fadeInRight' : ''}`
             }
@@ -478,14 +520,20 @@ function InfoCards() {
           <Grid
             item
             xs={10}
-            md={4}
+            md={5}
+            lg={4}
             ref={serviceRef}
             className={`cardEffect ${isVisible ? 'fadeInLeft' : ''}`}
             sx={{
               order: { xs: 2, md: 1 }, // Moves to the end on small screens
+
               display: { xs: 'flex', md: 'block' }, // Flex only on xs devices
-              justifyContent: { xs: 'center' }, // Center horizontally on xs
-              ml: { xs: 5, sm: 0 },
+
+              justifyContent: { xs: 'center' },
+
+              ml: { xs: 5, sm: 10, md: 0 },
+
+              mt: { xs: 5, md: 0 },
             }}
           >
             <Box
@@ -496,7 +544,7 @@ function InfoCards() {
                 borderRadius: '8px',
                 padding: '20px',
                 height: '97%',
-                width: { xs: '95%', md: '400px' }, // Full width on small screens
+                width: { xs: '95%', md: '75vw', lg: '400px' },
                 marginLeft: { md: '100px', xs: 0 },
               }}
             >
