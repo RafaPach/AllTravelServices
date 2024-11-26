@@ -22,12 +22,12 @@ function FooterComp() {
         sx={{
           flex: { md: '0 0 auto' }, // Prevent flex from overriding the width
           mt: 2,
-          mr: 3,
-          ml: { xs: 0, sm: 1, md: 1, lg: 20 },
+          mr: { xl: 5, lg: 0, md: 8, sm: 5, xs: 0 },
+          ml: { xs: 0, sm: 1, md: 1, lg: 15, xl: 20 },
           mb: 3,
           width: {
             xl: '500px',
-            lg: '450px',
+            lg: '300px',
             md: '300px',
             sm: '250px',
             xs: '100%',
@@ -66,7 +66,7 @@ function FooterComp() {
           spacing={{ xs: 0, sm: 2 }}
           sx={{
             flexDirection: { xs: 'column', sm: 'column', md: 'row' }, // Stack links on sm and below
-            mt: { xs: 0, sm: 5, md: 5, lg: 0 },
+            mt: { xs: 0, sm: 5, md: 5, lg: 3, xl: 0 },
           }}
         >
           <Grid item xs={4} sm={7} md={3}>
@@ -151,7 +151,7 @@ function FooterComp() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          ml: { xs: 0, sm: 1, md: 1, lg: 20 },
+          ml: { xs: 0, sm: 1, md: 1, lg: 15, xl: 20 },
         }}
       >
         <Typography sx={{ fontSize: '12px', color: '#999' }}>
