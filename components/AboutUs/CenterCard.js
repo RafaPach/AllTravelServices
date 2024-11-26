@@ -10,7 +10,7 @@ import {
 import { useTheme, useMediaQuery } from '@mui/material';
 import Dbs from '../../Assests/DBSS.png';
 import Smoke from '../../Assests/SmokeTry.png';
-import Time from '../../Assests/Punctual.png';
+import Time from '../../Assests/PunctualTry.png';
 import Image from 'next/image';
 import SafeGuarding from '../../Assests/SafeTry.png';
 
@@ -98,7 +98,7 @@ const CenterCard = () => {
                 height: 110,
                 text: 'No Smoking Policies',
               },
-              { src: Time, width: 140, height: 130, text: 'Punctual' },
+              { src: Time, width: 110, height: 105, text: 'Punctual' },
               {
                 src: SafeGuarding,
                 width: 115,

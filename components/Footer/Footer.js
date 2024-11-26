@@ -27,7 +27,7 @@ function FooterComp() {
           mb: 3,
           width: {
             xl: '500px',
-            lg: '300px',
+            lg: '420px',
             md: '300px',
             sm: '250px',
             xs: '100%',
@@ -103,7 +103,13 @@ function FooterComp() {
           </Grid>
 
           {/* Services Section */}
-          <Grid item xs={4} sm={7} md={3}>
+          <Grid
+            item
+            xs={4}
+            sm={7}
+            md={3}
+            sx={{ ml: { lg: 0, xl: -3, md: 0, sm: 0, xs: 0 } }}
+          >
             <Typography variant="h6" sx={{ fontSize: '15px', fontWeight: 400 }}>
               Services
             </Typography>
@@ -124,7 +130,13 @@ function FooterComp() {
           </Grid>
 
           {/* Contact Section */}
-          <Grid item xs={4} sm={7} md={3}>
+          <Grid
+            item
+            xs={4}
+            sm={7}
+            md={3}
+            sx={{ ml: { lg: 5, xl: 0, md: 3, sm: 0, xs: 0 } }}
+          >
             <Typography variant="h6" sx={{ fontSize: '15px', fontWeight: 400 }}>
               Contact Us
             </Typography>

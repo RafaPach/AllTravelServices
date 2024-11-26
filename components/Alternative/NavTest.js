@@ -51,8 +51,9 @@ export default function NavbarAlt2({ color }) {
                 <Image
                   src={Logo}
                   alt="Logo"
-                  layout="responsive"
-                  objectFit="contain"
+                  width={115}
+                  height={55}
+                  style={{ objectFit: 'contain' }}
                 />
               </Box>
               <IconButton onClick={() => setOpen(true)}>

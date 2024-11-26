@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Container,
@@ -16,6 +16,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LocalTaxiIcon from '@mui/icons-material/LocalTaxi';
 import PersonIcon from '@mui/icons-material/Person';
+import EmailIcon from '@mui/icons-material/Email';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'; // Import the styles
@@ -23,6 +24,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import JourneyCard from './CardJourneyTest';
 import Navbarpages from './Navbar/NavbarForPages';
 import EmailJs from './FunctionsTemplates/emailjs';
+import Recaptcha from './FunctionsTemplates/Recaptcha';
 
 const customTheme = (outerTheme) =>
   createTheme({
@@ -81,9 +83,24 @@ function TravelQuoteForm() {
   const EmailJs_Sid = process.env.NEXT_PUBLIC_EmailJs_Sid;
   const EmailJs_Tid = process.env.NEXT_PUBLIC_QuoteEmailJs_Tid;
   const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EmailJs_PublicKey;
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !window.grecaptcha) {
+      const script = document.createElement('script');
+      script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
+      script.async = true;
+      script.onload = () => {
+        console.log('reCAPTCHA script loaded');
+      };
+      document.body.appendChild(script);
+    }
+  }, [siteKey]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    await Recaptcha({ siteKey });
 
     const updatedFormData = {
       ...formData,
@@ -114,6 +131,7 @@ function TravelQuoteForm() {
     setFormData({
       fullname: '',
       phonenr: '',
+      email: '',
       pickupdate: '',
       pickuptime: '',
       returndate: '',
@@ -125,6 +143,7 @@ function TravelQuoteForm() {
       notes: '',
       journeyType: '',
     });
+
     setErrors((prev) => ({
       ...prev,
       phone: false, // Reset phone error
@@ -175,6 +194,7 @@ function TravelQuoteForm() {
   const [formData, setFormData] = useState({
     fullname: '',
     phonenr: '',
+    email: '',
     pickupdate: '',
     pickuptime: '',
     returndate: '',
@@ -193,16 +213,23 @@ function TravelQuoteForm() {
     if (name === 'phonenr') {
       setErrors((prev) => ({
         ...prev,
-        phone: value.length < 10 || isNaN(value),
+        phone: value === '' ? false : value.length < 10 || isNaN(value),
       }));
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
+
     if (name === 'service') {
       setErrors((prev) => ({
         ...prev,
         phone: value.length < 10 || isNaN(value),
       }));
       setServiceType(value);
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    } else if (name === 'email') {
+      setErrors((prev) => ({
+        ...prev,
+        email: value === '' ? false : !e.target.validity.valid,
+      }));
       setFormData((prev) => ({ ...prev, [name]: value }));
     } else if (name === 'special_request') {
       setSpecialRequests(checked);
@@ -242,9 +269,11 @@ function TravelQuoteForm() {
       }
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
+      setFormData((prev) => ({ ...prev, journeyType }));
     }
 
     console.log(formData);
+    console.log(journeyType);
   };
 
   return (
@@ -382,7 +411,7 @@ function TravelQuoteForm() {
           </Box>
           <Box mb="20px">
             <Typography sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}>
-              <span style={{ color: '#fcb017' }}>1.</span> Full Name
+              <span style={{ color: '#fcb017' }}>•</span> Full Name
             </Typography>
             <Stack direction="row" spacing={6}>
               <TextField
@@ -412,10 +441,11 @@ function TravelQuoteForm() {
           <Box mb="10px">
             <Stack>
               <Typography sx={{ fontSize: '14px', color: '#5E5E5E' }}>
-                <span style={{ color: '#fcb017' }}>2.</span> Phone Number
+                <span style={{ color: '#fcb017' }}>•</span> Phone Number
               </Typography>
               <TextField
                 type="tel"
+                required
                 fullWidth
                 sx={{ mb: 2, borderRadius: '50x' }}
                 InputProps={{
@@ -433,9 +463,37 @@ function TravelQuoteForm() {
               />
             </Stack>
           </Box>
+          <Box mb="20px">
+            <Stack>
+              <Typography sx={{ fontSize: '14px', color: '#5E5E5E' }}>
+                <span style={{ color: '#fcb017' }}>•</span> Email Address
+              </Typography>
+              <TextField
+                name="email"
+                value={formData.email}
+                variant="outlined"
+                onChange={handleFormChange}
+                inputProps={{ type: 'email' }}
+                error={errors.email}
+                helperText={errors.email ? 'Please enter a valid email' : ''}
+                required
+                fullWidth
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <EmailIcon style={{ width: 15 }} />
+                    </InputAdornment>
+                  ),
+                }}
+                InputLabelProps={{
+                  style: { color: '#fcb017', fontSize: '18px' }, // Set the label color to red
+                }}
+              />
+            </Stack>
+          </Box>
           <Stack
             mb="20px"
-            direction={{ xs: 'column', md: 'row' }}
+            direction={{ xs: 'column', sm: 'row', md: 'row' }}
             display="flex"
             spacing={1}
           >
@@ -443,7 +501,7 @@ function TravelQuoteForm() {
               <Typography
                 sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
               >
-                <span style={{ color: '#fcb017' }}>3.</span> Pickup Date
+                <span style={{ color: '#fcb017' }}>•</span> Pickup Date
               </Typography>
 
               <DatePicker
@@ -472,7 +530,7 @@ function TravelQuoteForm() {
 
                       readOnly: true,
                     }}
-                    sx={{ width: { md: '400px', xs: '380px' } }}
+                    sx={{ width: { md: '400px', sm: '360px', xs: '380px' } }}
                   />
                 }
               />
@@ -481,7 +539,7 @@ function TravelQuoteForm() {
               <Typography
                 sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
               >
-                <span style={{ color: '#fcb017' }}>4.</span> Pickup Time
+                <span style={{ color: '#fcb017' }}>•</span> Pickup Time
               </Typography>
               <TextField
                 // fullWidth
@@ -502,7 +560,7 @@ function TravelQuoteForm() {
                   '& .MuiInputBase-input': {
                     paddingLeft: 8,
                   },
-                  width: { md: '100%', sm: '380px', xs: '380px' },
+                  width: { md: '100%', sm: '100%', xs: '380px' },
                 }}
               />
             </Box>
@@ -510,7 +568,7 @@ function TravelQuoteForm() {
 
           {journeyType === 'return' && (
             <Stack
-              direction={{ xs: 'column', md: 'row' }}
+              direction={{ xs: 'column', sm: 'row', md: 'row' }}
               display="flex"
               spacing={1}
               mb="20px"
@@ -519,7 +577,7 @@ function TravelQuoteForm() {
                 <Typography
                   sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
                 >
-                  <span style={{ color: '#fcb017' }}>5.</span> Return Date
+                  <span style={{ color: '#fcb017' }}>•</span> Return Date
                 </Typography>
                 <DatePicker
                   selected={selectedDateReturn}
@@ -549,7 +607,7 @@ function TravelQuoteForm() {
                         ),
                         readOnly: true,
                       }}
-                      sx={{ width: { md: '400px', xs: '380px' } }}
+                      sx={{ width: { md: '400px', sm: '360px', xs: '380px' } }}
                     />
                   }
                 />
@@ -558,7 +616,7 @@ function TravelQuoteForm() {
                 <Typography
                   sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
                 >
-                  <span style={{ color: '#fcb017' }}>6.</span> Return Time
+                  <span style={{ color: '#fcb017' }}>•</span> Return Time
                 </Typography>
                 <TextField
                   type="time"
@@ -578,7 +636,7 @@ function TravelQuoteForm() {
                     '& .MuiInputBase-input': {
                       paddingLeft: 8,
                     },
-                    width: { md: '100%', sm: '380px', xs: '380px' },
+                    width: { md: '100%', sm: '100%', xs: '380px' },
                   }}
                 />
               </Box>
@@ -587,7 +645,7 @@ function TravelQuoteForm() {
 
           <Box mb="20px">
             <Typography sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}>
-              <span style={{ color: '#fcb017' }}>7.</span> Where shall we pick
+              <span style={{ color: '#fcb017' }}>•</span> Where shall we pick
               you up?
             </Typography>
             <TextField
@@ -607,7 +665,7 @@ function TravelQuoteForm() {
 
           <Box mb="20px">
             <Typography sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}>
-              <span style={{ color: '#fcb017' }}>8.</span> Where shall we drop
+              <span style={{ color: '#fcb017' }}>•</span> Where shall we drop
               you off?
             </Typography>
             <TextField
@@ -622,13 +680,14 @@ function TravelQuoteForm() {
               name="dropoff"
               onChange={handleFormChange}
               value={formData.dropoff}
+              sx={{ width: '100%' }}
             />
           </Box>
 
           <Box mb="20px">
             <Typography sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}>
-              <span style={{ color: '#fcb017' }}>9.</span> What service would
-              you need?
+              <span style={{ color: '#fcb017' }}>•</span> What service would you
+              need?
             </Typography>
             <FormControl fullWidth>
               <Select

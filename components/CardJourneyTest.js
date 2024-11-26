@@ -58,7 +58,7 @@ const JourneyCard = ({ journeyType, setJourneyType, setReturnDate }) => {
                 justifyContent: 'center',
               }}
             >
-              <Image src={Oneway} width={110} height={50} />{' '}
+              <Image src={Oneway} width={110} height={50} alt="oneWayJourney" />{' '}
               <Typography
                 sx={
                   {
@@ -113,7 +113,12 @@ const JourneyCard = ({ journeyType, setJourneyType, setReturnDate }) => {
                 justifyContent: 'center',
               }}
             >
-              <Image src={ReturnJourney} width={60} height={50} />{' '}
+              <Image
+                src={ReturnJourney}
+                width={60}
+                height={50}
+                alt="returnJouney"
+              />{' '}
               <Typography
                 sx={
                   {

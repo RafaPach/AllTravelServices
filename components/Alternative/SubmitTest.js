@@ -103,12 +103,16 @@ const EmailForm2 = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
 
     if (name === 'email') {
-      setErrors((prev) => ({ ...prev, email: !e.target.validity.valid }));
+      setErrors((prev) => ({
+        ...prev,
+        email: value === '' ? false : !e.target.validity.valid,
+      }));
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
     if (name === 'phonenr') {
       setErrors((prev) => ({
         ...prev,
-        phone: value.length > 9 || isNaN(value) || !value,
+        phone: value === '' ? false : value.length < 10 || isNaN(value),
       }));
     }
     console.log(formData);
@@ -142,7 +146,7 @@ const EmailForm2 = () => {
         mr={{ xs: 1, sm: 5, md: 0 }}
         mt={{ lg: 2, xl: 4, xs: 3 }}
         mb={10}
-        sx={{ minHeight: '90vh' }}
+        sx={{ minHeight: { xl: '90vh' } }}
       >
         <Box
           sx={{

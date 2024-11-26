@@ -85,7 +85,6 @@ export default function HelloPageAlt2() {
           </Button>
         </Box>
 
-        {/* Image Content */}
         <Box
           sx={{
             width: { lg: '65%', md: '60%', sm: '80%', xs: '90%' },
@@ -100,6 +99,7 @@ export default function HelloPageAlt2() {
             height={400}
             style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
             className="hero-image"
+            priority
           />
         </Box>
       </Stack>
