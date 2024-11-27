@@ -42,7 +42,7 @@ const CenterCard = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            backgroundImage: `url(/assets/CardTaxiImage.jpeg)`,
+            backgroundImage: 'url(/Assets/CardTaxiImage.jpeg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
