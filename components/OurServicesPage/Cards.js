@@ -9,6 +9,7 @@ import {
   Stack,
 } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 
 function ServCards({ title, pic, description, backContent }) {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -73,7 +74,7 @@ function ServCards({ title, pic, description, backContent }) {
                 display="flex"
                 justifyContent="space-around"
               >
-                <a href="/getaquote">
+                <Link href="/getaquote">
                   <Button
                     sx={{
                       borderRadius: 2,
@@ -99,7 +100,7 @@ function ServCards({ title, pic, description, backContent }) {
                   >
                     Get a Quote
                   </Button>
-                </a>
+                </Link>
                 <Button
                   sx={{
                     borderRadius: 2,

@@ -3,6 +3,7 @@ import { Box, Button, Stack, Typography } from '@mui/material';
 import ScrollArrow from './scrollArrow.js';
 import Image from 'next/image.js';
 import Hero from '/Assests/HeroPage.png';
+import Link from 'next/link';
 
 export default function HelloPage() {
   return (
@@ -95,7 +96,7 @@ export default function HelloPage() {
         </Box>
 
         <Box mb="35px">
-          <a href="#welcome">
+          <Link href="#welcome">
             <Image
               src={Hero}
               alt="Logo"
@@ -104,7 +105,7 @@ export default function HelloPage() {
               id="logoIMG"
               className="hero-image"
             />
-          </a>
+          </Link>
         </Box>
         {/* <Box>
             <ScrollArrow />

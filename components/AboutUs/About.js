@@ -5,17 +5,15 @@ import {
   Stack,
   Typography,
   Paper,
-  List,
-  ListItem,
-  ListItemText,
   useMediaQuery,
   ThemeProvider,
   createTheme,
 } from '@mui/material';
-import Grid from '@mui/material/Grid2';
 import { styled } from '@mui/system';
 import CenterCard from './CenterCard';
 import NavbarForPages from '../Navbar/NavbarForPages';
+
+import Link from 'next/link';
 
 const theme = createTheme();
 
@@ -94,7 +92,7 @@ const AboutUs = () => {
                 </span>{' '}
                 and <span style={{ fontWeight: '700' }}>VIP Chauffeur</span>{' '}
                 services. We offer luxury vehicles for special events.{' '}
-                <a
+                <Link
                   href="/#services"
                   style={{
                     fontWeight: '700',
@@ -103,7 +101,7 @@ const AboutUs = () => {
                   }}
                 >
                   Learn more here
-                </a>
+                </Link>
                 .
               </li>
               <li
@@ -149,7 +147,7 @@ const AboutUs = () => {
                 }}
               >
                 Need a personalized solution?{' '}
-                <a
+                <Link
                   href="/enquiries"
                   style={{
                     fontWeight: '700',
@@ -158,12 +156,12 @@ const AboutUs = () => {
                   }}
                 >
                   Request a quote here
-                </a>
+                </Link>
                 , and we'll provide the details.
               </li>
               <li style={{ color: '#6F7E8C', fontSize: '13px' }}>
                 For any enquiries about services, jobs, or more, feel free to{' '}
-                <a
+                <Link
                   href="/enquiries"
                   style={{
                     fontWeight: '700',
@@ -172,7 +170,7 @@ const AboutUs = () => {
                   }}
                 >
                   submit your enquiry here.
-                </a>
+                </Link>
               </li>
             </ol>
           ) : (
@@ -201,7 +199,7 @@ const AboutUs = () => {
                 and <span style={{ fontWeight: '700' }}>VIP Chauffeur</span>{' '}
                 services, offering high-end vehicles for special occasions and
                 VIP clientele.{' '}
-                <a
+                <Link
                   href="/#services"
                   style={{
                     fontWeight: '700',
@@ -210,7 +208,7 @@ const AboutUs = () => {
                   }}
                 >
                   Learn more about our services here
-                </a>
+                </Link>
                 .
               </li>
               <li
@@ -267,8 +265,8 @@ const AboutUs = () => {
               >
                 Looking for a customized travel solution? We’d be happy to
                 provide you with a quote tailored to your needs -{' '}
-                <a
-                  href="/enquiries"
+                <Link
+                  href="/getaquote"
                   style={{
                     fontWeight: '700',
                     color: '#fcb017',
@@ -276,14 +274,14 @@ const AboutUs = () => {
                   }}
                 >
                   Click here to request a quote{' '}
-                </a>
+                </Link>
                 - Our team will get back to you promptly with all the details
                 you need.
               </li>
               <li style={{ color: '#6F7E8C', fontSize: '16px' }}>
                 Finally, if you have any enquiries, whether about our services,
                 job opportunities, or anything else, feel free to{' '}
-                <a
+                <Link
                   href="/enquiries"
                   style={{
                     fontWeight: '700',
@@ -292,7 +290,7 @@ const AboutUs = () => {
                   }}
                 >
                   submit your enquiry here.{' '}
-                </a>
+                </Link>
                 We look forward to hearing from you!
               </li>
             </ol>

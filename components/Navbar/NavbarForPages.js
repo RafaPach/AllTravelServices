@@ -22,6 +22,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Image from 'next/image';
 import Logo from '../../public/Assets/Logo.png';
+import Link from 'next/link';
 
 export default function Navbarpages({ color }) {
   const [open, setOpen] = useState(false);
@@ -91,7 +92,7 @@ export default function Navbarpages({ color }) {
               <List>
                 {links.map((item, index) => (
                   <ListItem key={index}>
-                    <Button
+                    <Link
                       href={
                         item.trim().toLowerCase() === 'home' // Check for 'home'
                           ? '/' // Navigate to root
@@ -99,14 +100,27 @@ export default function Navbarpages({ color }) {
                           ? '#services' // Navigate to section with anchor
                           : `/${item.trim().toLowerCase().replace(/\s+/g, '')}` // For other links
                       }
-                      sx={{
-                        width: '100%',
-                        textAlign: 'center',
-                        color: '#fcb017',
-                      }}
                     >
-                      {item}
-                    </Button>
+                      <Button
+                        // href={
+                        //   item.trim().toLowerCase() === 'home' // Check for 'home'
+                        //     ? '/' // Navigate to root
+                        //     : item.trim().toLowerCase() === 'services' // Check for 'services'
+                        //     ? '#services' // Navigate to section with anchor
+                        //     : `/${item
+                        //         .trim()
+                        //         .toLowerCase()
+                        //         .replace(/\s+/g, '')}` // For other links
+                        // }
+                        sx={{
+                          width: '100%',
+                          textAlign: 'center',
+                          color: '#fcb017',
+                        }}
+                      >
+                        {item}
+                      </Button>
+                    </Link>
                   </ListItem>
                 ))}
               </List>
@@ -132,7 +146,7 @@ export default function Navbarpages({ color }) {
                 }}
               >
                 {!isAboutPage && (
-                  <a href="/" style={{ textDecoration: 'none' }}>
+                  <Link href="/" style={{ textDecoration: 'none' }}>
                     <Image
                       src={Logo}
                       alt="Logo"
@@ -144,7 +158,7 @@ export default function Navbarpages({ color }) {
                       }}
                       id="logoIMG"
                     />
-                  </a>
+                  </Link>
                 )}
 
                 <Stack
@@ -156,9 +170,7 @@ export default function Navbarpages({ color }) {
                   sx={{ mt: isAboutPage ? 2 : 0 }}
                 >
                   {links.map((link, index) => (
-                    <Button
-                      aria-label={`Navigate to ${link}`} // Accessibility improvement
-                      key={index}
+                    <Link
                       href={
                         link.toLowerCase().replace(/\s+/g, '') === 'home' // Check for 'home'
                           ? '/' // Navigate to root
@@ -167,28 +179,41 @@ export default function Navbarpages({ color }) {
                           ? `#${link.toLowerCase().replace(/\s+/g, '')}` // Navigate to section like #services
                           : `/${link.toLowerCase().replace(/\s+/g, '')}` // All other links navigate to their corresponding page
                       }
-                      sx={{
-                        borderRadius: 3,
-                        height: { lg: 40, md: 40, sm: 30 },
-                        width: { lg: 110, md: 102, sm: 80 },
-                        fontSize: {
-                          lg: '0.75rem',
-                          md: '0.75rem',
-                          sm: '0.45rem',
-                        },
-                        backgroundColor: '#fcb017',
-                        color: '#ffffff',
-                        marginTop: 2,
-                        '&:hover': {
-                          boxShadow:
-                            '0px 0px 0px 2.5px #fff, 0px 0px 0px 5px #fcb017, 0px 0px 0px 10px white, 0px 0px 0px 10.5px #fcb017',
-                          backgroundColor: 'white',
-                          color: '#fcb017',
-                        },
-                      }}
                     >
-                      {link}
-                    </Button>
+                      <Button
+                        aria-label={`Navigate to ${link}`} // Accessibility improvement
+                        key={index}
+                        // href={
+                        //   link.toLowerCase().replace(/\s+/g, '') === 'home' // Check for 'home'
+                        //     ? '/' // Navigate to root
+                        //     : link.toLowerCase().replace(/\s+/g, '') ===
+                        //       'services' // Check for 'services'
+                        //     ? `#${link.toLowerCase().replace(/\s+/g, '')}` // Navigate to section like #services
+                        //     : `/${link.toLowerCase().replace(/\s+/g, '')}` // All other links navigate to their corresponding page
+                        // }
+                        sx={{
+                          borderRadius: 3,
+                          height: { lg: 40, md: 40, sm: 30 },
+                          width: { lg: 110, md: 102, sm: 80 },
+                          fontSize: {
+                            lg: '0.75rem',
+                            md: '0.75rem',
+                            sm: '0.45rem',
+                          },
+                          backgroundColor: '#fcb017',
+                          color: '#ffffff',
+                          marginTop: 2,
+                          '&:hover': {
+                            boxShadow:
+                              '0px 0px 0px 2.5px #fff, 0px 0px 0px 5px #fcb017, 0px 0px 0px 10px white, 0px 0px 0px 10.5px #fcb017',
+                            backgroundColor: 'white',
+                            color: '#fcb017',
+                          },
+                        }}
+                      >
+                        {link}
+                      </Button>
+                    </Link>
                   ))}
                 </Stack>
               </Toolbar>

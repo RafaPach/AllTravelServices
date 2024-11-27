@@ -20,6 +20,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Image from 'next/image';
 import Logo from '../../public/Assets/Logo.png';
+import Link from 'next/link';
 
 export default function NavbarAlt2({ color }) {
   const [open, setOpen] = useState(false);
@@ -108,7 +109,7 @@ export default function NavbarAlt2({ color }) {
                 }}
               >
                 <Box sx={{ ml: { xl: 15, lg: 9 } }}>
-                  <a href="/" style={{ textDecoration: 'none' }}>
+                  <Link href="/" style={{ textDecoration: 'none' }}>
                     <Image
                       src={Logo}
                       alt="Logo"
@@ -120,7 +121,7 @@ export default function NavbarAlt2({ color }) {
                       }}
                       id="logoIMG"
                     />
-                  </a>
+                  </Link>
                 </Box>
                 <Stack
                   direction="row"

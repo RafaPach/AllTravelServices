@@ -1,5 +1,6 @@
-import { Box, Typography, Grid, Link, Stack } from '@mui/material';
+import { Box, Typography, Grid, Stack } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 import Logo from '../../public/Assets/Logo.png';
 
 function FooterComp() {
