@@ -72,13 +72,21 @@ export default function HelloPageAlt2() {
           </Typography>
 
           <Button
-            className="btn-like"
             href="/about"
             sx={{
               borderRadius: 3,
               height: { sm: 60, xs: 50 },
               width: { sm: 170, xs: 130 },
               fontSize: { xs: '12px', sm: '13px' },
+              backgroundColor: '#fcb017',
+              color: '#fff',
+              textAlign: 'center',
+              '&:hover': {
+                boxShadow:
+                  '0px 0px 0px 2.5px #fff, 0px 0px 0px 5px #fcb017, 0px 0px 0px 10px white, 0px 0px 0px 10.5px #fcb017',
+                backgroundColor: 'white',
+                color: '#fcb017',
+              },
             }}
           >
             Submit an Enquiry

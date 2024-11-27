@@ -75,7 +75,6 @@ function ServCards({ title, pic, description, backContent }) {
               >
                 <a href="/getaquote">
                   <Button
-                    className="btn-svcard"
                     sx={{
                       borderRadius: 2,
                       height: { lg: 35, md: 30, sm: 30, xs: 35 },
@@ -85,6 +84,16 @@ function ServCards({ title, pic, description, backContent }) {
                         md: '0.55rem',
                         sm: '0.5rem',
                         xs: '10px',
+                      },
+                      backgroundColor: '#fcb017',
+                      color: '#fff',
+                      opacity: 0.9,
+                      textAlign: 'center',
+                      '&:hover': {
+                        boxShadow:
+                          '0px 0px 0px 2.5px #fff, 0px 0px 0px 5px #fcb017, 0px 0px 0px 10px white, 0px 0px 0px 10.5px #fcb017',
+                        backgroundColor: 'white',
+                        color: '#fcb017',
                       },
                     }}
                   >
@@ -102,8 +111,17 @@ function ServCards({ title, pic, description, backContent }) {
                       sm: '0.5rem',
                       xs: '10px',
                     },
+                    backgroundColor: '#fcb017',
+                    color: '#fff',
+                    opacity: 0.9,
+                    textAlign: 'center',
+                    '&:hover': {
+                      boxShadow:
+                        '0px 0px 0px 2.5px #fff, 0px 0px 0px 5px #fcb017, 0px 0px 0px 10px white, 0px 0px 0px 10.5px #fcb017',
+                      backgroundColor: 'white',
+                      color: '#fcb017',
+                    },
                   }}
-                  className="btn-svcard"
                   onClick={handleFlip}
                 >
                   More Details
@@ -166,8 +184,16 @@ function ServCards({ title, pic, description, backContent }) {
                 sm: '0.5rem',
                 xs: '10px',
               },
+              backgroundColor: '#fcb017',
+              color: '#fff',
+              textAlign: 'center',
+              '&:hover': {
+                boxShadow:
+                  '0px 0px 0px 2.5px #fff, 0px 0px 0px 5px #fcb017, 0px 0px 0px 10px white, 0px 0px 0px 10.5px #fcb017',
+                backgroundColor: 'white',
+                color: '#fcb017',
+              },
             }}
-            className="btn-like"
             onClick={handleFlip}
           >
             Go Back

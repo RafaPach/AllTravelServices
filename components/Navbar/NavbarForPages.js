@@ -157,8 +157,8 @@ export default function Navbarpages({ color }) {
                 >
                   {links.map((link, index) => (
                     <Button
+                      aria-label={`Navigate to ${link}`} // Accessibility improvement
                       key={index}
-                      className="btn-like"
                       href={
                         link.toLowerCase().replace(/\s+/g, '') === 'home' // Check for 'home'
                           ? '/' // Navigate to root
@@ -175,6 +175,15 @@ export default function Navbarpages({ color }) {
                           lg: '0.75rem',
                           md: '0.75rem',
                           sm: '0.45rem',
+                        },
+                        backgroundColor: '#fcb017',
+                        color: '#ffffff',
+                        marginTop: 2,
+                        '&:hover': {
+                          boxShadow:
+                            '0px 0px 0px 2.5px #fff, 0px 0px 0px 5px #fcb017, 0px 0px 0px 10px white, 0px 0px 0px 10.5px #fcb017',
+                          backgroundColor: 'white',
+                          color: '#fcb017',
                         },
                       }}
                     >

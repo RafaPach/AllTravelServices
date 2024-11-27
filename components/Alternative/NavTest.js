@@ -131,7 +131,8 @@ export default function NavbarAlt2({ color }) {
                   {links.map((link, index) => (
                     <Button
                       key={index}
-                      className="btn-like"
+                      aria-label={`Navigate to ${link}`} // Accessibility improvement
+                      // className="btn-like"
                       href={
                         link.trim().toLowerCase() === 'home' // Check for 'home'
                           ? '/' // Navigate to root
@@ -144,12 +145,21 @@ export default function NavbarAlt2({ color }) {
                         height: { xl: 50, lg: 45, md: 40, sm: 30 },
                         width: { xl: 130, lg: 110, md: 102, sm: 80 },
                         fontSize: {
-                          xl: '0.9rem ',
+                          xl: '0.9rem',
                           lg: '0.8rem',
                           md: '0.75rem',
                           sm: '0.45rem',
                         },
                         textAlign: 'center',
+                        backgroundColor: '#fcb017',
+                        color: '#ffffff',
+                        marginTop: 2,
+                        '&:hover': {
+                          boxShadow:
+                            '0px 0px 0px 2.5px #fff, 0px 0px 0px 5px #fcb017, 0px 0px 0px 10px white, 0px 0px 0px 10.5px #fcb017',
+                          backgroundColor: 'white',
+                          color: '#fcb017',
+                        },
                       }}
                     >
                       {link}
