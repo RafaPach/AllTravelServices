@@ -23,7 +23,7 @@ import 'react-datepicker/dist/react-datepicker.css'; // Import the styles
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import JourneyCard from './CardJourneyTest';
 import Navbarpages from './Navbar/NavbarForPages';
-import EmailJs from './FunctionsTemplates/emailjs';
+import EmailJs from './FunctionsTemplates/Emailjs';
 import Recaptcha from './FunctionsTemplates/Recaptcha';
 
 const customTheme = (outerTheme) =>

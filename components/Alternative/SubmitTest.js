@@ -6,7 +6,7 @@ import emailjs from '@emailjs/browser';
 import Image from 'next/image';
 import ReCAPTCHA from 'react-google-recaptcha';
 import Recaptcha from '../FunctionsTemplates/Recaptcha';
-import EmailJs from '../FunctionsTemplates/emailjs';
+import EmailJs from '../FunctionsTemplates/Emailjs';
 
 import Navbarpages from '../Navbar/NavbarForPages';
 import Submit4 from '../../Assests/Submit4.png';
