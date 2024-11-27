@@ -8,11 +8,11 @@ import {
   Grid,
 } from '@mui/material';
 import { useTheme, useMediaQuery } from '@mui/material';
-import Dbs from '../../Assests/DBSS.png';
-import Smoke from '../../Assests/SmokeTry.png';
-import Time from '../../Assests/PunctualTry.png';
+import Dbs from '../../public/Assets/DBSS.png';
+import Smoke from '../../public/Assets/SmokeTry.png';
+import Time from '../../public/Assets/PunctualTry.png';
 import Image from 'next/image';
-import SafeGuarding from '../../Assests/SafeTry.png';
+import SafeGuarding from '../../public/Assets/SafeTry.png';
 
 const CenterCard = () => {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));

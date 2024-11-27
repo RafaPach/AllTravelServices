@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
-import Hero from '/Assests/HeroPage.png';
+import Hero from '../../public/Assets/HeroPage.png';
 
 export default function HelloPageAlt2() {
   return (

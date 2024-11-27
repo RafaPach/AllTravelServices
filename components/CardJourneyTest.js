@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Box, Typography, Card, CardContent } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import ReturnJourney from '../Assests/ReturnCar.png';
+import ReturnJourney from '../public/Assets/ReturnCar.png';
 import Image from 'next/image';
-import Oneway from '../Assests/OneWay.png';
+import Oneway from '../public/Assets/OneWay.png';
 
 const JourneyCard = ({ journeyType, setJourneyType, setReturnDate }) => {
   const handleJourneyTypeChange = (type) => {

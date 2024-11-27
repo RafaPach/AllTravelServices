@@ -19,7 +19,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Image from 'next/image';
-import Logo from '../../Assests/Logo.png';
+import Logo from '../../public/Assets/Logo.png';
 
 export default function NavbarAlt2({ color }) {
   const [open, setOpen] = useState(false);

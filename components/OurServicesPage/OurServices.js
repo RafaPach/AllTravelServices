@@ -15,10 +15,10 @@ import {
 // import Grid from '@mui/material/Grid2';
 import ServCards from './Cards';
 
-import RealPrivate from '../../Assests/RealPrivate.jpg';
-import RealAssisted from '../../Assests/RealAssisted.jpeg';
-import RealExecute from '../../Assests/RealExecute.jpeg';
-import RealSchool from '../../Assests/RealSchool.jpeg';
+import RealPrivate from '../../public/Assets/RealPrivate.jpg';
+import RealAssisted from '../../public/Assets/RealAssisted.jpeg';
+import RealExecute from '../../public/Assets/RealExecute.jpeg';
+import RealSchool from '../../public/Assets/RealSchool.jpeg';
 
 import GroupIcon from '@mui/icons-material/Group';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';

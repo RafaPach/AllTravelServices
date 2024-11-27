@@ -637,7 +637,7 @@ a {
   left: 0;
   width: 100%;
   height: 300px; /* Adjust for curvature size */
-  background-image: url('../Assests/BeachImg.jpeg');; /* Replace with your image */
+  background-image: url('../public/Assets/BeachImg.jpeg');; /* Replace with your image */
   background-size: cover;
   background-position: center;
   clip-path: ellipse(59% 65% at 53% 29%);

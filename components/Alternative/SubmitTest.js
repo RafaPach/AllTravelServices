@@ -9,7 +9,7 @@ import Recaptcha from '../FunctionsTemplates/Recaptcha';
 import EmailJs from '../FunctionsTemplates/Emailjs';
 
 import Navbarpages from '../Navbar/NavbarForPages';
-import Submit4 from '../../Assests/Submit4.png';
+import Submit4 from '../../public/Assets/Submit4.png';
 
 import { useMediaQuery } from '@mui/material';
 

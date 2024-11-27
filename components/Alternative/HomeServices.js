@@ -2,11 +2,10 @@ import React from 'react';
 import { Typography, Grid, Box, Stack } from '@mui/material';
 import { useTheme, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
-import AssistedTravel from '../../Assests/AssistedTravel.png';
-import Bus from '../../Assests/Bus.png';
-import WheelChair from '../../Assests/WheelChair.png';
-import Private from '../../Assests/PrivateContract.png';
-import VIP from '../../Assests/VIP.png';
+import Bus from '../../public/Assets/Bus.png';
+import WheelChair from '../../public/Assets/WheelChair.png';
+import Private from '../../public/Assets/PrivateContract.png';
+import VIP from '../../public/Assets/VIP.png';
 import ScrollArrow from '../scrollArrow';
 import { useInView } from 'react-intersection-observer';
 
