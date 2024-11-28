@@ -44,7 +44,11 @@ const HomeServicesAlt = () => {
 
   return (
     <Box>
-      <Box backgroundColor="" ml={{ sm: 15, xs: 5 }} mr={{ sm: 15, xs: 6 }}>
+      <Box
+        backgroundColor="#faf6f0"
+        ml={{ sm: 15, xs: 5 }}
+        mr={{ sm: 15, xs: 6 }}
+      >
         <Grid
           container
           spacing={0}
