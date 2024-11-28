@@ -58,7 +58,12 @@ const CenterCard = () => {
             mt: 2,
           }}
         >
-          <Typography sx={{ fontSize: { xs: '20px', sm: '24px' } }}>
+          <Typography
+            sx={{
+              fontSize: { xs: '18px', sm: '20px', md: '24px' },
+              fontWeight: 700,
+            }}
+          >
             Our Standards of Excellence
           </Typography>
           <Box
@@ -74,7 +79,7 @@ const CenterCard = () => {
                 width: { xs: '100%', sm: '70%', md: '50%' },
               }}
             >
-              <Typography sx={{ fontSize: { xs: '14px', sm: '16px' } }}>
+              <Typography sx={{ fontSize: { xs: '13.5px', sm: '16px' } }}>
                 At All Travel Service, we are deeply committed to ensuring our
                 drivers uphold the highest standards of professionalism,
                 prioritizing customer needs, fostering open communication, and
@@ -115,7 +120,7 @@ const CenterCard = () => {
                 textAlign="center"
                 key={index}
                 style={{ position: 'relative', zIndex: 1 }}
-                mt={{ xs: 2, sm: 0 }}
+                mt={{ xs: 1, sm: 0 }}
               >
                 <Box
                   display="flex"

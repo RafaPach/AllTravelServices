@@ -16,7 +16,7 @@ const testimonials = [
   {
     title: 'Ashley Thompson',
     location: '',
-    content: `This company is the only company which is able to effectively provide transport for my daughter. A lot have tried, but failed as she has very complex needs, and I know she can be very difficult to handle. Honestly she couldn’t be happier with this service and I appreciate everything you guys at ATS do! ❤️❤️`,
+    content: `This company is the only company which is able to effectively provide transport for my daughter. Many have tried, but failed as she has very complex needs, and I know she can be very difficult to handle. Honestly she couldn’t be happier with this service and I appreciate everything you guys at ATS do! ❤️❤️`,
   },
   {
     title: 'Richard Davies',
@@ -182,7 +182,7 @@ const Testimonials = () => {
                 borderRadius: '15px',
                 margin: '10px',
                 textAlign: 'center', // Centers text inside the card
-                paddingTop: { lg: '50px', md: '30px', sm: '20px', xs: '40px' }, // Add space for the image overlap
+                paddingTop: { lg: '50px', md: '30px', sm: '20px', xs: '30px' }, // Add space for the image overlap
                 position: 'relative', // Enable absolute positioning for the image
                 overflow: 'visible', // Allow content to overflow outside the card
               }}
@@ -227,8 +227,8 @@ const Testimonials = () => {
                   </Typography>
                   <Typography
                     sx={{
-                      mt: { xs: 0, lg: 3, xl: 3 },
-                      p: 4,
+                      mt: { xs: -1, sm: 0, md: 0, lg: 3, xl: 3 },
+                      p: { xs: 3.5, sm: 4 },
                       cursor: 'pointer',
                       fontSize: { xs: '14px', sm: '15px', md: '15.5px' }, // Responsive font size for content
                       color: '#6F7E8C',

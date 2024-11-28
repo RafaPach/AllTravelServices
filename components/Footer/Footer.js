@@ -30,7 +30,7 @@ function FooterComp() {
             xl: '500px',
             lg: '420px',
             md: '300px',
-            sm: '250px',
+            sm: '27%',
             xs: '100%',
           }, // Explicit width for md devices
           textAlign: 'justify',
@@ -38,10 +38,11 @@ function FooterComp() {
       >
         <Image src={Logo} height={45} width={100} alt="Logo" />
         <Typography
-          variant="body2"
+          // variant="body2"
           sx={{
             mt: 2,
             color: '#999',
+            fontSize: { xs: '13px', sm: '13px', md: '15px' },
           }}
         >
           All Travel Services offers transport solutions in East Anglia
@@ -71,37 +72,37 @@ function FooterComp() {
           }}
         >
           <Grid item xs={4} sm={7} md={3}>
-            <Typography variant="h6" sx={{ fontSize: '15px', fontWeight: 400 }}>
+            <Typography sx={{ fontSize: '15px', fontWeight: 400 }}>
               Information
             </Typography>
             <Stack spacing={1} mt={1.5}>
               <Link
                 href="/"
-                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+                style={{ color: '#999', underline: 'none', fontSize: '13px' }}
               >
                 Home
               </Link>
               <Link
                 href="/about"
-                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+                style={{ color: '#999', underline: 'none', fontSize: '13px' }}
               >
                 About Us
               </Link>
               <Link
-                href="#"
-                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+                href="#services"
+                style={{ color: '#999', underline: 'none', fontSize: '13px' }}
               >
                 Services
               </Link>
               <Link
                 href="/getaquote"
-                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+                style={{ color: '#999', underline: 'none', fontSize: '13px' }}
               >
                 Request a Quote
               </Link>
               <Link
                 href="/enquiries"
-                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+                style={{ color: '#999', underline: 'none', fontSize: '13px' }}
               >
                 Contact Us
               </Link>
@@ -121,26 +122,26 @@ function FooterComp() {
             </Typography>
             <Stack spacing={1} mt={1.5}>
               <Link
-                href="#"
-                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+                href="#services"
+                style={{ color: '#999', underline: 'none', fontSize: '13px' }}
               >
                 Executive Travel for VIPs
               </Link>
               <Link
-                href="#"
-                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+                href="#services"
+                style={{ color: '#999', underline: 'none', fontSize: '13px' }}
               >
                 Private Contracts
               </Link>
               <Link
-                href="#"
-                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+                href="#services"
+                style={{ color: '#999', underline: 'none', fontSize: '13px' }}
               >
                 School Runs
               </Link>
               <Link
-                href="#"
-                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+                href="#services"
+                style={{ color: '#999', underline: 'none', fontSize: '13px' }}
               >
                 Assisted Travel
               </Link>
@@ -161,7 +162,7 @@ function FooterComp() {
             <Stack spacing={1} mt={1.5}>
               <Link
                 href="#"
-                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+                style={{ color: '#999', underline: 'none', fontSize: '13px' }}
               >
                 alltravelservices@outlook.com
               </Link>
@@ -170,7 +171,7 @@ function FooterComp() {
               </Link> */}
               <Link
                 href="#"
-                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+                style={{ color: '#999', underline: 'none', fontSize: '13px' }}
               >
                 Ipswich, Suffolk
               </Link>

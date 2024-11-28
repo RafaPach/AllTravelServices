@@ -48,14 +48,15 @@ export default function NavbarAlt2({ color }) {
             <Toolbar disableGutters sx={{ px: 2 }}>
               <Box sx={{ mr: 'auto', width: 120, height: 50 }}>
                 {' '}
-                {/* Adjust width/height as needed */}
-                <Image
-                  src={Logo}
-                  alt="Logo"
-                  width={115}
-                  height={55}
-                  style={{ objectFit: 'contain' }}
-                />
+                <Link href="/" style={{ textDecoration: 'none' }}>
+                  <Image
+                    src={Logo}
+                    alt="Logo"
+                    width={115}
+                    height={55}
+                    style={{ objectFit: 'contain' }}
+                  />
+                </Link>
               </Box>
               <IconButton onClick={() => setOpen(true)}>
                 <MenuIcon />
