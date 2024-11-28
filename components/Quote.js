@@ -25,6 +25,7 @@ import JourneyCard from './CardJourneyTest';
 import Navbarpages from './Navbar/NavbarForPages';
 import EmailJs from './FunctionsTemplates/Emailjs';
 import Recaptcha from './FunctionsTemplates/Recaptcha';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 const customTheme = (outerTheme) =>
   createTheme({
@@ -555,28 +556,47 @@ function TravelQuoteForm() {
                 >
                   <span style={{ color: '#fcb017' }}>•</span> Pickup Time
                 </Typography>
-                <TextField
-                  // fullWidth
-                  variant="outlined"
-                  // placeholder="hh:mm"
-                  type="time"
-                  value={formData.pickuptime}
-                  onChange={handleTimeChange}
-                  name="pickuptime"
+                <Box
                   sx={{
-                    '& input[type="time"]::-webkit-calendar-picker-indicator': {
-                      order: -1, // Moves the default clock icon to the start (not always reliable across browsers)
-                      position: 'absolute',
-                      left: '10px',
-                      filter:
-                        'invert(0) sepia(0) saturate(100%) hue-rotate(0deg) brightness(0) contrast(100%)', // Makes the icon blac
-                    },
-                    '& .MuiInputBase-input': {
-                      paddingLeft: 8,
-                    },
-                    width: { md: '100%', sm: '100%', xs: '100%' },
+                    display: 'flex',
+                    alignItems: 'center',
+                    position: 'relative',
+                    width: '100%',
                   }}
-                />
+                >
+                  {/* Custom Icon */}
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      left: '8px',
+                      color: 'black',
+                      marginLeft: 1,
+                      pointerEvents: 'none', // Ensures it doesn’t interfere with the input
+                    }}
+                  >
+                    <AccessTimeIcon sx={{ width: 15, height: 15 }} />
+                  </Box>
+
+                  {/* Time Input */}
+                  <TextField
+                    variant="outlined"
+                    type="time"
+                    value={formData.pickuptime}
+                    onChange={handleTimeChange}
+                    name="pickuptime"
+                    sx={{
+                      '& input[type="time"]': {
+                        paddingLeft: '40px', // Adds space for the icon
+                      },
+                      '& input[type="time"]::-webkit-calendar-picker-indicator':
+                        {
+                          opacity: 0, // Hides the default clock icon
+                          position: 'absolute',
+                        },
+                      width: '100%',
+                    }}
+                  />
+                </Box>
               </Box>
             </Stack>
 

@@ -73,7 +73,7 @@ export default function HelloPageAlt2() {
           </Typography>
 
           <Button
-            href="/about"
+            href="/enquiries"
             sx={{
               borderRadius: 3,
               height: { sm: 60, xs: 50 },

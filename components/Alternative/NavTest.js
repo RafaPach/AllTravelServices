@@ -102,7 +102,7 @@ export default function NavbarAlt2({ color }) {
             <AppBar position="sticky" sx={{ boxShadow: 0, bgcolor: '#faf6f0' }}>
               <Toolbar
                 sx={{
-                  pr: { xs: 2, sm: 4, md: '5vw', lg: '3vw', xl: '6vw' }, // Adjusted for consistent horizontal padding
+                  pr: { xs: 2, sm: 4, md: '5vw', lg: '4.5vw', xl: '6vw' }, // Adjusted for consistent horizontal padding
                   mt: 4,
                   position: 'sticky',
                   top: 0, // Keeps the navbar at the top
