@@ -17,7 +17,7 @@ export default function HelloPageAlt2() {
 
         mb: { sm: 15, xs: 5 },
       }}
-      backgroundColor="#faf6f0"
+      // backgroundColor="red"
     >
       <Stack
         direction={{ lg: 'row', md: 'column' }}
