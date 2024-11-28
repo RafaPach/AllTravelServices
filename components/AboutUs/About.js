@@ -33,29 +33,30 @@ const AboutUs = () => {
           <NavbarForPages />
         </div>
 
-        <Stack
-          mt={{ xl: '50px', lg: '20px', md: '100px', xs: '50px' }}
-          mb="30px"
-          mx={{ xl: 26, lg: 22, md: 21, xs: 3 }}
-          spacing={2}
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: { xs: 'center', lg: 'start' },
+            m: 1,
+          }}
         >
-          <Typography
-            color="#1E1E1E"
-            fontWeight="500"
-            fontSize={{ lg: '28px', md: '26px', sm: '24px', xs: '22px' }}
+          <Stack
+            spacing={2}
+            mb="30px"
+            mt={{ xl: '50px', lg: '20px', md: '100px', xs: '50px' }}
+            mx={{ xl: 26, lg: 22, md: 21, xs: 3 }}
           >
-            About Us<span className="dotColor">.</span>
-          </Typography>
-          <Box
-            className="aboutline"
-            sx={{
-              mx: 'auto',
-              width: '80%',
-              height: '2px',
-              backgroundColor: '#1E1E1E',
-            }}
-          />
-        </Stack>
+            <Typography
+              color="#1E1E1E"
+              fontWeight="500"
+              fontSize={{ xs: '24px', sm: '30px' }}
+            >
+              About Us<span className="dotColor">.</span>
+            </Typography>
+
+            <div className="aboutline"></div>
+          </Stack>
+        </Box>
 
         {/* Main Content Area */}
 

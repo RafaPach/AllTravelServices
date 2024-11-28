@@ -75,28 +75,33 @@ function FooterComp() {
               Information
             </Typography>
             <Stack spacing={1} mt={1.5}>
-              <Link href="/" color="#999" underline="none" fontSize="13px">
+              <Link
+                href="/"
+                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+              >
                 Home
               </Link>
-              <Link href="/about" color="#999" underline="none" fontSize="13px">
+              <Link
+                href="/about"
+                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+              >
                 About Us
               </Link>
-              <Link href="#" color="#999" underline="none" fontSize="13px">
+              <Link
+                href="#"
+                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+              >
                 Services
               </Link>
               <Link
                 href="/getaquote"
-                color="#999"
-                underline="none"
-                fontSize="13px"
+                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
               >
                 Request a Quote
               </Link>
               <Link
                 href="/enquiries"
-                color="#999"
-                underline="none"
-                fontSize="13px"
+                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
               >
                 Contact Us
               </Link>
@@ -115,16 +120,28 @@ function FooterComp() {
               Services
             </Typography>
             <Stack spacing={1} mt={1.5}>
-              <Link href="#" color="#999" underline="none" fontSize="13px">
+              <Link
+                href="#"
+                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+              >
                 Executive Travel for VIPs
               </Link>
-              <Link href="#" color="#999" underline="none" fontSize="13px">
+              <Link
+                href="#"
+                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+              >
                 Private Contracts
               </Link>
-              <Link href="#" color="#999" underline="none" fontSize="13px">
+              <Link
+                href="#"
+                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+              >
                 School Runs
               </Link>
-              <Link href="#" color="#999" underline="none" fontSize="13px">
+              <Link
+                href="#"
+                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+              >
                 Assisted Travel
               </Link>
             </Stack>
@@ -142,13 +159,19 @@ function FooterComp() {
               Contact Us
             </Typography>
             <Stack spacing={1} mt={1.5}>
-              <Link href="#" color="#999" underline="none" fontSize="13px">
+              <Link
+                href="#"
+                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+              >
                 alltravelservices@outlook.com
               </Link>
               {/* <Link href="#" color="#999" underline="none" fontSize="13px">
                 +44
               </Link> */}
-              <Link href="#" color="#999" underline="none" fontSize="13px">
+              <Link
+                href="#"
+                style={{ color: '#999', underline: 'none', fontSize: '14px' }}
+              >
                 Ipswich, Suffolk
               </Link>
             </Stack>

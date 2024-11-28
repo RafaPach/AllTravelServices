@@ -493,7 +493,7 @@ function TravelQuoteForm() {
           </Box>
           <Stack
             mb="20px"
-            direction={{ xs: 'column', sm: 'row', md: 'row' }}
+            direction={{ xs: 'row', sm: 'row', md: 'row' }}
             display="flex"
             spacing={1}
           >
@@ -530,7 +530,7 @@ function TravelQuoteForm() {
 
                       readOnly: true,
                     }}
-                    sx={{ width: { md: '400px', sm: '360px', xs: '380px' } }}
+                    sx={{ width: { md: '400px', sm: '360px', xs: '100%' } }}
                   />
                 }
               />
@@ -560,7 +560,7 @@ function TravelQuoteForm() {
                   '& .MuiInputBase-input': {
                     paddingLeft: 8,
                   },
-                  width: { md: '100%', sm: '100%', xs: '380px' },
+                  width: { md: '100%', sm: '100%', xs: '100%' },
                 }}
               />
             </Box>
@@ -568,7 +568,7 @@ function TravelQuoteForm() {
 
           {journeyType === 'return' && (
             <Stack
-              direction={{ xs: 'column', sm: 'row', md: 'row' }}
+              direction={{ xs: 'row', sm: 'row', md: 'row' }}
               display="flex"
               spacing={1}
               mb="20px"
@@ -607,7 +607,7 @@ function TravelQuoteForm() {
                         ),
                         readOnly: true,
                       }}
-                      sx={{ width: { md: '400px', sm: '360px', xs: '380px' } }}
+                      sx={{ width: { md: '400px', sm: '360px', xs: '100%' } }}
                     />
                   }
                 />
@@ -636,7 +636,7 @@ function TravelQuoteForm() {
                     '& .MuiInputBase-input': {
                       paddingLeft: 8,
                     },
-                    width: { md: '100%', sm: '100%', xs: '380px' },
+                    width: { md: '100%', sm: '100%', xs: '100%' },
                   }}
                 />
               </Box>
