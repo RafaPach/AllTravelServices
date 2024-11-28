@@ -49,7 +49,7 @@ const AboutUs = () => {
             <Typography
               color="#1E1E1E"
               fontWeight="500"
-              fontSize={{ xs: '24px', sm: '30px' }}
+              fontSize={{ xs: '20px', sm: '26px', md: '28px', lg: '30px' }}
             >
               About Us<span className="dotColor">.</span>
             </Typography>

@@ -523,7 +523,7 @@ function InfoCards() {
             md={5}
             lg={4}
             ref={serviceRef}
-            className={`cardEffect ${isVisible ? 'fadeInLeft' : ''}`}
+            className={`cardEffect ${isVisible ? 'fadeInUp' : ''}`}
             sx={{
               order: { xs: 2, md: 1 }, // Moves to the end on small screens
 

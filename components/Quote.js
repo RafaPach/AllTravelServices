@@ -287,7 +287,7 @@ function TravelQuoteForm() {
           <Typography
             color="#1E1E1E"
             fontWeight="500"
-            fontSize={{ xs: '24px', sm: '30px' }}
+            fontSize={{ xs: '20px', sm: '26px', md: '28px', lg: '30px' }}
           >
             Request a Quote <span className="dotColor">.</span>
           </Typography>
@@ -390,213 +390,149 @@ function TravelQuoteForm() {
         // height="100vh"
         sx={{
           mt: 5,
-          bgcolor: 'rgba(245, 245, 245, 1)',
+          bgcolor: journeyType ? 'rgba(245, 245, 245, 1)' : '',
           p: 3,
           borderRadius: 4,
           mb: 10,
         }}
       >
-        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
-          <Box display="flex" justifyContent="center" sx={{ m: 3 }}>
-            <Typography
-              sx={{
-                fontWeight: '500',
-                color: '#4E4E4E',
-                // fontFamily: 'Courier, monospace',
-                fontSize: '18px',
-              }}
-            >
-              {journeyType ? `BOOK A ${journeyType.toUpperCase()} JOURNEY` : ''}
-            </Typography>
-          </Box>
-          <Box mb="20px">
-            <Typography sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}>
-              <span style={{ color: '#fcb017' }}>•</span> Full Name
-            </Typography>
-            <Stack direction="row" spacing={6}>
-              <TextField
-                // placeholder="Full Name"
-                fullWidth
-                variant="outlined"
-                sx={{
-                  mb: 0,
-                  borderRight: 'none', // Remove right border for seamless connection
-                  '& fieldset': {
-                    borderRight: '', // Remove the right border of the first field
-                  },
-                }}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <PersonIcon style={{ width: 15 }} />
-                    </InputAdornment>
-                  ),
-                }}
-                value={formData.fullname}
-                name="fullname"
-                onChange={handleFormChange}
-              />
-            </Stack>
-          </Box>
-          <Box mb="10px">
-            <Stack>
-              <Typography sx={{ fontSize: '14px', color: '#5E5E5E' }}>
-                <span style={{ color: '#fcb017' }}>•</span> Phone Number
-              </Typography>
-              <TextField
-                type="tel"
-                required
-                fullWidth
-                sx={{ mb: 2, borderRadius: '50x' }}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <PhoneIcon style={{ width: 15 }} />
-                    </InputAdornment>
-                  ),
-                }}
-                error={errors.phone}
-                helperText={errors.phone ? 'Please enter a valid number' : ''}
-                name="phonenr"
-                onChange={handleFormChange}
-                value={formData.phonenr}
-              />
-            </Stack>
-          </Box>
-          <Box mb="20px">
-            <Stack>
-              <Typography sx={{ fontSize: '14px', color: '#5E5E5E' }}>
-                <span style={{ color: '#fcb017' }}>•</span> Email Address
-              </Typography>
-              <TextField
-                name="email"
-                value={formData.email}
-                variant="outlined"
-                onChange={handleFormChange}
-                inputProps={{ type: 'email' }}
-                error={errors.email}
-                helperText={errors.email ? 'Please enter a valid email' : ''}
-                required
-                fullWidth
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <EmailIcon style={{ width: 15 }} />
-                    </InputAdornment>
-                  ),
-                }}
-                InputLabelProps={{
-                  style: { color: '#fcb017', fontSize: '18px' }, // Set the label color to red
-                }}
-              />
-            </Stack>
-          </Box>
-          <Stack
-            mb="20px"
-            direction={{ xs: 'row', sm: 'row', md: 'row' }}
-            display="flex"
-            spacing={1}
+        {journeyType && (
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            sx={{ mt: 2 }}
+            className="fadeInUp"
           >
-            <Box sx={{ width: '50%' }}>
+            <Box display="flex" justifyContent="center" sx={{ m: 3 }}>
               <Typography
-                sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
-              >
-                <span style={{ color: '#fcb017' }}>•</span> Pickup Date
-              </Typography>
-
-              <DatePicker
-                selected={selectedDate}
-                onChange={(date) => {
-                  if (date) {
-                    handleFormChange({
-                      target: { name: 'pickupdate', type: 'date', value: date },
-                    });
-                  }
-                }}
-                name="pickupdate"
-                dateFormat="dd/MM/yyyy"
-                placeholderText="dd/mm/yyyy"
-                customInput={
-                  <TextField
-                    value={formData.pickupdate}
-                    variant="outlined"
-                    placeholder="dd/mm/yyyy"
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <CalendarTodayIcon style={{ width: 15 }} />
-                        </InputAdornment>
-                      ),
-
-                      readOnly: true,
-                    }}
-                    sx={{ width: { md: '400px', sm: '360px', xs: '100%' } }}
-                  />
-                }
-              />
-            </Box>
-            <Box sx={{ width: '50%' }} mb="20px">
-              <Typography
-                sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
-              >
-                <span style={{ color: '#fcb017' }}>•</span> Pickup Time
-              </Typography>
-              <TextField
-                // fullWidth
-                variant="outlined"
-                // placeholder="hh:mm"
-                type="time"
-                value={formData.pickuptime}
-                onChange={handleTimeChange}
-                name="pickuptime"
                 sx={{
-                  '& input[type="time"]::-webkit-calendar-picker-indicator': {
-                    order: -1, // Moves the default clock icon to the start (not always reliable across browsers)
-                    position: 'absolute',
-                    left: '10px',
-                    filter:
-                      'invert(0) sepia(0) saturate(100%) hue-rotate(0deg) brightness(0) contrast(100%)', // Makes the icon blac
-                  },
-                  '& .MuiInputBase-input': {
-                    paddingLeft: 8,
-                  },
-                  width: { md: '100%', sm: '100%', xs: '100%' },
+                  fontWeight: '500',
+                  color: '#4E4E4E',
+                  // fontFamily: 'Courier, monospace',
+                  fontSize: { xs: '15px', sm: '17px' },
                 }}
-              />
+              >
+                {journeyType
+                  ? `BOOK A ${journeyType.toUpperCase()} JOURNEY`
+                  : ''}
+              </Typography>
             </Box>
-          </Stack>
-
-          {journeyType === 'return' && (
+            <Box mb="20px">
+              <Typography
+                sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
+              >
+                <span style={{ color: '#fcb017' }}>•</span> Full Name
+              </Typography>
+              <Stack direction="row" spacing={6}>
+                <TextField
+                  // placeholder="Full Name"
+                  fullWidth
+                  variant="outlined"
+                  sx={{
+                    mb: 0,
+                    borderRight: 'none', // Remove right border for seamless connection
+                    '& fieldset': {
+                      borderRight: '', // Remove the right border of the first field
+                    },
+                  }}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <PersonIcon style={{ width: 15 }} />
+                      </InputAdornment>
+                    ),
+                  }}
+                  value={formData.fullname}
+                  name="fullname"
+                  onChange={handleFormChange}
+                />
+              </Stack>
+            </Box>
+            <Box mb="10px">
+              <Stack>
+                <Typography sx={{ fontSize: '14px', color: '#5E5E5E' }}>
+                  <span style={{ color: '#fcb017' }}>•</span> Phone Number
+                </Typography>
+                <TextField
+                  type="tel"
+                  required
+                  fullWidth
+                  sx={{ mb: 2, borderRadius: '50x' }}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <PhoneIcon style={{ width: 15 }} />
+                      </InputAdornment>
+                    ),
+                  }}
+                  error={errors.phone}
+                  helperText={errors.phone ? 'Please enter a valid number' : ''}
+                  name="phonenr"
+                  onChange={handleFormChange}
+                  value={formData.phonenr}
+                />
+              </Stack>
+            </Box>
+            <Box mb="20px">
+              <Stack>
+                <Typography sx={{ fontSize: '14px', color: '#5E5E5E' }}>
+                  <span style={{ color: '#fcb017' }}>•</span> Email Address
+                </Typography>
+                <TextField
+                  name="email"
+                  value={formData.email}
+                  variant="outlined"
+                  onChange={handleFormChange}
+                  inputProps={{ type: 'email' }}
+                  error={errors.email}
+                  helperText={errors.email ? 'Please enter a valid email' : ''}
+                  required
+                  fullWidth
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <EmailIcon style={{ width: 15 }} />
+                      </InputAdornment>
+                    ),
+                  }}
+                  InputLabelProps={{
+                    style: { color: '#fcb017', fontSize: '18px' }, // Set the label color to red
+                  }}
+                />
+              </Stack>
+            </Box>
             <Stack
+              mb="20px"
               direction={{ xs: 'row', sm: 'row', md: 'row' }}
               display="flex"
               spacing={1}
-              mb="20px"
             >
               <Box sx={{ width: '50%' }}>
                 <Typography
                   sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
                 >
-                  <span style={{ color: '#fcb017' }}>•</span> Return Date
+                  <span style={{ color: '#fcb017' }}>•</span> Pickup Date
                 </Typography>
+
                 <DatePicker
-                  selected={selectedDateReturn}
+                  selected={selectedDate}
                   onChange={(date) => {
                     if (date) {
                       handleFormChange({
                         target: {
-                          name: 'returndate',
+                          name: 'pickupdate',
                           type: 'date',
                           value: date,
                         },
                       });
                     }
                   }}
+                  name="pickupdate"
                   dateFormat="dd/MM/yyyy"
                   placeholderText="dd/mm/yyyy"
                   customInput={
                     <TextField
-                      value={formData.returndate}
+                      value={formData.pickupdate}
                       variant="outlined"
                       placeholder="dd/mm/yyyy"
                       InputProps={{
@@ -605,6 +541,7 @@ function TravelQuoteForm() {
                             <CalendarTodayIcon style={{ width: 15 }} />
                           </InputAdornment>
                         ),
+
                         readOnly: true,
                       }}
                       sx={{ width: { md: '400px', sm: '360px', xs: '100%' } }}
@@ -612,19 +549,20 @@ function TravelQuoteForm() {
                   }
                 />
               </Box>
-              <Box sx={{ width: '50%' }}>
+              <Box sx={{ width: '50%' }} mb="20px">
                 <Typography
                   sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
                 >
-                  <span style={{ color: '#fcb017' }}>•</span> Return Time
+                  <span style={{ color: '#fcb017' }}>•</span> Pickup Time
                 </Typography>
                 <TextField
-                  type="time"
-                  value={formData.returntime}
-                  onChange={handleTimeChange} // Calls the adjusted function
-                  name="returntime"
                   // fullWidth
-                  required
+                  variant="outlined"
+                  // placeholder="hh:mm"
+                  type="time"
+                  value={formData.pickuptime}
+                  onChange={handleTimeChange}
+                  name="pickuptime"
                   sx={{
                     '& input[type="time"]::-webkit-calendar-picker-indicator': {
                       order: -1, // Moves the default clock icon to the start (not always reliable across browsers)
@@ -641,101 +579,185 @@ function TravelQuoteForm() {
                 />
               </Box>
             </Stack>
-          )}
 
-          <Box mb="20px">
-            <Typography sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}>
-              <span style={{ color: '#fcb017' }}>•</span> Where shall we pick
-              you up?
-            </Typography>
-            <TextField
-              fullWidth
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <LocationOnIcon style={{ width: 15 }} />
-                  </InputAdornment>
-                ),
-              }}
-              name="location"
-              onChange={handleFormChange}
-              value={formData.location}
-            />
-          </Box>
-
-          <Box mb="20px">
-            <Typography sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}>
-              <span style={{ color: '#fcb017' }}>•</span> Where shall we drop
-              you off?
-            </Typography>
-            <TextField
-              fullWidth
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <LocationOnIcon style={{ width: 15 }} />
-                  </InputAdornment>
-                ),
-              }}
-              name="dropoff"
-              onChange={handleFormChange}
-              value={formData.dropoff}
-              sx={{ width: '100%' }}
-            />
-          </Box>
-
-          <Box mb="20px">
-            <Typography sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}>
-              <span style={{ color: '#fcb017' }}>•</span> What service would you
-              need?
-            </Typography>
-            <FormControl fullWidth>
-              <Select
-                value={serviceType}
-                name="service"
-                onChange={handleFormChange}
-                startAdornment={<LocalTaxiIcon sx={{ mr: 1, width: 15 }} />}
+            {journeyType === 'return' && (
+              <Stack
+                direction={{ xs: 'row', sm: 'row', md: 'row' }}
+                display="flex"
+                spacing={1}
+                mb="20px"
               >
-                <MenuItem value="standard">Standard</MenuItem>
+                <Box sx={{ width: '50%' }}>
+                  <Typography
+                    sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
+                  >
+                    <span style={{ color: '#fcb017' }}>•</span> Return Date
+                  </Typography>
+                  <DatePicker
+                    selected={selectedDateReturn}
+                    onChange={(date) => {
+                      if (date) {
+                        handleFormChange({
+                          target: {
+                            name: 'returndate',
+                            type: 'date',
+                            value: date,
+                          },
+                        });
+                      }
+                    }}
+                    dateFormat="dd/MM/yyyy"
+                    placeholderText="dd/mm/yyyy"
+                    customInput={
+                      <TextField
+                        value={formData.returndate}
+                        variant="outlined"
+                        placeholder="dd/mm/yyyy"
+                        InputProps={{
+                          startAdornment: (
+                            <InputAdornment position="start">
+                              <CalendarTodayIcon style={{ width: 15 }} />
+                            </InputAdornment>
+                          ),
+                          readOnly: true,
+                        }}
+                        sx={{ width: { md: '400px', sm: '360px', xs: '100%' } }}
+                      />
+                    }
+                  />
+                </Box>
+                <Box sx={{ width: '50%' }}>
+                  <Typography
+                    sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
+                  >
+                    <span style={{ color: '#fcb017' }}>•</span> Return Time
+                  </Typography>
+                  <TextField
+                    type="time"
+                    value={formData.returntime}
+                    onChange={handleTimeChange} // Calls the adjusted function
+                    name="returntime"
+                    // fullWidth
+                    required
+                    sx={{
+                      '& input[type="time"]::-webkit-calendar-picker-indicator':
+                        {
+                          order: -1, // Moves the default clock icon to the start (not always reliable across browsers)
+                          position: 'absolute',
+                          left: '10px',
+                          filter:
+                            'invert(0) sepia(0) saturate(100%) hue-rotate(0deg) brightness(0) contrast(100%)', // Makes the icon blac
+                        },
+                      '& .MuiInputBase-input': {
+                        paddingLeft: 8,
+                      },
+                      width: { md: '100%', sm: '100%', xs: '100%' },
+                    }}
+                  />
+                </Box>
+              </Stack>
+            )}
 
-                <MenuItem value="luxury">Luxury</MenuItem>
-
-                <MenuItem value="van">Van</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
-
-          <FormControlLabel
-            control={
-              <Checkbox
-                name="special_request"
-                checked={specialRequests}
+            <Box mb="20px">
+              <Typography
+                sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
+              >
+                <span style={{ color: '#fcb017' }}>•</span> Where shall we pick
+                you up?
+              </Typography>
+              <TextField
+                fullWidth
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LocationOnIcon style={{ width: 15 }} />
+                    </InputAdornment>
+                  ),
+                }}
+                name="location"
                 onChange={handleFormChange}
+                value={formData.location}
               />
-            }
-            label="Special Requests (e.g., child seat)"
-            sx={{ mb: '20px', color: '#5E5E5E' }}
-          />
+            </Box>
 
-          <TextField
-            label="Extra Notes (optional)"
-            multiline
-            rows={4}
-            fullWidth
-            sx={{ mb: '20px' }}
-            name="notes"
-            onChange={handleFormChange}
-            value={formData.notes || ''}
-          />
+            <Box mb="20px">
+              <Typography
+                sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
+              >
+                <span style={{ color: '#fcb017' }}>•</span> Where shall we drop
+                you off?
+              </Typography>
+              <TextField
+                fullWidth
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LocationOnIcon style={{ width: 15 }} />
+                    </InputAdornment>
+                  ),
+                }}
+                name="dropoff"
+                onChange={handleFormChange}
+                value={formData.dropoff}
+                sx={{ width: '100%' }}
+              />
+            </Box>
 
-          <Box className="cta" width="155px" mb={5} onClick={handleSubmit}>
-            <span>Submit</span>
-            <svg width="13px" height="12px" viewBox="0 0 13 10">
-              <path d="M1,5 L11,5"></path>
-              <polyline points="8 1 12 5 8 9"></polyline>
-            </svg>
+            <Box mb="20px">
+              <Typography
+                sx={{ mb: '10px', fontSize: '14px', color: '#5E5E5E' }}
+              >
+                <span style={{ color: '#fcb017' }}>•</span> What service would
+                you need?
+              </Typography>
+              <FormControl fullWidth>
+                <Select
+                  value={serviceType}
+                  name="service"
+                  onChange={handleFormChange}
+                  startAdornment={<LocalTaxiIcon sx={{ mr: 1, width: 15 }} />}
+                >
+                  <MenuItem value="standard">Standard</MenuItem>
+
+                  <MenuItem value="luxury">Luxury</MenuItem>
+
+                  <MenuItem value="van">Van</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+
+            <FormControlLabel
+              control={
+                <Checkbox
+                  name="special_request"
+                  checked={specialRequests}
+                  onChange={handleFormChange}
+                />
+              }
+              label="Special Requests (e.g., child seat)"
+              sx={{ mb: '20px', color: '#5E5E5E' }}
+            />
+
+            <TextField
+              label="Extra Notes (optional)"
+              multiline
+              rows={4}
+              fullWidth
+              sx={{ mb: '20px' }}
+              name="notes"
+              onChange={handleFormChange}
+              value={formData.notes || ''}
+            />
+
+            <Box className="cta" width="155px" mb={5} onClick={handleSubmit}>
+              <span>Submit</span>
+              <svg width="13px" height="12px" viewBox="0 0 13 10">
+                <path d="M1,5 L11,5"></path>
+                <polyline points="8 1 12 5 8 9"></polyline>
+              </svg>
+            </Box>
           </Box>
-        </Box>
+        )}
       </Container>
     </ThemeProvider>
   );
