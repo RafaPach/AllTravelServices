@@ -43,12 +43,8 @@ const HomeServicesAlt = () => {
   const { ref: myRef, inView: isVisible } = useInView();
 
   return (
-    <Box>
-      <Box
-        backgroundColor="#faf6f0"
-        ml={{ sm: 15, xs: 5 }}
-        mr={{ sm: 15, xs: 6 }}
-      >
+    <Box backgroundColor="#faf6f0">
+      <Box ml={{ sm: 15, xs: 5 }} mr={{ sm: 15, xs: 6 }}>
         <Grid
           container
           spacing={0}
