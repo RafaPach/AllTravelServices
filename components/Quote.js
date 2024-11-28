@@ -583,7 +583,6 @@ function TravelQuoteForm() {
                   {/* Time Input */}
                   <TextField
                     variant="outlined"
-                    label={isMediumDown ? 'mm:hh' : ''}
                     type="time"
                     value={formData.pickuptime}
                     onChange={handleTimeChange}
@@ -591,12 +590,16 @@ function TravelQuoteForm() {
                     sx={{
                       '& input[type="time"]': {
                         paddingLeft: '40px', // Adds space for the icon
+                        appearance: 'none',
                       },
                       '& input[type="time"]::-webkit-calendar-picker-indicator':
                         {
                           opacity: 0, // Hides the default clock icon
                           position: 'absolute',
                         },
+                      '& .MuiInputLabel-root': {
+                        left: '20%',
+                      },
                       width: '100%',
                     }}
                   />
