@@ -26,6 +26,7 @@ import Navbarpages from './Navbar/NavbarForPages';
 import EmailJs from './FunctionsTemplates/Emailjs';
 import Recaptcha from './FunctionsTemplates/Recaptcha';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import { useMediaQuery } from '@mui/material';
 
 const customTheme = (outerTheme) =>
   createTheme({
@@ -65,6 +66,8 @@ const customTheme = (outerTheme) =>
 
 function TravelQuoteForm() {
   const outerTheme = useTheme();
+  const theme = useTheme();
+  const isMediumDown = useMediaQuery(theme.breakpoints.down('md'));
 
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDateReturn, setSelectedDateReturn] = useState(null);
@@ -580,6 +583,7 @@ function TravelQuoteForm() {
                   {/* Time Input */}
                   <TextField
                     variant="outlined"
+                    label={isMediumDown ? 'mm:hh' : ''}
                     type="time"
                     value={formData.pickuptime}
                     onChange={handleTimeChange}
