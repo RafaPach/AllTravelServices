@@ -277,7 +277,6 @@ function TravelQuoteForm() {
     }
 
     console.log(formData);
-    console.log(journeyType);
   };
 
   return (
@@ -659,28 +658,51 @@ function TravelQuoteForm() {
                   >
                     <span style={{ color: '#fcb017' }}>•</span> Return Time
                   </Typography>
-                  <TextField
-                    type="time"
-                    value={formData.returntime}
-                    onChange={handleTimeChange} // Calls the adjusted function
-                    name="returntime"
-                    // fullWidth
-                    required
+                  <Box
                     sx={{
-                      '& input[type="time"]::-webkit-calendar-picker-indicator':
-                        {
-                          order: -1, // Moves the default clock icon to the start (not always reliable across browsers)
-                          position: 'absolute',
-                          left: '10px',
-                          filter:
-                            'invert(0) sepia(0) saturate(100%) hue-rotate(0deg) brightness(0) contrast(100%)', // Makes the icon blac
-                        },
-                      '& .MuiInputBase-input': {
-                        paddingLeft: 8,
-                      },
-                      width: { md: '100%', sm: '100%', xs: '100%' },
+                      display: 'flex',
+                      alignItems: 'center',
+                      position: 'relative',
+                      width: '100%',
                     }}
-                  />
+                  >
+                    {/* Custom Icon */}
+                    <Box
+                      sx={{
+                        position: 'absolute',
+                        left: '8px',
+                        color: 'black',
+                        marginLeft: 1,
+                        pointerEvents: 'none', // Ensures it doesn’t interfere with the input
+                      }}
+                    >
+                      <AccessTimeIcon sx={{ width: 15, height: 15 }} />
+                    </Box>
+
+                    {/* Time Input */}
+                    <TextField
+                      variant="outlined"
+                      type="time"
+                      value={formData.returntime}
+                      onChange={handleTimeChange}
+                      name="returntime"
+                      sx={{
+                        '& input[type="time"]': {
+                          paddingLeft: '40px', // Adds space for the icon
+                          appearance: 'none',
+                        },
+                        '& input[type="time"]::-webkit-calendar-picker-indicator':
+                          {
+                            opacity: 0, // Hides the default clock icon
+                            position: 'absolute',
+                          },
+                        '& .MuiInputLabel-root': {
+                          left: '20%',
+                        },
+                        width: '100%',
+                      }}
+                    />
+                  </Box>
                 </Box>
               </Stack>
             )}
@@ -744,11 +766,10 @@ function TravelQuoteForm() {
                   onChange={handleFormChange}
                   startAdornment={<LocalTaxiIcon sx={{ mr: 1, width: 15 }} />}
                 >
-                  <MenuItem value="standard">Standard</MenuItem>
-
-                  <MenuItem value="luxury">Luxury</MenuItem>
-
-                  <MenuItem value="van">Van</MenuItem>
+                  <MenuItem value="standard">School Transport</MenuItem>
+                  <MenuItem value="luxury">Assisted Travel</MenuItem>
+                  <MenuItem value="van">Private Contract</MenuItem>
+                  <MenuItem value="van">VIP Chauffeur Service</MenuItem>
                 </Select>
               </FormControl>
             </Box>
