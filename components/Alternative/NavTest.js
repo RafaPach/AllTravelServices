@@ -44,7 +44,7 @@ export default function NavbarAlt2({ color }) {
       <Box>
         {isSmallScreen ? (
           // Mobile Nav
-          <AppBar position="sticky" color="default">
+          <AppBar color="default">
             <Toolbar disableGutters sx={{ px: 2 }}>
               <Box sx={{ mr: 'auto', width: 120, height: 50 }}>
                 {' '}

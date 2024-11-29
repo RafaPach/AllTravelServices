@@ -16,6 +16,8 @@ export default function HelloPageAlt2() {
         ml: { xl: 12, lg: 5, md: 4, sm: 2, xs: 1 },
 
         mb: { sm: 15, xs: 5 },
+
+        mt: { xs: 7, sm: 7, md: 2, lg: 0, xl: 0 },
       }}
       // backgroundColor="red"
     >

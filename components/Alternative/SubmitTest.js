@@ -137,9 +137,8 @@ const EmailForm2 = () => {
 
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
-      <div className="curved-background-quote">
-        <Navbarpages />
-      </div>
+      <Navbarpages />
+      <div className="curved-background-quote"></div>
 
       <Box
         ml={{ xs: 1, sm: 5, md: 10, lg: 15 }}

@@ -29,9 +29,8 @@ const AboutUs = () => {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        <div className="curved-background">
-          <NavbarForPages />
-        </div>
+        <NavbarForPages />
+        <div className="curved-background"></div>
 
         <Box
           sx={{

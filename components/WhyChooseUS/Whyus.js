@@ -66,6 +66,7 @@ const WhyBookWithUs = () => {
         color="textSecondary"
         gutterBottom
         mt="20px"
+        p={{ xs: 2.5, sm: 0 }}
       >
         Variety of Vehicles and Broad Coverage: Ensuring reliable, high-quality
         service for every journey.
@@ -73,17 +74,17 @@ const WhyBookWithUs = () => {
 
       <Grid
         container
-        spacing={{ sm: 15, xs: 10 }}
+        spacing={{ sm: 15, xs: 4.3 }}
         justifyContent="center"
-        sx={{ mt: { sm: 10, xs: 10 } }}
+        sx={{ mt: { sm: 10, xs: 7 } }}
       >
         {/* First Card */}
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={6} sm={6} md={4}>
           <Card
             sx={{
               p: 3,
-              width: { xs: '270px', sm: '320px' },
-              height: { xs: '330px', sm: '370px' },
+              width: { xs: '180px', sm: '320px' },
+              height: { xs: '260px', sm: '370px' },
               borderRadius: '10px',
               display: 'flex', // Makes the card flexible
               flexDirection: 'column', // Stacks the content vertically
@@ -97,40 +98,50 @@ const WhyBookWithUs = () => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  width: 90,
-                  height: 90,
+                  width: { xs: 60, sm: 90 },
+                  height: { xs: 60, sm: 90 },
                   backgroundColor: '#FFF2F0',
                   borderRadius: '50%',
                   margin: '0 auto',
                   mb: 4, // Adds margin below the icon for spacing
                 }}
               >
-                <BookmarkAddedIcon style={{ fontSize: 50, color: '#ff6f61' }} />
+                <BookmarkAddedIcon
+                  sx={{ fontSize: { xs: 40, sm: 50 }, color: '#ff6f61' }}
+                />
               </Box>
-              <Typography sx={{ mt: 2, fontWeight: 700, fontSize: '16px' }}>
-                Exceptional Value & Flexibility
-              </Typography>
               <Typography
                 sx={{
-                  mt: 3,
-                  cursor: 'pointer',
-                  fontSize: '13px',
-                  color: '#6F7E8C',
+                  mt: { xs: -1, sm: 2 },
+                  fontWeight: 700,
+                  fontSize: { xs: '14px', sm: '16px' },
                 }}
               >
-                Best rates, flexible bookings, and no hidden fees.
+                Exceptional Value & Flexibility
               </Typography>
+              <Box width="165px" textAlign="center" p={1}>
+                <Typography
+                  sx={{
+                    mt: 3,
+                    cursor: 'pointer',
+                    fontSize: '13px',
+                    color: '#6F7E8C',
+                  }}
+                >
+                  Best rates, flexible bookings, and no hidden fees.
+                </Typography>
+              </Box>
             </CardContent>
           </Card>
         </Grid>
 
         {/* Second Card */}
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={6} sm={6} md={4}>
           <Card
             sx={{
               p: 3,
-              width: { xs: '270px', sm: '320px' },
-              height: { xs: '330px', sm: '370px' },
+              width: { xs: '170px', sm: '320px' },
+              height: { xs: '260px', sm: '370px' },
               borderRadius: '10px',
               display: 'flex', // Makes the card flexible
               flexDirection: 'column', // Stacks the content vertically
@@ -144,29 +155,39 @@ const WhyBookWithUs = () => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  width: 90,
-                  height: 90,
+                  width: { xs: 60, sm: 90 },
+                  height: { xs: 60, sm: 90 },
                   backgroundColor: '#FFF2F0',
                   borderRadius: '50%',
                   margin: '0 auto',
                   mb: 4, // Adds margin below the icon for spacing
                 }}
               >
-                <LocalTaxiIcon style={{ fontSize: 50, color: '#ff6f61' }} />
+                <LocalTaxiIcon
+                  sx={{ fontSize: { xs: 40, sm: 50 }, color: '#ff6f61' }}
+                />
               </Box>
-              <Typography sx={{ mt: 2, fontWeight: 700, fontSize: '16px' }}>
-                Tailored Travel Experience
-              </Typography>
               <Typography
                 sx={{
-                  mt: 3,
-                  cursor: 'pointer',
-                  fontSize: '13px',
-                  color: '#6F7E8C',
+                  mt: { xs: -1, sm: 2 },
+                  fontWeight: 700,
+                  fontSize: { xs: '14px', sm: '16px' },
                 }}
               >
-                Personalized itineraries and seamless, hassle-free transfers.
+                Tailored Travel Experience
               </Typography>
+              <Box width="165px" textAlign="center" p={1}>
+                <Typography
+                  sx={{
+                    mt: 3,
+                    cursor: 'pointer',
+                    fontSize: '13px',
+                    color: '#6F7E8C',
+                  }}
+                >
+                  Personalized itineraries and seamless, hassle-free transfers.
+                </Typography>
+              </Box>
             </CardContent>
           </Card>
         </Grid>
@@ -174,7 +195,7 @@ const WhyBookWithUs = () => {
         {/* Third Card */}
         <Grid
           item
-          xs={12}
+          xs={6}
           sm={6}
           md={4}
           sx={{
@@ -186,8 +207,8 @@ const WhyBookWithUs = () => {
           <Card
             sx={{
               p: 3,
-              width: { xs: '270px', sm: '320px' },
-              height: { xs: '330px', sm: '370px' },
+              width: { xs: '170px', sm: '320px' },
+              height: { xs: '260px', sm: '370px' },
               borderRadius: '10px',
               display: 'flex', // Makes the card flexible
               flexDirection: 'column', // Stacks the content vertically
@@ -201,32 +222,40 @@ const WhyBookWithUs = () => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  width: 90,
-                  height: 90,
+                  width: { xs: 60, sm: 90 },
+                  height: { xs: 60, sm: 90 },
                   backgroundColor: '#FFF2F0',
                   borderRadius: '50%',
                   margin: '0 auto',
-                  mb: 4, // Adds margin below the icon for spacing
+                  mb: { xs: 2, sm: 4 }, // Adds margin below the icon for spacing
                 }}
               >
                 <ContactSupportIcon
-                  style={{ fontSize: 50, color: '#ff6f61' }}
+                  sx={{ fontSize: { xs: 40, sm: 50 }, color: '#ff6f61' }}
                 />
               </Box>
-              <Typography sx={{ mt: 2, fontWeight: 700, fontSize: '16px' }}>
-                Support at Every Step{' '}
-              </Typography>
               <Typography
                 sx={{
-                  mt: 3,
-                  cursor: 'pointer',
-                  fontSize: '13px',
-                  color: '#6F7E8C',
+                  mt: 2,
+                  fontWeight: 700,
+                  fontSize: { xs: '14px', sm: '16px' },
                 }}
               >
-                Responsive support to help with any questions or changes during
-                your trip.
+                Support at Every Step{' '}
               </Typography>
+              <Box width="165px" textAlign="center" p={1}>
+                <Typography
+                  sx={{
+                    mt: 3,
+                    cursor: 'pointer',
+                    fontSize: '13px',
+                    color: '#6F7E8C',
+                  }}
+                >
+                  Responsive support to help with any questions or changes
+                  during your trip.
+                </Typography>
+              </Box>
             </CardContent>
           </Card>
         </Grid>

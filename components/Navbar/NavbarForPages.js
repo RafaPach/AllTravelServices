@@ -52,7 +52,7 @@ export default function Navbarpages({ color }) {
         {isSmallScreen ? (
           // Mobile Nav
           <AppBar
-            position="static"
+            position="fixed"
             color="default"
             sx={{
               width: '100%',

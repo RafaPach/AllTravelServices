@@ -281,9 +281,8 @@ function TravelQuoteForm() {
 
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
-      <div className="curved-background-quote">
-        <Navbarpages />
-      </div>
+      <Navbarpages />
+      <div className="curved-background-quote"></div>
 
       <Box sx={{ display: 'flex', justifyContent: 'center', m: 3 }}>
         <Stack spacing={2} mb={{ xs: 0, sm: '30px' }}>
