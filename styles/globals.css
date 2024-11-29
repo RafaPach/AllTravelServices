@@ -1063,3 +1063,14 @@ margin: 1px;
 }
 
 
+.hide-navbar {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.show-navbar {
+  opacity: 1;
+  transition: opacity 0.8s ease;
+  pointer-events: auto;
+}
