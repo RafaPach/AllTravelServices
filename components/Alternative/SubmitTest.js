@@ -48,7 +48,7 @@ const customTheme = (outerTheme) =>
       },
     },
   });
-const EmailForm2 = () => {
+const EmailForm2 = ({ EmailJs_Serviceid, EmailJs_Templateid }) => {
   const outerTheme = useTheme();
   const [formData, setFormData] = useState({
     name: '',
@@ -81,8 +81,8 @@ const EmailForm2 = () => {
   const theme = useTheme();
   const isMediumUp = useMediaQuery(theme.breakpoints.up('lg'));
 
-  const EmailJs_Sid = process.env.NEXT_PUBLIC_EmailJs_Sid;
-  const EmailJs_Tid = process.env.NEXT_PUBLIC_EnquiryEmailJs_Tid;
+  const EmailJs_Sid = EmailJs_Serviceid;
+  const EmailJs_Tid = EmailJs_Templateid;
   const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EmailJs_PublicKey;
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
@@ -137,8 +137,16 @@ const EmailForm2 = () => {
 
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
-      <Navbarpages />
-      <div className="curved-background-quote"></div>
+      {isMediumUp ? (
+        <div className="curved-background-quote">
+          <Navbarpages />
+        </div>
+      ) : (
+        <>
+          <Navbarpages />
+          <div className="curved-background-quote"></div>
+        </>
+      )}
 
       <Box
         ml={{ xs: 1, sm: 5, md: 10, lg: 15 }}
@@ -303,6 +311,7 @@ const EmailForm2 = () => {
                   width={400}
                   height={400}
                   style={{ opacity: '0.6' }}
+                  alt="taxiImg"
                 />
               </Box>
             </Grid>

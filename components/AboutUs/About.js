@@ -29,8 +29,16 @@ const AboutUs = () => {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        <NavbarForPages />
-        <div className="curved-background"></div>
+        {!isMobile ? (
+          <div className="curved-background">
+            <NavbarForPages />
+          </div>
+        ) : (
+          <>
+            <NavbarForPages />
+            <div className="curved-background"></div>
+          </>
+        )}
 
         <Box
           sx={{

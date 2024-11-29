@@ -64,7 +64,7 @@ const customTheme = (outerTheme) =>
     },
   });
 
-function TravelQuoteForm() {
+function TravelQuoteForm({ EmailJs_Serviceid, EmailJs_Templateid }) {
   const outerTheme = useTheme();
   const theme = useTheme();
   const isMediumDown = useMediaQuery(theme.breakpoints.down('md'));
@@ -84,8 +84,8 @@ function TravelQuoteForm() {
     phone: false,
   });
 
-  const EmailJs_Sid = process.env.NEXT_PUBLIC_EmailJs_Sid;
-  const EmailJs_Tid = process.env.NEXT_PUBLIC_QuoteEmailJs_Tid;
+  const EmailJs_Sid = EmailJs_Serviceid;
+  const EmailJs_Tid = EmailJs_Templateid;
   const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EmailJs_PublicKey;
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
@@ -281,8 +281,16 @@ function TravelQuoteForm() {
 
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
-      <Navbarpages />
-      <div className="curved-background-quote"></div>
+      {!isMediumDown ? (
+        <div className="curved-background-quote">
+          <Navbarpages />
+        </div>
+      ) : (
+        <>
+          <Navbarpages />
+          <div className="curved-background-quote"></div>
+        </>
+      )}
 
       <Box sx={{ display: 'flex', justifyContent: 'center', m: 3 }}>
         <Stack spacing={2} mb={{ xs: 0, sm: '30px' }}>

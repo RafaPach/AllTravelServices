@@ -171,6 +171,7 @@ export default function Navbarpages({ color }) {
                 >
                   {links.map((link, index) => (
                     <Link
+                      key={index}
                       href={
                         link.toLowerCase().replace(/\s+/g, '') === 'home' // Check for 'home'
                           ? '/' // Navigate to root
