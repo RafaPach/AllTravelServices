@@ -33,9 +33,10 @@ export default function NavbarAlt2({ color }) {
   function HideOnScroll({ children }) {
     const trigger = useScrollTrigger();
     return (
-      <Slide appear={false} direction="down" in={!trigger}>
-        {children}
-      </Slide>
+      // <Slide appear={false} direction="down" in={!trigger}>
+      //   {children}
+      // </Slide>
+      <div className={trigger ? 'hide-navbar' : 'show-navbar'}>{children}</div>
     );
   }
 
