@@ -544,7 +544,7 @@ function InfoCards() {
                 borderRadius: '8px',
                 padding: '20px',
                 height: '97%',
-                width: { xs: '95%', md: '75vw', lg: '400px' },
+                width: { xs: '96%', md: '75vw', lg: '400px' },
                 marginLeft: { md: '100px', xs: 0 },
               }}
             >

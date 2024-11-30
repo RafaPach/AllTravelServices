@@ -26,7 +26,7 @@ function ServCards({ title, pic, description, backContent }) {
           <Card
             variant="outlined"
             sx={{
-              width: { xs: '300px', sm: '350px' },
+              width: { xs: '285px', sm: '350px' },
               mx: 'auto',
               display: 'flex',
               flexDirection: 'column',

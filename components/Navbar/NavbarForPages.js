@@ -67,14 +67,15 @@ export default function Navbarpages({ color }) {
                 sx={{ mr: 'auto', width: 120, height: 50, mb: 1.5, mt: 1.5 }}
               >
                 {' '}
-                {/* Adjust width/height as needed */}
-                <Image
-                  src={Logo}
-                  alt="Logo"
-                  width={115}
-                  height={55}
-                  style={{ objectFit: 'contain' }}
-                />
+                <Link href="/">
+                  <Image
+                    src={Logo}
+                    alt="Logo"
+                    width={115}
+                    height={55}
+                    style={{ objectFit: 'contain' }}
+                  />
+                </Link>
               </Box>
               <IconButton onClick={() => setOpen(true)}>
                 <MenuIcon />

@@ -74,7 +74,7 @@ const WhyBookWithUs = () => {
 
       <Grid
         container
-        spacing={{ sm: 15, xs: 4.3 }}
+        spacing={{ sm: 15, xs: 3.5 }}
         justifyContent="center"
         sx={{ mt: { sm: 10, xs: 7 } }}
       >
@@ -207,7 +207,7 @@ const WhyBookWithUs = () => {
           <Card
             sx={{
               p: 3,
-              width: { xs: '170px', sm: '320px' },
+              width: { xs: '190px', sm: '320px' },
               height: { xs: '260px', sm: '370px' },
               borderRadius: '10px',
               display: 'flex', // Makes the card flexible
