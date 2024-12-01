@@ -156,7 +156,7 @@ const AboutUs = () => {
               >
                 Need a personalized solution?{' '}
                 <Link
-                  href="/enquiries"
+                  href="/getaquote"
                   style={{
                     fontWeight: '700',
                     color: '#fcb017',
