@@ -57,7 +57,7 @@ export default function HelloPageAlt2() {
             </Typography>
           </Box>
           <Typography
-            className="drop-shadow-service"
+            // className="drop-shadow-service"
             color="#2B193D"
             fontSize={{ lg: '19px', md: '18px', sm: '16px', xs: '14px' }}
             fontWeight="700"
