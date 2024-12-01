@@ -70,9 +70,17 @@ export default function HelloPageAlt2() {
             color="#2B193D"
             fontSize={{ lg: '19px', md: '18px', sm: '16px', xs: '14px' }}
             fontWeight="700"
+          >
+            for schools, companies, and those
+          </Typography>
+          <Typography
+            // className="drop-shadow-service"
+            color="#2B193D"
+            fontSize={{ lg: '19px', md: '18px', sm: '16px', xs: '14px' }}
+            fontWeight="700"
             paddingBottom="30px"
           >
-            for schools, companies, and those requiring assistance.
+            requiring assistance.
           </Typography>
 
           <Button
