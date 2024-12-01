@@ -71,7 +71,7 @@ const HomeServicesAlt = () => {
                   alt="icon"
                 />
                 <Typography
-                  className="drop-shadow-smaller"
+                  // className="drop-shadow-smaller"
                   sx={{ fontWeight: 500, fontSize: { sm: '20px', xs: '14px' } }}
                   mt="px"
                 >
