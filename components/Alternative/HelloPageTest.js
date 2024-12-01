@@ -2,8 +2,12 @@ import React from 'react';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import Hero from '../../public/Assets/HeroPage.png';
+import { useTheme, useMediaQuery } from '@mui/material';
 
 export default function HelloPageAlt2() {
+  const theme = useTheme(); // Use the theme
+  const isMediumUp = useMediaQuery(theme.breakpoints.up('md'));
+
   return (
     <Box
       display="flex"
@@ -37,7 +41,7 @@ export default function HelloPageAlt2() {
             px: { xs: 2, sm: 3 },
           }}
         >
-          <Box className="drop-shadow">
+          <Box className={isMediumUp ? 'drop-shadow' : ''}>
             <Typography
               color="#1A3C6E"
               fontSize={{ lg: '35px', md: '30px', sm: '26px', xs: '22px' }}
