@@ -119,12 +119,16 @@ const WhyBookWithUs = () => {
               >
                 Exceptional Value & Flexibility
               </Typography>
-              <Box width="165px" textAlign="center" p={1}>
+              <Box
+                sx={{ width: { xs: '165px', sm: '100%' } }}
+                textAlign="center"
+                p={1}
+              >
                 <Typography
                   sx={{
                     mt: 3,
                     cursor: 'pointer',
-                    fontSize: '13px',
+                    fontSize: { xs: '13px', sm: '14.5px' },
                     color: '#6F7E8C',
                   }}
                 >
@@ -176,12 +180,16 @@ const WhyBookWithUs = () => {
               >
                 Tailored Travel Experience
               </Typography>
-              <Box width="165px" textAlign="center" p={1}>
+              <Box
+                sx={{ width: { xs: '165px', sm: '100%' } }}
+                textAlign="center"
+                p={1}
+              >
                 <Typography
                   sx={{
                     mt: 3,
                     cursor: 'pointer',
-                    fontSize: '13px',
+                    fontSize: { xs: '13px', sm: '14.5px' },
                     color: '#6F7E8C',
                   }}
                 >
@@ -243,12 +251,16 @@ const WhyBookWithUs = () => {
               >
                 Support at Every Step{' '}
               </Typography>
-              <Box width="165px" textAlign="center" p={1}>
+              <Box
+                sx={{ width: { xs: '165px', sm: '100%' } }}
+                textAlign="center"
+                p={1}
+              >
                 <Typography
                   sx={{
                     mt: 3,
                     cursor: 'pointer',
-                    fontSize: '13px',
+                    fontSize: { xs: '13px', sm: '14.5px' },
                     color: '#6F7E8C',
                   }}
                 >

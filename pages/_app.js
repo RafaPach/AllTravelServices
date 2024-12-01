@@ -1,7 +1,23 @@
+// import '../styles/globals.css';
+
+// function MyApp({ Component, pageProps }) {
+//   return <Component {...pageProps} />;
+// }
+
+// export default MyApp;
+
 import '../styles/globals.css';
+import ReCaptchaLoader from '../components/FunctionsTemplates/ReLoader'; // Adjust the path as needed
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+  return (
+    <>
+      <ReCaptchaLoader siteKey={siteKey} />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;
