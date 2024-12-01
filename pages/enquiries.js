@@ -15,8 +15,6 @@ export async function getServerSideProps() {
 }
 
 export default function EnquiryPage({ EmailJs_Serviceid, EmailJs_Templateid }) {
-  console.log(EmailJs_Serviceid, EmailJs_Templateid);
-
   return (
     <div>
       <EmailForm2
