@@ -43,6 +43,7 @@ export default function HelloPageAlt2() {
               fontSize={{ lg: '35px', md: '30px', sm: '26px', xs: '22px' }}
               lineHeight={{ lg: '70px', md: '50px', sm: '40px', xs: '35px' }}
               fontWeight="700"
+              sx={{ marginBottom: -2 }}
             >
               Your Trusted Partner in
             </Typography>
