@@ -773,10 +773,10 @@ function TravelQuoteForm({ EmailJs_Serviceid, EmailJs_Templateid }) {
                   onChange={handleFormChange}
                   startAdornment={<LocalTaxiIcon sx={{ mr: 1, width: 15 }} />}
                 >
-                  <MenuItem value="standard">School Transport</MenuItem>
-                  <MenuItem value="luxury">Assisted Travel</MenuItem>
-                  <MenuItem value="van">Private Contract</MenuItem>
-                  <MenuItem value="van">VIP Chauffeur Service</MenuItem>
+                  <MenuItem value="School Transport">School Transport</MenuItem>
+                  <MenuItem value="Assisted Travel">Assisted Travel</MenuItem>
+                  <MenuItem value="private Contract">Private Contract</MenuItem>
+                  <MenuItem value="VIP Service">VIP Chauffeur Service</MenuItem>
                 </Select>
               </FormControl>
             </Box>
