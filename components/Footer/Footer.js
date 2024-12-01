@@ -192,7 +192,7 @@ function FooterComp() {
         }}
       >
         <Typography sx={{ fontSize: '12px', color: '#999' }}>
-          © 2023 All Travel Services
+          © 2024 All Travel Services
         </Typography>
         {/* <Typography
           sx={{
