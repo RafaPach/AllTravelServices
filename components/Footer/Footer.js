@@ -28,7 +28,7 @@ function FooterComp() {
           mb: 3,
           width: {
             xl: '500px',
-            lg: '350px',
+            lg: '300px',
             md: '300px',
             sm: '27%',
             xs: '100%',
