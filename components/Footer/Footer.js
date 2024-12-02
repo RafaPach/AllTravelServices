@@ -27,7 +27,7 @@ function FooterComp() {
           ml: { xs: 0, sm: 1, md: 1, lg: 15, xl: 20 },
           mb: 3,
           width: {
-            xl: '500px',
+            xl: '393px',
             lg: '420px',
             md: '300px',
             sm: '27%',
@@ -148,7 +148,7 @@ function FooterComp() {
             </Stack>
           </Grid>
 
-          {/* Contact Section */}
+          {/* Enquiry Section */}
           <Grid
             item
             xs={4}
@@ -157,23 +157,24 @@ function FooterComp() {
             sx={{ ml: { lg: 5, xl: 0, md: 3, sm: 0, xs: 0 } }}
           >
             <Typography variant="h6" sx={{ fontSize: '15px', fontWeight: 400 }}>
-              Contact Us
+              Enquiries
             </Typography>
             <Stack spacing={1} mt={1.5}>
+              {/* <Typography sx={{ color: '#999', fontSize: '13px' }}>
+                For enquiries or quotes, please fill out the enquiry form for
+                quick assistance.
+              </Typography> */}
               <Link
-                href="#"
+                href="/enquiries" // Link to your enquiry form page
                 style={{ color: '#999', underline: 'none', fontSize: '13px' }}
               >
-                alltravelservices@outlook.com
+                Send an Enquiry
               </Link>
-              {/* <Link href="#" color="#999" underline="none" fontSize="13px">
-                +44
-              </Link> */}
               <Link
-                href="#"
+                href="/getaquote" // Link to your enquiry form page
                 style={{ color: '#999', underline: 'none', fontSize: '13px' }}
               >
-                Ipswich, Suffolk
+                Request a Quote
               </Link>
             </Stack>
           </Grid>

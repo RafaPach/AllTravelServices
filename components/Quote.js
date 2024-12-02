@@ -28,6 +28,8 @@ import Recaptcha from './FunctionsTemplates/Recaptcha';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { useMediaQuery } from '@mui/material';
 
+import { addDays } from 'date-fns';
+
 const customTheme = (outerTheme) =>
   createTheme({
     palette: {
@@ -540,6 +542,7 @@ function TravelQuoteForm({ EmailJs_Serviceid, EmailJs_Templateid }) {
                   name="pickupdate"
                   dateFormat="dd/MM/yyyy"
                   placeholderText="dd/mm/yyyy"
+                  minDate={addDays(new Date(), 7)}
                   customInput={
                     <TextField
                       value={formData.pickupdate}
@@ -641,6 +644,7 @@ function TravelQuoteForm({ EmailJs_Serviceid, EmailJs_Templateid }) {
                     }}
                     dateFormat="dd/MM/yyyy"
                     placeholderText="dd/mm/yyyy"
+                    minDate={addDays(new Date(), 7)}
                     customInput={
                       <TextField
                         value={formData.returndate}

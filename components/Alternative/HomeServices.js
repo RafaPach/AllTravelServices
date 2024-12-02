@@ -97,7 +97,7 @@ const HomeServicesAlt = () => {
             className="drop-shadow-smaller"
             sx={{ fontWeight: 500 }}
           >
-            Find more
+            Find More
           </Typography>
           <ScrollArrow />
           <Typography
@@ -106,7 +106,7 @@ const HomeServicesAlt = () => {
             className="drop-shadow-smaller"
             sx={{ fontWeight: 500 }}
           >
-            about us
+            About Us
           </Typography>
         </Stack>
       </Box>

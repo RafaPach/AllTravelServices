@@ -163,7 +163,13 @@ function ServCards({ title, pic, description, backContent }) {
               >
                 <Typography
                   sx={{
-                    fontSize: '12px',
+                    fontSize: {
+                      xl: '14px',
+                      lg: '13px',
+                      md: '13px',
+                      sm: '12.5px',
+                      xs: '12px',
+                    },
                     lineHeight: 1.5, // Consistent line spacing
                   }}
                   color="textSecondary"
