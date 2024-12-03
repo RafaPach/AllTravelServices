@@ -17,7 +17,7 @@ export default function QuotePage({ EmailJs_Serviceid, EmailJs_Templateid }) {
   return (
     <>
       <Head>
-        <title>Get a Quote| All Travel Services</title>
+        <title>Get a Quote | All Travel Services</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" href="/Assets/imresizer-1733254806561.jpg" />
       </Head>

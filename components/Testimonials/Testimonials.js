@@ -14,34 +14,34 @@ import LocalTaxiIcon from '@mui/icons-material/LocalTaxi';
 
 const testimonials = [
   {
-    title: 'Ashley Thompson',
+    title: 'Ashley',
     location: '',
-    content: `This company is the only company which is able to effectively provide transport for my daughter. Many have tried, but failed as she has very complex needs, and I know she can be very difficult to handle. Honestly she couldn’t be happier with this service and I appreciate everything you guys at ATS do! ❤️❤️`,
+    content: `This company is the only company which is able to effectively provide transport for my daughter. Many have tried, but failed as she has very complex needs, and I know she can be very difficult to handle. Honestly she couldn’t be happier with this service and I appreciate everything you guys at ATS do. ❤️❤️`,
   },
   {
-    title: 'Richard Davies',
+    title: 'Richard ',
     location: '',
     content: `Picked up in a pristine Mercedes AMG GLC, I arrived at my business meeting feeling confident and sophisticated. The driver was dressed smart, opened the door for me and made me feel like a king. The executive option was pricey but completely worth it, definitely will be coming back.`,
   },
   {
-    title: 'Jackie Clarke',
+    title: 'Jackie',
     location: '',
     content: `The staff in your company are very talented, I was shocked when I found out that the driver was able to use sign language with my disabled son to communicate with him. Please let them know I am so grateful that they go out of their way to make my son feel at ease.`,
   },
   {
-    title: 'Grace Bennett',
+    title: 'Grace',
     location: '',
     content: `In the past I have used a lot of taxi services all over Suffolk, but by far this is the best one I have used. Drivers are always on time even during rush hour. The drivers are very experienced and polite, this company is exceptional.`,
   },
   {
-    title: 'Tom Harrison',
+    title: 'Tyrone',
     location: '',
-    content: `The customer service was outstanding! The driver was friendly, professional, and knew the best routes to avoid traffic. It's rare to find a company so dedicated to its customers. Highly recommended for reliable, top-quality transport!`,
+    content: `The customer service was outstanding! The driver was friendly, professional, and knew the best routes to avoid traffic. It's rare to find a company so dedicated to its customers. Highly recommended for reliable, top-quality transport.`,
   },
   {
-    title: 'Emma Mitchell',
+    title: 'Emma',
     location: '',
-    content: `Truly impressed by the exceptional service! The driver arrived early, ensuring a comfortable trip. Their professionalism and attention to detail were evident throughout. I felt well cared for during the ride and will definitely book with them again!`,
+    content: `Truly impressed by the exceptional service! The driver arrived early, ensuring a comfortable trip. Their professionalism and attention to detail were evident throughout. I felt well cared for during the ride and will definitely book with them again.`,
   },
 ];
 
