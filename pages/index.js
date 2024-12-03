@@ -11,8 +11,9 @@ export default function Try() {
   return (
     <>
       <Head>
-        <title>AllTravelServices</title>
+        <title>All Travel Services</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="icon" href="/Assets/Logo2.png" />
       </Head>
       <Box className="fullScreen">
         <NavbarAlt2 />
