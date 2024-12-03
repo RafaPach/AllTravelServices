@@ -11,9 +11,12 @@ export default function Try() {
   return (
     <>
       <Head>
-        <title>All Travel Services</title>
+        <title>
+          All Travel Services | Your Trusted Travel Partner | Assisted & VIP
+          Services
+        </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="icon" href="/Assets/Logo2.png" />
+        <link rel="icon" href="/Assets/imresizer-1733254806561.jpg" />
       </Head>
       <Box className="fullScreen">
         <NavbarAlt2 />
