@@ -157,8 +157,6 @@ function TravelQuoteForm({ EmailJs_Serviceid, EmailJs_Templateid }) {
     setServiceType(null);
     setSelectedDate(null);
     setSelectedDateReturn(null);
-
-    console.log(formData);
   };
 
   const handleTimeChange = (e) => {
@@ -194,7 +192,6 @@ function TravelQuoteForm({ EmailJs_Serviceid, EmailJs_Templateid }) {
       setReturnTime(value);
       setFormData((prev) => ({ ...prev, returntime: value }));
     }
-    console.log(formData);
   };
 
   const [formData, setFormData] = useState({
@@ -240,8 +237,6 @@ function TravelQuoteForm({ EmailJs_Serviceid, EmailJs_Templateid }) {
     } else if (name === 'special_request') {
       setSpecialRequests(checked);
 
-      console.log(specialRequests);
-
       setFormData((prev) => ({ ...prev, [name]: checked }));
     } else if (name === 'pickupdate' && value) {
       const date = new Date(value);
@@ -277,8 +272,6 @@ function TravelQuoteForm({ EmailJs_Serviceid, EmailJs_Templateid }) {
       setFormData((prev) => ({ ...prev, [name]: value }));
       setFormData((prev) => ({ ...prev, journeyType }));
     }
-
-    console.log(formData);
   };
 
   return (

@@ -115,15 +115,12 @@ const EmailForm2 = ({ EmailJs_Serviceid, EmailJs_Templateid }) => {
         phone: value === '' ? false : value.length < 10 || isNaN(value),
       }));
     }
-    console.log(formData);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     await Recaptcha({ siteKey });
-
-    console.log('Form submitted');
 
     EmailJs({
       EmailJs_Sid,
