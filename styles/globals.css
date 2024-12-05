@@ -681,7 +681,7 @@ a {
   background-image: 
   linear-gradient(to bottom, rgba(255, 255, 255, 0) 20%, rgb(245, 239, 239) 60%),
   linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.5)),
-  url('/Assets/Submit5.jpg');
+  url('/Assets/Submit5.webp');
   opacity: 0.42;
   background-size: 100% 100%;
   background-position: center;

@@ -37,8 +37,9 @@ function ServCards({ title, pic, description, backContent }) {
             <CardMedia sx={{ height: '50%' }}>
               <Image
                 src={pic}
-                alt="Car Image"
+                alt="Card Images"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                loading="lazy"
               />
             </CardMedia>
 

@@ -118,7 +118,7 @@ export default function HelloPageAlt2() {
         >
           <Image
             // src={Hero}
-            src="https://ik.imagekit.io/gkjgzbxu1/HeroPage.png?updatedAt=1733400357774"
+            src="https://ik.imagekit.io/gkjgzbxu1/HeroPage.webp?updatedAt=1733425956640"
             alt="Hero Image"
             width={1050}
             height={400}
