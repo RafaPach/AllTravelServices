@@ -10,36 +10,16 @@ This website is built using Next.js and Material UI, providing a seamless, respo
 **Key Features**
 
 Responsive Design: Optimized for all devices for a seamless user experience.
+
 SEO Optimized: Configured with SEO best practices, including meta tags and Open Graph data for better search rankings and social media previews.
+
 Google Analytics: Integrated for tracking user behavior and website performance.
+
 Security: Google reCAPTCHA for spam protection and SSL certification via Vercel.
 
 **SEO Configuration**
 For improved search engine visibility and better social media previews, we've set up the following SEO parameters:
 
-const seoConfig = {
-title: 'All Travel Services - Ipswich | Your Trusted Travel Partner | Assisted & VIP Services - Ipswich',
-description: 'Reliable taxi services in Ipswich and Suffolk. Book your travel with All Travel Services for VIP and assisted transport.',
-canonical: 'https://alltravelservices.co.uk',
-openGraph: {
-url: 'https://alltravelservices.co.uk',
-title: 'All Travel Services - Ipswich | Your Trusted Travel Partner | Assisted & VIP Services - Ipswich',
-description: 'Reliable taxi services in Ipswich and Suffolk. Book your travel with All Travel Services for VIP and assisted transport.',
-images: [
-{
-url: 'https://alltravelservices.co.uk/Assets/og-image.jpg',
-alt: 'All Travel Services Thumbnail',
-width: 1920,
-height: 1080,
-},
-],
-site_name: 'All Travel Services',
-},
-};
-Title: Carefully crafted to highlight key services and location for better search engine rankings.
-Description: Provides concise information about the services offered.
-Canonical URL: Ensures that search engines index the correct page version.
-Open Graph: Configured for social media optimization, ensuring rich media previews.
 
 **Getting Started**
 
@@ -49,22 +29,20 @@ To run this project locally, you'll need:
 Node.js (v14 or higher)
 npm (v6 or higher)
 
-Installation
+**Installation** 
 
 Clone the repository:
-bash
-Copy code
 ``` git clone https://github.com/yourusername/all-travel-services.git ```
+
 cd all-travel-services
+
 Install dependencies:
-bash
-Copy code
-npm install
+```npm install```
+
 Run the project locally:
-bash
-Copy code
-npm run dev
+
+```npm run dev ``` 
 Visit http://localhost:3000 in your browser to see the website in action.
 
-Deployment
+**Deployment**
 The project is deployed on Vercel, with continuous deployment configured for automatic updates upon pushing changes to the repository.
