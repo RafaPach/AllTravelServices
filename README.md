@@ -1,6 +1,8 @@
 # **All Travel Services Website**
 
-Welcome to the repository for the **All Travel Services** website. This project provides reliable taxi services in Ipswich and Suffolk, focusing on VIP and assisted transport options. Whether you're looking for a quick ride or specialized services, **All Travel Services** is your trusted travel partner.
+Welcome to the repository for the **All Travel Services** website. 
+It is a trusted transport provider across East Anglia, specializing in School Transport, Private Contracts, Assisted Travel, and VIP Chauffeur services.
+The main focus of this website is to provide an intuitive and seamless experience for users to easily submit quotes and inquiries, ensuring a smooth process for booking and service requests.
 
 ![Homepage](https://ik.imagekit.io/gkjgzbxu1/homepage.png?updatedAt=1733408106847)
 
