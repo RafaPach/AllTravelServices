@@ -629,7 +629,7 @@ a {
   left: 0;
   width: 100%;
   height: 300px; /* Adjust for curvature size */
-  background-image: url('/Assets/SuffolkImg.png'); /* Replace with your image */
+  background-image: url('https://ik.imagekit.io/gkjgzbxu1/SuffolkIMG.png?updatedAt=1733400694292'); /* Replace with your image */
   background-size: cover;
   background-position: center;
   clip-path: ellipse(59% 65% at 53% 29%);
@@ -649,7 +649,7 @@ a {
   left: 0;
   width: 100%;
   height: 300px; /* Adjust for curvature size */
-  background-image: url('/Assets/BeachImg.png');  /* Remove ../public */
+  background-image: url('https://ik.imagekit.io/gkjgzbxu1/BeachIMG.png?updatedAt=1733400569615');  /* Remove ../public */
   background-size: cover;
   background-position: center;
   clip-path: ellipse(59% 65% at 53% 29%);

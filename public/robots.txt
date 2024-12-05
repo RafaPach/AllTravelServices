@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.alltravelservices.co.uk
+
+# Sitemaps
+Sitemap: https://www.alltravelservices.co.uk/sitemap.xml
