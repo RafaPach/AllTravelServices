@@ -12,17 +12,18 @@ export default function AboutPage() {
         <link rel="icon" href="/Assets/imresizer-1733254806561.jpg" />
       </Head> */}
       <NextSeo
-        title="About | All Travel Services"
-        description="Learn more about All Travel Services, your trusted travel partner offering VIP and assisted transport in Ipswich and Suffolk."
+        title="About | All Travel Services | Trusted Travel Partner in Ipswich"
+        description="Discover All Travel Services, offering reliable VIP, assisted transport, and school run services in Ipswich and Suffolk. Learn about our commitment to quality travel."
         canonical="https://alltravelservices.co.uk/about"
         openGraph={{
           url: 'https://alltravelservices.co.uk/about',
-          title: 'About | All Travel Services',
+          title:
+            'About All Travel Services | Trusted Travel Partner in Ipswich',
           description:
-            'Learn more about All Travel Services, your trusted travel partner offering VIP and assisted transport in Ipswich and Suffolk.',
+            'Discover All Travel Services, offering reliable VIP, assisted transport, and school run services in Ipswich and Suffolk. Learn about our commitment to quality travel.',
           images: [
             {
-              url: 'https://alltravelservices.co.uk/Assets/og-image.jpg',
+              url: 'https://ik.imagekit.io/gkjgzbxu1/About%20us%20Page.png?updatedAt=1733413726596',
               alt: 'All Travel Services About Us Thumbnail',
               width: 1920,
               height: 1080,
@@ -32,12 +33,15 @@ export default function AboutPage() {
         }}
         twitter={{
           cardType: 'summary_large_image',
-          title: 'About | All Travel Services',
+          title:
+            'About All Travel Services | Trusted Travel Partner in Ipswich',
           description:
-            'Learn more about All Travel Services, your trusted travel partner offering VIP and assisted transport in Ipswich and Suffolk.',
-          image: 'https://alltravelservices.co.uk/Assets/og-image.jpg',
+            'Discover All Travel Services, offering reliable VIP, assisted transport, and school run services in Ipswich and Suffolk. Learn about our commitment to quality travel.',
+          image:
+            'https://ik.imagekit.io/gkjgzbxu1/About%20us%20Page.png?updatedAt=1733413726596',
         }}
       />
+
       <div>
         <AboutUs />
         <Testimonials />

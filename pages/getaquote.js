@@ -23,17 +23,17 @@ export default function QuotePage({ EmailJs_Serviceid, EmailJs_Templateid }) {
         <link rel="icon" href="/Assets/imresizer-1733254806561.jpg" />
       </Head> */}
       <NextSeo
-        title="Get a Quote | All Travel Services"
-        description="Get in touch with All Travel Services for inquiries, quotes, and VIP transport requests."
+        title="Get a Quote | All Travel Services | Trusted Travel Partner in Ipswich"
+        description="Request a quote for VIP, assisted travel, and school run services with All Travel Services. Serving Ipswich and across East Anglia."
         canonical="https://alltravelservices.co.uk/getaquote"
         openGraph={{
           url: 'https://alltravelservices.co.uk/getaquote',
           title: 'Get a Quote | All Travel Services',
           description:
-            'Get in touch with All Travel Services for inquiries, quotes, and VIP transport requests.',
+            'Request a quote for VIP, assisted travel, and school run services with All Travel Services. Serving Ipswich and across East Anglia.',
           images: [
             {
-              url: 'https://alltravelservices.co.uk/Assets/og-image.jpg',
+              url: 'https://ik.imagekit.io/gkjgzbxu1/Quote%20Page.png?updatedAt=1733413726388',
               alt: 'All Travel Services Enquiries Thumbnail',
               width: 1920,
               height: 1080,
@@ -43,10 +43,12 @@ export default function QuotePage({ EmailJs_Serviceid, EmailJs_Templateid }) {
         }}
         twitter={{
           cardType: 'summary_large_image',
-          title: 'Enquiries | All Travel Services',
+          title:
+            'Get a Quote | All Travel Services | Trusted Travel Partner in Ipswich',
           description:
-            'Get in touch with All Travel Services for inquiries, quotes, and VIP transport requests.',
-          image: 'https://alltravelservices.co.uk/Assets/og-image.jpg',
+            'Request a quote for VIP, assisted travel, and school run services with All Travel Services. Serving Ipswich and across East Anglia.',
+          image:
+            'https://ik.imagekit.io/gkjgzbxu1/Quote%20Page.png?updatedAt=1733413726388',
         }}
       />
       <div>

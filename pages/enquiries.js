@@ -24,17 +24,17 @@ export default function EnquiryPage({ EmailJs_Serviceid, EmailJs_Templateid }) {
         <link rel="icon" href="/Assets/imresizer-1733254806561.jpg" />
       </Head> */}
       <NextSeo
-        title="Enquiries | All Travel Services"
-        description="Get in touch with All Travel Services for inquiries, quotes, and VIP transport requests."
+        title="Enquiries | All Travel Services | Trusted Travel Partner in Ipswich"
+        description="Contact All Travel Services with any questions or job inquiries. We're here to assist with your queries."
         canonical="https://alltravelservices.co.uk/enquiries"
         openGraph={{
           url: 'https://alltravelservices.co.uk/enquiries',
           title: 'Enquiries | All Travel Services',
           description:
-            'Get in touch with All Travel Services for inquiries, quotes, and VIP transport requests.',
+            "Contact All Travel Services with any questions or job inquiries. We're here to assist with your queries.",
           images: [
             {
-              url: 'https://alltravelservices.co.uk/Assets/og-image.jpg',
+              url: 'https://ik.imagekit.io/gkjgzbxu1/Enquiry%20Page.png?updatedAt=1733413726578',
               alt: 'All Travel Services Enquiries Thumbnail',
               width: 1920,
               height: 1080,
@@ -44,10 +44,12 @@ export default function EnquiryPage({ EmailJs_Serviceid, EmailJs_Templateid }) {
         }}
         twitter={{
           cardType: 'summary_large_image',
-          title: 'Enquiries | All Travel Services',
+          title:
+            'Enquiries | All Travel Services | Trusted Travel Partner in Ipswich',
           description:
-            'Get in touch with All Travel Services for inquiries, quotes, and VIP transport requests.',
-          image: 'https://alltravelservices.co.uk/Assets/og-image.jpg',
+            "Contact All Travel Services with any questions or job inquiries. We're here to assist with your queries",
+          image:
+            'https://ik.imagekit.io/gkjgzbxu1/Enquiry%20Page.png?updatedAt=1733413726578',
         }}
       />
       <div>

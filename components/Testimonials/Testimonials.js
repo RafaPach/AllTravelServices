@@ -82,8 +82,7 @@ const Testimonials = () => {
       setCurrentIndex(
         (prevIndex) => (prevIndex + itemsPerPage) % testimonials.length
       );
-    }, 4000); // Change every 3 seconds
-
+    }, 8000);
     return () => {
       // Cleanup both the observer and the interval
       if (myRef.current) {
