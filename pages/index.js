@@ -1,12 +1,33 @@
 import HomeServicesAlt from '../components/Alternative/HomeServices.js';
+// import { Box } from '@mui/system';
+// import Head from 'next/head';
+// import NavbarAlt2 from '../components/Alternative/NavTest.js';
+// import HelloPageAlt2 from '../components/Alternative/HelloPageTest.js';
+// import InfoCards from '../components/OurServicesPage/OurServices.js';
+// import WhyUs from '../components/WhyChooseUS/Whyus.js';
+// import Testimonials from '../components/Testimonials/Testimonials.js';
+// import { NextSeo } from 'next-seo';
+// import dynamic from 'next/dynamic';
+
 import { Box } from '@mui/system';
 import Head from 'next/head';
 import NavbarAlt2 from '../components/Alternative/NavTest.js';
 import HelloPageAlt2 from '../components/Alternative/HelloPageTest.js';
-import InfoCards from '../components/OurServicesPage/OurServices.js';
-import WhyUs from '../components/WhyChooseUS/Whyus.js';
-import Testimonials from '../components/Testimonials/Testimonials.js';
+import dynamic from 'next/dynamic';
 import { NextSeo } from 'next-seo';
+
+// Dynamically import components for lazy loading
+const WhyUs = dynamic(() => import('../components/WhyChooseUS/Whyus.js'), {
+  ssr: false,
+});
+const InfoCards = dynamic(
+  () => import('../components/OurServicesPage/OurServices.js'),
+  { ssr: false }
+);
+const Testimonials = dynamic(
+  () => import('../components/Testimonials/Testimonials.js'),
+  { ssr: false }
+);
 
 export default function Try() {
   return (
