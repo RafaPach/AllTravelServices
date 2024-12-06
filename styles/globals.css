@@ -649,7 +649,7 @@ a {
   left: 0;
   width: 100%;
   height: 300px; /* Adjust for curvature size */
-  background-image: url('https://ik.imagekit.io/gkjgzbxu1/BeachIMG.png?updatedAt=1733400569615');  /* Remove ../public */
+  background-image: url('https://ik.imagekit.io/gkjgzbxu1/BeachImg.webp?updatedAt=1733517919623');  /* Remove ../public */
   background-size: cover;
   background-position: center;
   clip-path: ellipse(59% 65% at 53% 29%);

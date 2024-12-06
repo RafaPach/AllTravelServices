@@ -42,11 +42,12 @@ const CenterCard = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            backgroundImage: 'url(/Assets/CardTaxiImage.jpeg)',
+            backgroundImage:
+              'url(https://ik.imagekit.io/gkjgzbxu1/CardTaxiImage.webp?updatedAt=1733519838414)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            opacity: 0.18,
+            opacity: 0.2,
           }}
         />
         <CardContent

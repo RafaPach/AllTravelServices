@@ -6,7 +6,8 @@
 
 // export default MyApp;
 
-import '../styles/globals.css';
+// import '../styles/globals.css';
+import '../styles/output.css';
 import ReCaptchaLoader from '../components/FunctionsTemplates/ReLoader'; // Adjust the path as needed
 import {
   NextSeo,

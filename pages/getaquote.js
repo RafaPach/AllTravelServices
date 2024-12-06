@@ -1,5 +1,5 @@
 import FooterComp from '../components/Footer/Footer';
-import TravelQuoteForm from '../components/Quote';
+import TravelQuoteForm from '../components/Quote/Quote';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 

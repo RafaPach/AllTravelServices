@@ -304,11 +304,12 @@ const EmailForm2 = ({ EmailJs_Serviceid, EmailJs_Templateid }) => {
             <Grid item xs={12} sm={12} md={5} lg={5}>
               <Box sx={{ display: { xs: 'none', sm: 'block' }, ml: 4 }}>
                 <Image
-                  src={Submit4}
-                  width={400}
+                  src="https://ik.imagekit.io/gkjgzbxu1/EnquiryTaxi.webp?updatedAt=1733519838290"
+                  width={500}
                   height={400}
-                  style={{ opacity: '0.6' }}
+                  style={{ opacity: '0.7', borderRadius: '5px' }}
                   alt="taxiImg"
+                  loading="lazy"
                 />
               </Box>
             </Grid>
