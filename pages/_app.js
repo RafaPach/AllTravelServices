@@ -81,7 +81,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {/* <Head> */}
+      <Head>
+        <meta name="nextjs-toolbar" content="false" />
+      </Head>
       <GoogleAnalytics trackPageViews />
       <DefaultSeo {...seoConfig} />
       <LocalBusinessJsonLd {...localBusinessJsonLdProps} />
