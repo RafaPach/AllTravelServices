@@ -14,6 +14,7 @@ import {
   BreadcrumbJsonLd,
 } from 'next-seo';
 import Head from 'next/head';
+import { GoogleAnalytics } from 'nextjs-google-analytics'; // Import GA
 
 function MyApp({ Component, pageProps }) {
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
@@ -81,6 +82,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       {/* <Head> */}
+      <GoogleAnalytics trackPageViews />
       <DefaultSeo {...seoConfig} />
       <LocalBusinessJsonLd {...localBusinessJsonLdProps} />
       <BreadcrumbJsonLd
