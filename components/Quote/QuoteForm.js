@@ -42,13 +42,20 @@ const QuoteForm = ({
   selectedDateReturn,
   specialRequests,
 }) => {
+  const [animationPlayed, setAnimationPlayed] = useState(false);
+
+  // Set animationPlayed to true after the initial render
+  useEffect(() => {
+    setAnimationPlayed(true);
+    console.log('QuoteForm rendered');
+  }, []);
   return (
     <div>
       <Box
         component="form"
         onSubmit={handleSubmit}
         sx={{ mt: 2 }}
-        className="fadeInUp"
+        className={animationPlayed ? 'fadeInUp' : ''}
       >
         <Box display="flex" justifyContent="center" sx={{ m: 3 }}>
           <Typography

@@ -278,9 +278,9 @@ function TravelQuoteForm({ EmailJs_Serviceid, EmailJs_Templateid }) {
     console.log(formData);
   };
 
-  const DynamicQuoteForm = dynamic(() => import('./QuoteForm'), {
-    loading: () => <p>Loading...</p>, // Optional loading message
-  });
+  // const DynamicQuoteForm = dynamic(() => import('./QuoteForm'), {
+  //   loading: () => <p>Loading...</p>, // Optional loading message
+  // });
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
       {!isMediumDown ? (
@@ -409,7 +409,7 @@ function TravelQuoteForm({ EmailJs_Serviceid, EmailJs_Templateid }) {
         }}
       >
         {journeyType && (
-          <DynamicQuoteForm
+          <QuoteForm
             journeyType={journeyType}
             handleSubmit={handleSubmit}
             formData={formData}
